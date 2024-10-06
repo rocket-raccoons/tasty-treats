@@ -9,6 +9,10 @@
   --white-bg: #f8f8f8;
 }
 
+.container {
+  padding: 100px;
+}
+
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
