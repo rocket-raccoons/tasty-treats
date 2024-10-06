@@ -1,0 +1,13 @@
+.form-label {
+  color: #05050580;
+}
+
+.form-input {
+  border: 1px solid #05050533;
+  padding: 14px 18px;
+  border-radius: 15px;
+}
+
+#search-input::placeholder {
+  color: #05050580;
+}
