@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasty Treats</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="recipe1.jpg" alt="Recipe Image">
+            <div class="card-content">
+                <h2 class="card-title">Recipe Title</h2>
+                <p class="card-brief">This is a short brief about the recipe.</p>
+                <div class="card-footer">
+                    <div class="rating">4.5</div>
+                    <button class="see-recipe" onclick="openModal()">See Recipe</button>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat card structure for more recipes -->
+    </div>
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <button class="close" onclick="closeModal()">&times;</button>
+            <h2>Recipe Title</h2>
+            <p>Full recipe details go here...</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('recipeModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('recipeModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
