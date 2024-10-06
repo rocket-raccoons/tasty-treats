@@ -1,10 +1,14 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-/* Common styles */
+/* Font from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Variables */
+:root {
+  --primary-color: #9bb537;
+  --secondary-color: #050505;
+  --dark-bg: #383838;
+  --white-bg: #f8f8f8;
+}
+
 @import url('./reset.css');
 @import url('./base.css');
 @import url('./container.css');
