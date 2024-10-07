@@ -58,4 +58,15 @@
 .select-container select {
   font-size: 1.4rem;
   width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.form-input {
+  outline: none;
+  border: none;
 }
