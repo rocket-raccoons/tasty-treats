@@ -5,26 +5,26 @@ document.addEventListener("DOMContentLoaded", () => {
 async function fetchData() {
     try {
         const response = await fetch("https://tasty-treats-backend.p.goit.global/api/recipes/popular");
-        
-        
+
+
         const data = await response.json();
-        console.log(data); 
+        console.log(data);
 
-     
-        const recipes = data; 
-        console.log(recipes); 
 
-       
+        const recipes = data;
+        console.log(recipes);
+
+
         const popularRecipes = document.querySelector("#popular-recipes-gallery");
-        
-       
-        popularRecipes.innerHTML = ''; 
 
-       
+
+        popularRecipes.innerHTML = '';
+
+
         recipes.forEach((recipe) => {
             const li = document.createElement("li");
 
-            const image = recipe.preview || 'default-image.jpg'; 
+            const image = recipe.preview || 'default-image.jpg';
             const title = recipe.title || 'Unknown Recipe';
             const instructions = recipe.description || 'No instructions provided';
 
@@ -34,8 +34,8 @@ async function fetchData() {
                 <p>${instructions}</p>
             `;
 
-            console.log("Appending LI:", li); 
-            popularRecipes.appendChild(li); 
+            console.log("Appending LI:", li);
+            popularRecipes.appendChild(li);
         });
 
     } catch (error) {
