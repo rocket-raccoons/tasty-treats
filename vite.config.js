@@ -38,12 +38,6 @@ export default defineConfig(({ command }) => {
       outDir: '../dist',
       emptyOutDir: true,
     },
-    plugins: [
-      injectHTML(),
-      FullReload(['./src/**/**.html']),
-      SortCss({
-        sort: 'mobile-first',
-      }),
-    ],
+    plugins: [injectHTML(), FullReload(['./src/**/**.html'])],
   };
 });
