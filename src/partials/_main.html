@@ -2,38 +2,55 @@
   <!--search kısmı ayarlanacak-->
   <div class="search-container">
     <form class="search-form">
-      <label for="search-input" class="form-label"
-        >Search
-        <input
-          type="text"
-          id="search-input"
-          name="search-input"
-          class="form-input"
-          placeholder="Enter Text"
-        />
-      </label>
+      <div class="label-container">
+        <label for="search-input" class="form-label">Search </label>
+        <div class="input-container">
+          <span class="search-button"></span>
 
-      <label for="time" class="form-label"
-        >Time
-        <select name="time" id="time" class="form-input">
-          <!-- options will be added by js -->
-          <option value="1">40 min</option>
-        </select>
-      </label>
+          <input
+            type="text"
+            id="search-input"
+            name="search-input"
+            class="form-input"
+            placeholder="Enter Text"
+          />
+        </div>
+      </div>
 
-      <label for="area" class="form-label"
-        >Area
-        <select name="area" id="area" class="form-input">
-          <!-- options will be added by js -->
-        </select>
-      </label>
+      <div class="label-container">
+        <label for="time" class="form-label">Time</label>
+        <div class="input-container">
+          <select name="time" id="time" class="form-input form-select">
+            <!-- options will be added by js -->
+            <option value="1">40 min</option>
+          </select>
+          <span class="select-button-down"></span>
+        </div>
+      </div>
 
-      <label for="ingredients" class="form-label"
-        >Area
-        <select name="ingredients" id="ingredients" class="form-input">
-          <!-- options will be added by js -->
-        </select>
-      </label>
+      <div class="label-container">
+        <label for="area" class="form-label">Area</label>
+        <div class="input-container">
+          <select name="area" id="area" class="form-input form-select">
+            <!-- options will be added by js -->
+          </select>
+          <span class="select-button-down"></span>
+        </div>
+      </div>
+
+      <div class="label-container">
+        <label for="ingredients" class="form-label">Area</label>
+        <div class="input-container">
+          <select
+            name="ingredients"
+            id="ingredients"
+            class="form-input form-select"
+          >
+            <!-- options will be added by js -->
+          </select>
+          <span class="select-button-down"></span>
+        </div>
+      </div>
     </form>
   </div>
 
