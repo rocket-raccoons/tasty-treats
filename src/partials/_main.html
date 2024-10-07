@@ -1,59 +1,48 @@
 <div class="menü-card-container container">
   <!--search kısmı ayarlanacak-->
-  <div class="search-container">
-    <form class="search-form">
-      <div class="label-container">
-        <label for="search-input" class="form-label">Search </label>
+  <div class="form-container">
+    <form class="filter-form" id="filter-form">
+      <div class="label-container search-label-container">
+        <label for="" class="label search-label">Search</label>
         <div class="input-container">
-          <span class="search-button"></span>
-
-          <input
-            type="text"
-            id="search-input"
-            name="search-input"
-            class="form-input"
-            placeholder="Enter Text"
-          />
+          <svg width="18px" height="18px" class="search-svg">
+            <use href="./svg/sprite.svg#icon-search"></use>
+          </svg>
+          <input type="text" placeholder="Enter Text" class="form-input" />
         </div>
       </div>
 
       <div class="label-container">
-        <label for="time" class="form-label">Time</label>
-        <div class="input-container">
-          <select name="time" id="time" class="form-input form-select">
-            <!-- options will be added by js -->
-            <option value="1">40 min</option>
-          </select>
-          <span class="select-button-down"></span>
+        <label for="" class="label time-label">Time</label>
+        <div class="select-container">
+          <select name="time" id="time"></select>
+          <svg width="18px" height="18px">
+            <use href="./svg/sprite.svg#icon-chevron-right"></use>
+          </svg>
         </div>
       </div>
 
       <div class="label-container">
-        <label for="area" class="form-label">Area</label>
-        <div class="input-container">
-          <select name="area" id="area" class="form-input form-select">
-            <!-- options will be added by js -->
-          </select>
-          <span class="select-button-down"></span>
+        <label for="" class="label area-label">Area</label>
+        <div class="select-container">
+          <select name="area" id="area"></select>
+          <svg width="18px" height="18px">
+            <use href="./svg/sprite.svg#icon-chevron-right"></use>
+          </svg>
         </div>
       </div>
 
-      <div class="label-container">
-        <label for="ingredients" class="form-label">Area</label>
-        <div class="input-container">
-          <select
-            name="ingredients"
-            id="ingredients"
-            class="form-input form-select"
-          >
-            <!-- options will be added by js -->
-          </select>
-          <span class="select-button-down"></span>
+      <div class="label-container ingredients-label-container">
+        <label for="" class="label ingredients-label">Ingredients</label>
+        <div class="select-container">
+          <select name="ingredients" id="ingredients"></select>
+          <svg width="18px" height="18px">
+            <use href="./svg/sprite.svg#icon-chevron-right"></use>
+          </svg>
         </div>
       </div>
     </form>
   </div>
-
   <!-- cards yapısı yapılacak -->
   <div class="cards-container">
     <ul class="cards-list">
