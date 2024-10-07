@@ -6,6 +6,7 @@
 @import url('./form-mobile.css');
 @import url('./form-tablet.css');
 @import url('./form.css');
+@import url('./categories.css');
 @import url('./modal.css');
 @import url('./popular-receipes.css');
 @import url('./reset.css');
@@ -16,4 +17,5 @@
   --secondary-color: #050505;
   --dark-bg: #383838;
   --white-bg: #f8f8f8;
+  --secondary-bg: #05050533;
 }

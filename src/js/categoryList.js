@@ -1,4 +1,4 @@
-const categoryList = document.querySelector('.category-list');
+const categoryList = document.querySelector('.category-items-list');
 const categoryBtn = document.querySelector('.category-btn');
 const allCategories = document.querySelector('.categories-button');
 
@@ -18,12 +18,11 @@ async function fetchCategories() {
 function createCategoryList(categories) {
     categories.forEach(category => {
         categoryList.innerHTML += `
-            <ul>
             <li class="category-items"><button class="category-btn">${category}</button></li>
-        </ul>
         `;
     })
 }
+
 
 // Insert fetch all items function here
 // fetchItems();
