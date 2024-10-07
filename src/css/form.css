@@ -1,0 +1,9 @@
+@media screen and (min-width: 1280px) {
+  .label-container {
+    flex-basis: calc(60% / 3 - 16px);
+  }
+
+  .search-label-container {
+    flex-basis: 40%;
+  }
+}

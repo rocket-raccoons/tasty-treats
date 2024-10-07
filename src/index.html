@@ -1,46 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasty Treats</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/modal.css">
-    <script src="./js/modal.js" defer></script>
-    
-</head>
-<body>
-    <div class="container">
-        <div class="card">
-            <img src="./img/plate-1.png" alt="Recipe Image">
-            <div class="card-content">
-                <h2 class="card-title">Recipe Title</h2>
-                <p class="card-brief">This is a short brief about the recipe.</p>
-                <div class="card-footer">
-                    <div class="rating">4.5</div>
-                    <button id= "see-recipe" class="see-recipe" onclick="openModal()">See Recipe</button>
-                </div>
-            </div>
-        </div>
-        <!-- Repeat card structure for more recipes -->
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
+    <script type="module" src="./js/form.js"></script>
+  </head>
 
-    <div class="modal" id="recipeModal">
-        <div class="modal-content">
-            <button class="modal-close-button" onclick="closeModal()">&times;</button>
-            <h2>Recipe Title</h2>
-            <p>Full recipe details go here...</p>
-        </div>
-    </div>
+  <body>
+    <header id="header">
+      <load ="partials/header.html" />
+    </header>
 
-    <!-- <script>
-        function openModal() {
-            document.getElementById('recipeModal').style.display = 'flex';
-        }
+    <aside>
+      <load ="partials/_aside.html" />
+    </aside>
 
-        function closeModal() {
-            document.getElementById('recipeModal').style.display = 'none';
-        }
-    </script> -->
-</body>
+    <main>
+      <load ="partials/_main.html" />
+    </main>
+
+    <footer>
+      <load ="partials/footer.html" />
+    </footer>
+  </body>
 </html>

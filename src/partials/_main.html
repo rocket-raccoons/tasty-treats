@@ -1,0 +1,67 @@
+<div class="menü-card-container container">
+  <!--search kısmı ayarlanacak-->
+  <div class="form-container">
+    <form class="filter-form" id="filter-form">
+      <div class="label-container search-label-container">
+        <label for="" class="label search-label">Search</label>
+        <div class="input-container">
+          <svg width="18px" height="18px" class="search-svg">
+            <use href="./svg/sprite.svg#icon-search"></use>
+          </svg>
+          <input type="text" placeholder="Enter Text" class="form-input" />
+        </div>
+      </div>
+
+      <div class="label-container">
+        <label for="" class="label time-label">Time</label>
+        <div class="select-container">
+          <select name="time" id="time"></select>
+          <svg width="18px" height="18px">
+            <use href="./svg/sprite.svg#icon-chevron-right"></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="label-container">
+        <label for="" class="label area-label">Area</label>
+        <div class="select-container">
+          <select name="area" id="area"></select>
+          <svg width="18px" height="18px">
+            <use href="./svg/sprite.svg#icon-chevron-right"></use>
+          </svg>
+        </div>
+      </div>
+
+      <div class="label-container ingredients-label-container">
+        <label for="" class="label ingredients-label">Ingredients</label>
+        <div class="select-container">
+          <select name="ingredients" id="ingredients"></select>
+          <svg width="18px" height="18px">
+            <use href="./svg/sprite.svg#icon-chevron-right"></use>
+          </svg>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- cards yapısı yapılacak -->
+  <div class="cards-container">
+    <ul class="cards-list">
+      <li class="cards-listing">
+        <img src="" alt class="cards-img" />
+        <button class="heard-button"></button>
+        <div class="card-text-rating-container">
+          <div class="text-container">
+            <!-- menüdeki ürün ismi başlığı ve p'deki ürün yazıları gelicek. -->
+          </div>
+          <div class="rating-container">
+            <button class="reciep-button">See reciep</button>
+            <div class="rating-star">
+              <p class="rating-text"></p>
+              <!-- star kısmı ve puan kısmı ayarlanıcak-->
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
