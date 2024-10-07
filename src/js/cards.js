@@ -2,7 +2,7 @@
 async function fetchRecipePhoto() {
     try {
       // API'den veriyi çekiyoruz
-      const response = await fetch('https://tasty-treats-backend.p.goit.global/api/recipes');
+      const response = await fetch('https://tasty-treats-backend.p.goit.global/api');
       const data = await response.json();
   
       // İlk tarifin fotoğrafını seçiyoruz
