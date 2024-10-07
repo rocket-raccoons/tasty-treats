@@ -1,0 +1,22 @@
+@media screen and (max-width: 1280px) {
+  #filter-form {
+    gap: 16px;
+  }
+
+  .label {
+    font-size: 1.4rem;
+  }
+
+  .label-container {
+    flex-basis: calc(40% - 16px);
+  }
+
+  .search-label-container {
+    flex-basis: 60%;
+  }
+
+  .input-container input {
+    font-size: 1.6rem;
+    line-height: 20px;
+  }
+}
