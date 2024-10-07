@@ -7,7 +7,9 @@
 @import url('./form.css');
 @import url('./modal.css');
 @import url('./popular-receipes.css');
+@import url('./favorites.css');
 @import url('./reset.css');
+
 
 /* Variables */
 :root {
