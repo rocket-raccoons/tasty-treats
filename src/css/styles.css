@@ -12,6 +12,7 @@
 @import url('./back-link.css');
 @import url('./footer.css');
 @import url('./form.css');
+@import url('./categories.css');
 
 /* Variables */
 :root {
@@ -19,6 +20,7 @@
   --secondary-color: #050505;
   --dark-bg: #383838;
   --white-bg: #f8f8f8;
+  --secondary-bg: #05050533;
 }
 
 .container {
