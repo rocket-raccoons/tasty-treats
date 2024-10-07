@@ -4,6 +4,7 @@
 @import url('./base.css');
 @import url('./container.css');
 @import url('./animations.css');
+@import url(./form-mobile.css);
 
 /* Sections style */
 @import url('./header.css');
@@ -23,4 +24,10 @@
 
 .container {
   padding: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 40px 20px;
+  }
 }
