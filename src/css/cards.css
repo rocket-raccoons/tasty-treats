@@ -1,39 +1,94 @@
 .cards-container {
-
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 .cards-list {
-
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 .cards-listing {
-
+    position: relative;
+    width: 300px;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: #fff;
 }
+.cards-listing:hover {
+    transform: translateY(-10px);
+  }
 .heards-button {
-
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
 }
 .heart-svg {
-
+    width: 24px;
+    height: 24px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
 }
 .cards-img {
-
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
 }
 .card-text-rating-container {
-
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .text-container {
-
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
 }
 .rating-container {
-
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .recipe-button {
-
+    padding: 8px 12px;
+    font-size: 0.9em;
+    color: #fff;
+    background-color: #ff6f61;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
+.recipe-button:hover {
+    background-color: #ff8a7b;
+  }
 .rating-star {
-
+    display: flex;
+    align-items: center;
 }
 .rating-text {
-
+    font-size: 1em;
+    color: #555;
+    margin-right: 5px;
 }
+.rating-star::after {
+    content: '★';
+    color: gold;
+    font-size: 1.2em;
+  }
 
 .loader {
     position: relative;
