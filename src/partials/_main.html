@@ -1,7 +1,7 @@
-<div class="menü-card-container">
-    <!--search kısmı ayarlanacak-->
-    <div class="search-container">
-        <form>
+<div class="menü-card-container container">
+  <!--search kısmı ayarlanacak-->
+  <div class="search-container">
+    <form class="search-form">
       <label for="search-input" class="form-label"
         >Search
         <input
@@ -11,50 +11,51 @@
           class="form-input"
           placeholder="Enter Text"
         />
-            </label>
+      </label>
 
       <label for="time" class="form-label"
         >Time
-                <select name="time" id="time" class="form-input">
-                    <!-- options will be added by js -->
-                </select>
-            </label>
+        <select name="time" id="time" class="form-input">
+          <!-- options will be added by js -->
+          <option value="1">40 min</option>
+        </select>
+      </label>
 
       <label for="area" class="form-label"
         >Area
-                <select name="area" id="area" class="form-input">
-                    <!-- options will be added by js -->
-                </select>
-            </label>
+        <select name="area" id="area" class="form-input">
+          <!-- options will be added by js -->
+        </select>
+      </label>
 
       <label for="ingredients" class="form-label"
         >Area
-                <select name="ingredients" id="ingredients" class="form-input">
-                    <!-- options will be added by js -->
-                </select>
-            </label>
-        </form>
-    </div>
+        <select name="ingredients" id="ingredients" class="form-input">
+          <!-- options will be added by js -->
+        </select>
+      </label>
+    </form>
+  </div>
 
-    <!-- cards yapısı yapılacak -->
-    <div class="cards-container">
-        <ul class="cards-list">
-            <li class="cards-listing">
-                <img src="" alt class="cards-img" />
-                <button class="heard-button"></button>
-                <div class="card-text-rating-container">
-                    <div class="text-container">
-                        <!-- menüdeki ürün ismi başlığı ve p'deki ürün yazıları gelicek. -->
-                    </div>
-                    <div class="rating-container">
-                        <button class="reciep-button">See reciep</button>
-                        <div class="rating-star">
-                            <p class="rating-text"></p>
-                            <!-- star kısmı ve puan kısmı ayarlanıcak-->
-                        </div>
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+  <!-- cards yapısı yapılacak -->
+  <div class="cards-container">
+    <ul class="cards-list">
+      <li class="cards-listing">
+        <img src="" alt class="cards-img" />
+        <button class="heard-button"></button>
+        <div class="card-text-rating-container">
+          <div class="text-container">
+            <!-- menüdeki ürün ismi başlığı ve p'deki ürün yazıları gelicek. -->
+          </div>
+          <div class="rating-container">
+            <button class="reciep-button">See reciep</button>
+            <div class="rating-star">
+              <p class="rating-text"></p>
+              <!-- star kısmı ve puan kısmı ayarlanıcak-->
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
