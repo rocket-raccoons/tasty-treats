@@ -1,9 +1,17 @@
 @media screen and (min-width: 1280px) {
-  .label-container {
-    flex-basis: calc(60% / 3 - 16px);
+  .search-container {
+    flex-basis: 45%;
   }
 
-  .search-label-container {
-    flex-basis: 40%;
+  .time-container {
+    flex-basis: calc(10% - 16px);
+  }
+
+  .area-container {
+    flex-basis: calc(20% - 16px);
+  }
+
+  .ingr-container {
+    flex-basis: calc(20% - 16px);
   }
 }
