@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* Sections style */
+@import url('./root.css');
 @import url('./reset.css');
 @import url('./header/nav.css');
 @import url('./header/greetings.css');
@@ -11,12 +12,8 @@
 @import url('./form.css');
 @import url('./categories.css');
 @import url('./modal.css');
-@import url('./popular-recipes.css');
-/*@import url('./favorites.css');*/
-@import url('./root.css');
-@import url('./root.css');
-
-
+@import url('./popular-receipes.css');
+@import url('./favorites.css');
 
 body {
   font-family: Arial, sans-serif;
