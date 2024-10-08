@@ -1,0 +1,32 @@
+<div class="menü-card-container container">
+  <!-- MENÜ CARD YAPISI -->
+  <div class="cards-container">
+    <ul class="cards-list">
+      <li class="cards-listing">
+        <button class="heard-button">
+          <img src="svg/heart.svg" alt="heart" class="heart-svg" />
+        </button>
+        <img src="" alt="cards-img" class="cards-img" />
+        <span class="loader"></span>
+        <div class="card-text-rating-container">
+          <div class="text-container"></div>
+          <div class="rating-container">
+            <button class="recipe-button">See recipe</button>
+            <div class="rating-star">
+              <p class="rating-text"></p>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal Window-->
+<div class="modal" id="recipeModal">
+  <div class="modal-content">
+    <button class="modal-close-button" onclick="closeModal()">&times;</button>
+    <h2>Recipe Title</h2>
+    <p>Full recipe details go here...</p>
+  </div>
+</div>
