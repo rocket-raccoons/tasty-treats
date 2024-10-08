@@ -1,10 +1,10 @@
-const form = document.getElementById('filter-form');
-const timeTrigger = document.getElementById('time-trigger');
-const areaTrigger = document.getElementById('area-trigger');
-const ingrTrigger = document.getElementById('ingr-trigger');
-const timeOptions = document.getElementById('time-options');
-const areaOptions = document.getElementById('area-options');
-const ingrOptions = document.getElementById('ingr-options');
+export const form = document.getElementById('filter-form');
+export const timeTrigger = document.getElementById('time-trigger');
+export const areaTrigger = document.getElementById('area-trigger');
+export const ingrTrigger = document.getElementById('ingr-trigger');
+export const timeOptions = document.getElementById('time-options');
+export const areaOptions = document.getElementById('area-options');
+export const ingrOptions = document.getElementById('ingr-options');
 
 form.addEventListener('click', e => {
   let targetId = e.target.id;
