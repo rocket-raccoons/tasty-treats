@@ -8,13 +8,13 @@
 
 .categories-button {
   background-color: var(--white-bg);
-  color: rgb(from var(--secondary-color) r g b / 50%);
+  color: rgb(from var(--text-color) r g b / 50%);
   font-family: 'Inter', sans-serif;
   padding: 14px 28px;
   line-height: 21.78px;
   font-weight: 600;
   font-size: 18px;
-  border: 1px solid rgb(from var(--secondary-color) r g b / 20%);
+  border: 1px solid rgb(from var(--text-color) r g b / 20%); /*Burada Sıkıntı*/
   border-radius: 15px;
   cursor: pointer;
   width: 174px;
@@ -23,7 +23,7 @@
 
 .categories-button:hover {
   background-color: var(--primary-color);
-  color: var(--white-bg);
+  color: #fff;
   border: 1px solid var(--primary-color);
 }
 
@@ -31,8 +31,8 @@
   max-width: 235px;
   margin-bottom: 24px;
   font: 500 16px/20px Inter;
-  color: rgb(from var(--secondary-color) r g b / 30%);
-  background-color: var(--white-bg);
+  color: rgb(from var(--text-color) r g b / 30%);
+  background: none;
 }
 
 .category-btn:hover {
@@ -54,5 +54,5 @@
 
 .category-items-list::-webkit-scrollbar-thumb {
   border-radius: 12px;
-  background-color: rgb(from var(--secondary-color) r g b / 18%);
+  background-color: rgb(from var(--text-color) r g b / 18%);
 }
