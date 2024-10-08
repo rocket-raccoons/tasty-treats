@@ -30,16 +30,18 @@
   height: 18px;
   background-color: transparent;
   position: absolute;
-  top: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   left: 18px;
 }
 
 .btn-cancel {
   width: 18px;
   height: 18px;
-  background-color: red;
+  background-color: transparent;
   position: absolute;
-  top: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   right: 18px;
 }
 
