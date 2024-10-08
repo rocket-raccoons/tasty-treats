@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    
+</head>
+
+<body class="fav-body">
+    <!-- to fetch header -->
+
+    <div id="header"></div>
+    <script>
+    fetch('partials/header.html')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+                        .then(data => {
+                const tempDiv = document.createElement('div'); // to add div temporarly 
+                tempDiv.innerHTML = data; // add to the temp div
+
+                // just select navbar
+                const navbar = tempDiv.querySelector('nav.navbar');
+
+                // if theres navbar add it
+                if (navbar) {
+                    document.getElementById('header').appendChild(navbar); // add navbar to the heaeder
+                } else {
+                    console.error('Navbar not found in header.html');
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+    </script>
+                <div class="fav-img">
+                     <!-- <img class="fav-img-item"  alt="fav-hero-prepared-food-photo"> src="./img/favorites-hero.png" -->
+                </div>
+    <div class="fav-container">
+        <div class="fav-categories-list">
+            <button class="fav-categories-list-button">All categories</button>
+            <button class="fav-categories-list-button">Dessert</button>
+            <button class="fav-categories-list-button">Breakfast</button>
+            <button class="fav-categories-list-button">Chicken</button>
+            <button class="fav-categories-list-button">Lamb</button>
+            <button class="fav-categories-list-button">Miscellaneous</button>
+            <button class="fav-categories-list-button">Pork</button>
+            <button class="fav-categories-list-button">Seafood</button>
+            <button class="fav-categories-list-button">Vegan</button>
+            <button class="fav-categories-list-button">Vegetarian</button>
+        </div>
+
+        <!-- ------------------------------------------------------ -->
+        <ul class="fav-list">
+            <li class="fav-list-recipe">
+            </li>
+            <li class="fav-list-recipe">
+            </li>
+            <li class="fav-list-recipe">
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

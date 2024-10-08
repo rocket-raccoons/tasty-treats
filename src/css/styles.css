@@ -1,28 +1,28 @@
 /* Font from google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('./reset.css');
-@import url('./base.css');
-@import url('./container.css');
-@import url('./animations.css');
 
 /* Sections style */
-@import url('./header.css');
-@import url('./vite-promo.css');
-@import url('./badges.css');
-@import url('./back-link.css');
-@import url('./footer.css');
+@import url('./reset.css');
+@import url('./header/nav.css');
+@import url('./header/greetings.css');
+@import url('./header/slider.css');
+@import url('./form-mobile.css');
+@import url('./form-tablet.css');
 @import url('./form.css');
+@import url('./categories.css');
+@import url('./modal.css');
 @import url('./popular-recipes.css');
+/*@import url('./favorites.css');*/
+@import url('./root.css');
+@import url('./root.css');
 
 
-/* Variables */
-:root {
-  --primary-color: #9bb537;
-  --secondary-color: #050505;
-  --dark-bg: #383838;
-  --white-bg: #f8f8f8;
-}
 
-.container {
-  padding: 100px;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--white-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }

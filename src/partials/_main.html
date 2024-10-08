@@ -1,78 +1,32 @@
 <div class="menü-card-container container">
-  <!--search kısmı ayarlanacak-->
-  <div class="search-container">
-    <form class="search-form">
-      <div class="label-container">
-        <label for="search-input" class="form-label">Search </label>
-        <div class="input-container">
-          <span class="search-button"></span>
-
-          <input
-            type="text"
-            id="search-input"
-            name="search-input"
-            class="form-input"
-            placeholder="Enter Text"
-          />
-        </div>
-      </div>
-
-      <div class="label-container">
-        <label for="time" class="form-label">Time</label>
-        <div class="input-container">
-          <select name="time" id="time" class="form-input form-select">
-            <!-- options will be added by js -->
-            <option value="1">40 min</option>
-          </select>
-          <span class="select-button-down"></span>
-        </div>
-      </div>
-
-      <div class="label-container">
-        <label for="area" class="form-label">Area</label>
-        <div class="input-container">
-          <select name="area" id="area" class="form-input form-select">
-            <!-- options will be added by js -->
-          </select>
-          <span class="select-button-down"></span>
-        </div>
-      </div>
-
-      <div class="label-container">
-        <label for="ingredients" class="form-label">Area</label>
-        <div class="input-container">
-          <select
-            name="ingredients"
-            id="ingredients"
-            class="form-input form-select"
-          >
-            <!-- options will be added by js -->
-          </select>
-          <span class="select-button-down"></span>
-        </div>
-      </div>
-    </form>
-  </div>
-
-  <!-- cards yapısı yapılacak -->
+  <!-- MENÜ CARD YAPISI -->
   <div class="cards-container">
+    <span class="loader"></span>
     <ul class="cards-list">
       <li class="cards-listing">
-        <img src="" alt class="cards-img" />
-        <button class="heard-button"></button>
+        <button class="heard-button">
+          <img src="svg/heart.svg" alt="heart" class="heart-svg" />
+        </button>
+        <img src="" alt="cards-img" class="cards-img" />
         <div class="card-text-rating-container">
-          <div class="text-container">
-            <!-- menüdeki ürün ismi başlığı ve p'deki ürün yazıları gelicek. -->
-          </div>
+          <div class="text-container"></div>
           <div class="rating-container">
-            <button class="reciep-button">See reciep</button>
+            <button class="recipe-button">See recipe</button>
             <div class="rating-star">
               <p class="rating-text"></p>
-              <!-- star kısmı ve puan kısmı ayarlanıcak-->
             </div>
           </div>
         </div>
       </li>
     </ul>
+  </div>
+</div>
+
+<!-- Modal Window-->
+<div class="modal" id="recipeModal">
+  <div class="modal-content">
+    <button class="modal-close-button" onclick="closeModal()">&times;</button>
+    <h2>Recipe Title</h2>
+    <p>Full recipe details go here...</p>
   </div>
 </div>

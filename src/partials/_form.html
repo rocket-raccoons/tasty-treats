@@ -1,0 +1,78 @@
+<form action="" id="filter-form">
+  <div class="search-container">
+    <label for="search" class="form-label">Search</label>
+    <div class="input-container">
+      <input
+        class="search-input"
+        type="text"
+        name="search"
+        id="search"
+        autocomplete="off"
+        placeholder="Enter Text"
+      />
+      <button type="button" aria-label="search button" class="btn-search">
+        <svg class="svg-search" width="18px" height="18px">
+          <use
+            class="svg-search-icon"
+            href="./svg/sprite.svg#icon-search"
+          ></use>
+        </svg>
+      </button>
+      <button
+        type="button"
+        aria-label="input empty button"
+        class="btn-cancel hidden"
+      >
+        <svg class="svg-cacel" width="18px" height="18px">
+          <use class="svg-cancel-icon" href="./svg/sprite.svg#icon-x"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Time -->
+  <div class="custom-select-container time-container">
+    <label for="" class="form-label">0 min</label>
+    <div class="custom-select-trigger" id="time-trigger">
+      <span>Select</span>
+      <svg class="svg-arrow" width="18px" height="18px">
+        <use
+          class="svg-arrow-icon"
+          href="./svg/sprite.svg#icon-chevron-down"
+        ></use>
+      </svg>
+    </div>
+
+    <ul class="options hidden-dropdown" id="time-options"></ul>
+  </div>
+
+  <!-- Area -->
+  <div class="custom-select-container area-container">
+    <label for="" class="form-label">Region</label>
+    <div class="custom-select-trigger" id="area-trigger">
+      <span>Select</span>
+      <svg class="svg-arrow" width="18px" height="18px">
+        <use
+          class="svg-arrow-icon"
+          href="./svg/sprite.svg#icon-chevron-down"
+        ></use>
+      </svg>
+    </div>
+    <ul class="options hidden-dropdown" id="area-options"></ul>
+  </div>
+
+  <!-- ingredients -->
+  <div class="custom-select-container ingr-container">
+    <label for="" class="form-label">Product</label>
+    <div class="custom-select-trigger" id="ingr-trigger">
+      <span>Select</span>
+      <svg class="svg-arrow" width="18px" height="18px">
+        <use
+          class="svg-arrow-icon"
+          href="./svg/sprite.svg#icon-chevron-down"
+        ></use>
+      </svg>
+    </div>
+    <ul class="options hidden-dropdown" id="ingr-options"></ul>
+  </div>
+</form>
