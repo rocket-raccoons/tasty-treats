@@ -20,9 +20,6 @@
     transition: transform 0.3s ease;
     background-color: #fff;
 }
-.cards-listing:hover {
-    transform: translateY(-10px);
-  }
 .heards-button {
     position: absolute;
     top: 10px;
