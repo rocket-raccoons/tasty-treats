@@ -5,6 +5,13 @@ export const ingrTrigger = document.getElementById('ingr-trigger');
 export const timeOptions = document.getElementById('time-options');
 export const areaOptions = document.getElementById('area-options');
 export const ingrOptions = document.getElementById('ingr-options');
+export const timeTriggerText = document.getElementById('time-trigger-text');
+export const areaTriggerText = document.getElementById('area-trigger-text');
+export const ingrTriggerText = document.getElementById('ingr-trigger-text');
+export const timeHiddenInput = document.getElementById('time-hidden-input');
+export const areaHiddenInput = document.getElementById('area-hidden-input');
+export const ingrHiddenInput = document.getElementById('ingr-hidden-input');
+export const searchInput = document.getElementById('search');
 
 form.addEventListener('click', e => {
   let targetId = e.target.id;
