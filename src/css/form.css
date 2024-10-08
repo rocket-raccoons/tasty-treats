@@ -1,0 +1,17 @@
+@media screen and (min-width: 1280px) {
+  .search-container {
+    flex-basis: 45%;
+  }
+
+  .time-container {
+    flex-basis: calc(10% - 16px);
+  }
+
+  .area-container {
+    flex-basis: calc(20% - 16px);
+  }
+
+  .ingr-container {
+    flex-basis: calc(20% - 16px);
+  }
+}

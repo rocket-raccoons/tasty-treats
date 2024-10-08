@@ -1,0 +1,127 @@
+@media screen and (min-width:320px) {
+    .fav-body{
+        padding:0 20px;
+    }
+
+    .fav-img{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+    }
+
+    .fav-img-item-small{
+        display: flex;
+            justify-content: center;
+    }
+
+    .fav-img-item-medium,
+    .fav-img-item-big{
+        display: none;
+    }
+    
+    .fav-categories-list {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px;
+        margin-top: 48px;
+        margin-bottom: 24px;
+        display: flex;
+    }
+
+    /* to hide scrollbar */
+    .fav-categories-list::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    .fav-categories-list-button {
+        border-radius: 15px;
+        padding: 10px 20px;
+        border: 1px solid var(--secondary-bg);
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        color: var(--secondary-bg);
+        background-color: var(--white-bg);
+    }
+
+    .fav-categories-list-button:hover {
+        cursor: pointer;
+        background: var(--primary-color);
+        border: 1px solid var(--primary-color);
+        color: var(--white-bg);
+    }
+
+    .fav-list {
+        gap: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .fav-list-recipe {
+        width: 335px;
+        height: 335px;
+        border-radius: 15px;
+        background: rgb(226, 37, 37);
+    }
+}
+
+
+
+
+@media screen and (min-width:768px) {
+    .fav-img{
+        margin-top:50px
+    }
+    .fav-img-item-small{
+        display: none;
+    }
+        .fav-img-item-medium {
+            display: flex;
+            border-radius: 15px;
+        }
+
+    .fav-categories-list {
+        gap: 15px;
+        margin-bottom: 32px;
+    }
+
+    .fav-list {
+        display: flex;
+        gap: 16px;
+    }
+}
+
+
+
+
+
+@media screen and (min-width:1280px) {
+    .fav-img-item-medium{
+        display:none;
+    }
+    .fav-img-item-big {
+            display: flex;
+            border-radius: 15px;
+        }
+    .fav-categories-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .fav-categories-list-button:hover {
+        background: var(--primary-color);
+    }
+
+    .fav-categories-list-button {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+    }
+
+}
