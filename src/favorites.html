@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/styles.css">
-    
+    <!-- <script type="module" src="./js/header/nav.js" defer></script> -->
 </head>
 
 <body class="fav-body">
@@ -39,9 +39,15 @@
                 console.error('Fetch error:', error);
             });
     </script>
-                <div class="fav-img">
-                     <!-- <img class="fav-img-item"  alt="fav-hero-prepared-food-photo"> src="./img/favorites-hero.png" -->
-                </div>
+
+
+    <div class="fav-img">
+        <img class="fav-img-item-big" src="./img/favorites-large-plate.png" alt="fav-hero-prepared-large-plate-photo">
+        <img class="fav-img-item-medium" src="./img/favorites-medium-plate-pic.png" alt="fav-hero-prepared-medium-plate-photo">
+        <img class="fav-img-item-small" src="./img/favorites-small-plate-pic.png" alt="fav-hero-prepared-small-plate-photo">
+    </div>
+
+
     <div class="fav-container">
         <div class="fav-categories-list">
             <button class="fav-categories-list-button">All categories</button>
