@@ -1,4 +1,4 @@
-<form action="" id="filter-form">
+<form method="GET" id="filter-form">
   <div class="search-container">
     <label for="search" class="form-label">Search</label>
     <div class="input-container">
@@ -32,9 +32,9 @@
 
   <!-- Time -->
   <div class="custom-select-container time-container">
-    <label for="" class="form-label">0 min</label>
+    <label for="" class="form-label">Time</label>
     <div class="custom-select-trigger" id="time-trigger">
-      <span>Select</span>
+      <span id="time-trigger-text">Select</span>
       <svg class="svg-arrow" width="18px" height="18px">
         <use
           class="svg-arrow-icon"
@@ -50,7 +50,7 @@
   <div class="custom-select-container area-container">
     <label for="" class="form-label">Region</label>
     <div class="custom-select-trigger" id="area-trigger">
-      <span>Select</span>
+      <span id="area-trigger-text">Select</span>
       <svg class="svg-arrow" width="18px" height="18px">
         <use
           class="svg-arrow-icon"
@@ -65,7 +65,7 @@
   <div class="custom-select-container ingr-container">
     <label for="" class="form-label">Product</label>
     <div class="custom-select-trigger" id="ingr-trigger">
-      <span>Select</span>
+      <span id="ingr-trigger-text">Select</span>
       <svg class="svg-arrow" width="18px" height="18px">
         <use
           class="svg-arrow-icon"
@@ -75,4 +75,8 @@
     </div>
     <ul class="options hidden-dropdown" id="ingr-options"></ul>
   </div>
+
+  <input type="hidden" id="time-hidden-input" />
+  <input type="hidden" id="area-hidden-input" />
+  <input type="hidden" id="ingr-hidden-input" />
 </form>

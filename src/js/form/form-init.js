@@ -17,6 +17,7 @@ async function getInsertAreas() {
     console.error('Error fetching areas:', error);
   }
 }
+
 function insertArea(data) {
   data.forEach(area => {
     const html = `<li data-area="${area.name}" class="option">${area.name}</li>`;
@@ -40,8 +41,9 @@ async function getInsertIngr() {
 }
 
 function insertIngr(data) {
+  console.log(data);
   data.forEach(ingr => {
-    const html = `<li data-ingr="${ingr.name}" class="option">${ingr.name}</li>`;
+    const html = `<li data-ingr="${ingr._id}" class="option">${ingr.name}</li>`;
     ingrOptions.insertAdjacentHTML('beforeend', html);
   });
 }
