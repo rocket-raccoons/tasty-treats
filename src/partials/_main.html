@@ -1,60 +1,15 @@
 <div class="menü-card-container container">
-  <!--search kısmı ayarlanacak-->
-  <div class="form-container">
-    <form class="filter-form" id="filter-form">
-      <div class="label-container search-label-container">
-        <label for="" class="label search-label">Search</label>
-        <div class="input-container">
-          <svg width="18px" height="18px" class="search-svg">
-            <use href="./svg/sprite.svg#icon-search"></use>
-          </svg>
-          <input type="text" placeholder="Enter Text" class="form-input" />
-        </div>
-      </div>
-
-      <div class="label-container">
-        <label for="" class="label time-label">Time</label>
-        <div class="select-container">
-          <select name="time" id="time"></select>
-          <svg width="18px" height="18px">
-            <use href="./svg/sprite.svg#icon-chevron-right"></use>
-          </svg>
-        </div>
-      </div>
-
-      <div class="label-container">
-        <label for="" class="label area-label">Area</label>
-        <div class="select-container">
-          <select name="area" id="area"></select>
-          <svg width="18px" height="18px">
-            <use href="./svg/sprite.svg#icon-chevron-right"></use>
-          </svg>
-        </div>
-      </div>
-
-      <div class="label-container ingredients-label-container">
-        <label for="" class="label ingredients-label">Ingredients</label>
-        <div class="select-container">
-          <select name="ingredients" id="ingredients"></select>
-          <svg width="18px" height="18px">
-            <use href="./svg/sprite.svg#icon-chevron-right"></use>
-          </svg>
-        </div>
-      </div>
-    </form>
-  </div>
   <!-- MENÜ CARD YAPISI -->
   <div class="cards-container">
     <span class="loader"></span>
     <ul class="cards-list">
       <li class="cards-listing">
         <button class="heard-button">
-          <img src="svg/heart.svg" alt="heart" class="heart-svg">
+          <img src="svg/heart.svg" alt="heart" class="heart-svg" />
         </button>
-        <img src="" alt="cards-img" class="cards-img">
+        <img src="" alt="cards-img" class="cards-img" />
         <div class="card-text-rating-container">
-          <div class="text-container">
-          </div>
+          <div class="text-container"></div>
           <div class="rating-container">
             <button class="recipe-button">See recipe</button>
             <div class="rating-star">
@@ -67,12 +22,11 @@
   </div>
 </div>
 
-
 <!-- Modal Window-->
 <div class="modal" id="recipeModal">
   <div class="modal-content">
-      <button class="modal-close-button" onclick="closeModal()">&times;</button>
-      <h2>Recipe Title</h2>
-      <p>Full recipe details go here...</p>
+    <button class="modal-close-button" onclick="closeModal()">&times;</button>
+    <h2>Recipe Title</h2>
+    <p>Full recipe details go here...</p>
   </div>
 </div>

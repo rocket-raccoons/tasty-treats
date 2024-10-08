@@ -4,16 +4,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const closeSideMenu = document.getElementById('closeSideMenu');
     const sideMenu = document.getElementById('sideMenu');
-    const sunSide = document.querySelector('.sunSide');
-    const moonSide = document.querySelector('.moonSide');
+    const sunSideList = document.querySelectorAll('.sunSide');
+    const moonSideList = document.querySelectorAll('.moonSide');
     const body = document.body;
-    
+    function changedWeather(){
+        sunSideList.forEach((sunSide) => {
+            sunSide.classList.toggle('show');
+        })
+        moonSideList.forEach((moonSide) => {
+            moonSide.classList.toggle('show');
+        })
+    }
     function toggleDarkMode() {
         body.classList.toggle('dark-mode');
         themeToggle.classList.toggle('active');
         sideMenuThemeToggle.classList.toggle('active');
-        moonSide.classList.toggle('show');
-        sunSide.classList.toggle('show');
+        changedWeather();
         
         // Save the user's preference
         const isDarkMode = body.classList.contains('dark-mode');
@@ -34,8 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.add('dark-mode');
         themeToggle.classList.add('active');
         sideMenuThemeToggle.classList.add('active');
-        moonSide.classList.toggle('show');
-        sunSide.classList.toggle('show');
+        changedWeather();
     }
 
     document.addEventListener('click', (event) => {

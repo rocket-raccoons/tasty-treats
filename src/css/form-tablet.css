@@ -3,24 +3,36 @@
     gap: 16px;
   }
 
-  .label {
-    font-size: 1.4rem;
-  }
-
-  .label-container {
-    flex-basis: calc(40% - 16px);
-  }
-
-  .search-label-container {
+  .search-container {
     flex-basis: 60%;
   }
 
-  .input-container input {
+  .custom-select-trigger {
     font-size: 1.6rem;
-    line-height: 20px;
   }
 
-  .select-container select {
+  .time-container {
+    flex-basis: calc(40% - 16px);
+  }
+
+  .area-container {
+    flex-basis: calc(40% - 16px);
+  }
+
+  .ingr-container {
+    flex-basis: 40%;
+  }
+
+  .form-lanbel {
+    font-size: 1.4rem;
+    line-height: 18px;
+  }
+
+  .options {
+    max-height: 188px;
+  }
+
+  .option {
     font-size: 1.6rem;
     line-height: 20px;
   }
