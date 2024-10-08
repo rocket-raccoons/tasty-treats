@@ -4,6 +4,7 @@
 /* Sections style */
 @import url('./reset.css');
 @import url('./header/nav.css');
+@import url('./header/greetings.css');
 @import url('./header/slider.css');
 @import url('./form-mobile.css');
 @import url('./form-tablet.css');
