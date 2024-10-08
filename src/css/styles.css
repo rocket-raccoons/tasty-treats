@@ -11,11 +11,12 @@
 @import url('./popular-receipes.css');
 @import url('./reset.css');
 
-/* Variables */
-:root {
-  --primary-color: #9bb537;
-  --secondary-color: #050505;
-  --dark-bg: #383838;
-  --white-bg: #f8f8f8;
-  --secondary-bg: #05050533;
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--white-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
 }
