@@ -1,6 +1,6 @@
+<!-- MENÜ CARD YAPISI -->
 <div class="menü-card-container container">
-  <!-- MENÜ CARD YAPISI -->
-  <div class="cards-container">
+    <div class="cards-container">
     <ul class="cards-list">
       <li class="cards-listing">
         <button class="heard-button">
@@ -16,17 +16,27 @@
               <p class="rating-text"></p>
             </div>
           </div>
+
+<!-- categoriler bu divde ayarlancak. (sol taraftaki)-->
+<div class="aside">
+    <div class="container-categories">
+        <button class="categories-button">All categories</button>
+        <div class="category-list">
+            <ul class="category-items-list"></ul>
         </div>
-      </li>
-    </ul>
-  </div>
+    </div>
+    <!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
+    <div class="popular-recipes-container">
+        <h1 class="popular-receips-title">POPULAR RECIPES</h1>
+        <ul id="popular-recipes-gallery"></ul>
+    </div>
 </div>
 
 <!-- Modal Window-->
 <div class="modal" id="recipeModal">
-  <div class="modal-content">
-    <button class="modal-close-button" onclick="closeModal()">&times;</button>
-    <h2>Recipe Title</h2>
-    <p>Full recipe details go here...</p>
-  </div>
+    <div class="modal-content">
+        <button class="modal-close-button" onclick="closeModal()">&times;</button>
+        <h2>Recipe Title</h2>
+        <p>Full recipe details go here...</p>
+    </div>
 </div>
