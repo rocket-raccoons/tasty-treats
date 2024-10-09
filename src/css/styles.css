@@ -13,6 +13,8 @@
 @import url('./categories.css');
 @import url('./modal.css');
 @import url('./popular-recipes.css');
+@import url('./popular-recipes-tablet.css');
+@import url('./popular-recipes-desktop.css');
 @import url('./favorites.css');
 
 body {

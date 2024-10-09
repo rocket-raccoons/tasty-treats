@@ -1,0 +1,35 @@
+@media screen and (min-width: 768px) {
+
+.popular-recipes-container {
+ gap: 3.2rem;
+}
+
+ul {      
+gap: 1.6rem;
+}
+
+.popular-recipes-title {
+  
+padding-left: 3.2rem;
+padding-top: 6.4rem;
+
+}
+
+.recipe-container {  
+gap: 1.9rem;  
+padding-left: 3.2rem;
+padding-right: 3.2rem;
+
+}
+.recipe-content{
+width: 17.6rem;
+}
+
+.recipe-content-description {
+font-size: 1rem;
+line-height: 1.4rem;
+}
+
+
+
+}
