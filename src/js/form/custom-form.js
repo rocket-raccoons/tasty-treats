@@ -16,6 +16,7 @@ export const ingrHiddenInput = document.getElementById(
   'ingredients-hidden-input'
 );
 export const searchInput = document.getElementById('search');
+export const cancelBtn = document.getElementById('cancel-btn');
 
 form.addEventListener('click', e => {
   let targetId = e.target.id;

@@ -1,5 +1,5 @@
 //prettier-ignore
-import { timeOptions, areaOptions, ingrOptions, searchInput, } from './custom-form.js';
+import { timeOptions, areaOptions, ingrOptions, searchInput, cancelBtn } from './custom-form.js';
 
 import debounce from 'lodash/debounce';
 
@@ -43,6 +43,7 @@ function handleSelect(inputName, e) {
   console.log(queryUrl);
 
   options.classList.toggle('hidden-dropdown');
+  triggerText.classList.add('trigger-active');
   getQueryData(queryUrl);
 }
 
@@ -59,7 +60,19 @@ const handleInput = debounce(function () {
 timeOptions.addEventListener('click', e => handleSelect('time', e));
 areaOptions.addEventListener('click', e => handleSelect('area', e));
 ingrOptions.addEventListener('click', e => handleSelect('ingredients', e));
-searchInput.addEventListener('input', handleInput);
+searchInput.addEventListener('input', () => {
+  handleInput();
+  if (searchInput.value !== '') {
+    cancelBtn.classList.remove('hidden');
+  } else {
+    cancelBtn.classList.add('hidden');
+  }
+});
+cancelBtn.addEventListener('click', () => {
+  handleInput();
+  searchInput.value = '';
+  cancelBtn.classList.add('hidden');
+});
 
 // timeOptions.addEventListener('click', e => {
 //   if (e.target.tagName !== 'LI') return;
