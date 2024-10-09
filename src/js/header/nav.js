@@ -9,10 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     function changedWeather(){
         sunSideList.forEach((sunSide) => {
-            sunSide.classList.toggle('show');
+            if(sunSide){
+                sunSide.classList.toggle('show');
+            }
+            
         })
         moonSideList.forEach((moonSide) => {
-            moonSide.classList.toggle('show');
+            if(moonSide){
+                moonSide.classList.toggle('show');
+            }
         })
     }
     function toggleDarkMode() {
@@ -26,8 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('darkMode', isDarkMode);
     }
 
-    function toggleMobileMenu() {
-        sideMenu.classList.toggle('active');
+    function toggleMobileMenu() { 
+        if(!sideMenu.classList.contains('showSide')){
+            sideMenu.classList.add('showSide');
+        }
+        else{
+            sideMenu.classList.remove('showSide');
+        }
     }
     
     themeToggle.addEventListener('click', toggleDarkMode);
