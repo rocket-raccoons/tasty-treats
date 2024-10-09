@@ -11,6 +11,8 @@ import {
   searchInput,
 } from './custom-form.js';
 
+import debounce from 'lodash/debounce';
+
 let queryUrl;
 
 async function getQueryData(url) {
@@ -61,3 +63,14 @@ ingrOptions.addEventListener('click', e => {
 
   getQueryData(queryUrl);
 });
+
+function inputHandler() {
+  queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9&time=${timeHiddenInput.value}&area=${areaHiddenInput.value}&ingredients=${ingrHiddenInput.value}&title=${searchInput.value}`;
+
+  console.log(queryUrl);
+  getQueryData(queryUrl);
+}
+
+const debounceInput = debounce(inputHandler, 300);
+
+searchInput.addEventListener('input', debounceInput);
