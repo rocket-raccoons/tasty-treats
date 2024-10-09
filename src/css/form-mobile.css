@@ -18,7 +18,8 @@
 
 .search-input {
   outline: none;
-  border: 1px solid #05050533;
+  border: 1px solid rgb(from var(--text-color) r g b / 20%);
+  color: var(--text-color);
   background-color: transparent;
   padding: 14px 48px;
   border-radius: 15px;
@@ -26,10 +27,12 @@
 }
 
 .search-input:focus + .btn-search > .svg-search {
-  fill: #9bb537;
+  fill: var(--primary-color);
 }
 
-.svg-search {
+.svg-search,
+.svg-arrow {
+  fill: rgb(from var(--text-color) r g b / 20%);
   transition: fill 0.3s;
 }
 
@@ -55,7 +58,7 @@
 
 .custom-select-trigger {
   cursor: pointer;
-  border: 1px solid #05050533;
+  border: 1px solid rgb(from var(--text-color) r g b / 20%);
   border-radius: 15px;
   background-color: transparent;
   display: flex;
@@ -63,7 +66,7 @@
   justify-content: space-between;
   padding: 14px 18px;
   font-size: 1.4rem;
-  color: #05050580;
+  color: rgb(from var(--text-color) r g b / 20%);
 }
 
 .time-container,
@@ -80,15 +83,15 @@
   font-size: 1.2rem;
   line-height: 14px;
   font-weight: 500;
-  color: #05050580;
+  color: rgb(from var(--text-color) r g b / 20%);
   margin-bottom: 8px;
 }
 
 .options {
   max-height: 176px;
   padding: 14px 18px;
-  background-color: #ffffff;
-  box-shadow: 0px 4px 36px 0px #00000005;
+  background-color: var(--white-bg);
+  box-shadow: 0px 4px 36px 0px rgb(from var(--text-color) r g b / 10%);
 
   border-radius: 15px;
   overflow-y: scroll;
@@ -111,12 +114,12 @@
 .option {
   font-size: 1.4rem;
   line-height: 18px;
-  color: #0505054d;
+  color: rgb(from var(--text-color) r g b / 30%);
   cursor: pointer;
 }
 
 .option:hover {
-  color: #050505;
+  color: var(--text-color);
 }
 
 .hidden-dropdown,
@@ -125,54 +128,5 @@
 }
 
 .trigger-active {
-  color: #050505;
+  color: var(--text-color);
 }
-
-/* DARK MODE */
-
-/* .search-input {
-  border-color: #ffffff33;
-  color: #ffffff;
-}
-
-.svg-search {
-  fill: #ffffff80;
-}
-
-.dark-form-text {
-  color: #ffffff80;
-}
-
-.options {
-  background-color: #050505;
-  box-shadow: 0px 4px 36px 0px #00000005;
-}
-
-.option {
-  color: #ffffff4d;
-}
-
-.option:hover {
-  color: #ffffff;
-}
-
-.options::-webkit-scrollbar-thumb {
-  background-color: #ffffff4d;
-}
-
-.form-label {
-  color: #ffffff80;
-}
-
-.trigger-active {
-  color: #ffffff;
-}
-
-.custom-select-trigger {
-  color: #ffffff80;
-  border-color: #ffffff33;
-}
-
-.custom-select-trigger svg {
-  fill: #ffffff80;
-} */
