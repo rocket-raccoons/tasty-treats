@@ -25,6 +25,14 @@
   width: 100%;
 }
 
+.search-input:focus + .btn-search > .svg-search {
+  fill: #9bb537;
+}
+
+.svg-search {
+  transition: fill 0.3s;
+}
+
 .btn-search {
   width: 18px;
   height: 18px;
@@ -80,6 +88,8 @@
   max-height: 176px;
   padding: 14px 18px;
   background-color: #ffffff;
+  box-shadow: 0px 4px 36px 0px #00000005;
+
   border-radius: 15px;
   overflow-y: scroll;
   position: absolute;
@@ -109,6 +119,28 @@
   color: #050505;
 }
 
-.hidden-dropdown {
+.hidden-dropdown,
+.hidden {
   display: none;
+}
+
+.dark-trigger {
+  color: #050505;
+}
+
+.dark-inputs {
+  border-color: #ffffff33;
+}
+
+.dark.svg {
+  fill: #ffffff80;
+}
+
+.dark-form-text {
+  color: #ffffff80;
+}
+
+.dark-options {
+  background-color: #050505;
+  box-shadow: 0px 4px 36px 0px #00000005;
 }
