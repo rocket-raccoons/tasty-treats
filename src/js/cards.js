@@ -93,7 +93,7 @@ function displayRecipes(recipes) {
       <li class="card-container" style="background-image: url(${
         recipe.preview
       })" data-id="recipe._id">
-        <button class="favourite-button">
+        <button class="favourite-button" data-id="${recipe._id}">
           <svg width="22px" height="22px">
             <use href="./svg/sprite.svg#icon-heart"></use>
           </svg>
