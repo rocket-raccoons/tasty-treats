@@ -58,7 +58,7 @@ const handleInput = debounce(function () {
 //event listeners
 timeOptions.addEventListener('click', e => handleSelect('time', e));
 areaOptions.addEventListener('click', e => handleSelect('area', e));
-ingrOptions.addEventListener('click', e => handleSelect('ingr', e));
+ingrOptions.addEventListener('click', e => handleSelect('ingredients', e));
 searchInput.addEventListener('input', handleInput);
 
 // timeOptions.addEventListener('click', e => {
