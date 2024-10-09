@@ -1,43 +1,109 @@
 <!-- MENÜ CARD YAPISI -->
-<div class="menü-card-container container">
-    <div class="cards-container">
-        <ul class="cards-list">
-            <li class="cards-listing">
-                <button class="heard-button">
-                    <img src="svg/heart.svg" alt="heart" class="heart-svg" />
-                </button>
-                <img src="" alt="cards-img" class="cards-img" />
-                <span class="loader"></span>
-                <div class="text-container">
-                <div class="specification-text"></div>
-                <div class="card-rating-container">
-                    <div class="rating-container">
-                        <button class="recipe-button">See recipe</button>
-                        <div class="rating-star">
-                        <p class="rating-text"></p>
-                        </div>
-                    </div>
+<div class="main-part">
+    <div class="aside">
+        <div class="container-categories">
+            <button class="categories-button">All categories</button>
+            <div class="category-list">
+                <ul class="category-items-list"></ul>
+            </div>
+        </div>
+        <!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
+        <div class="popular-recipes-container">
+            <h1 class="popular-receips-title">POPULAR RECIPES</h1>
+            <ul id="popular-recipes-gallery"></ul>
+        </div>
+    </div>
+
+
+
+    <div class="subat+murat">
+        <form method="GET" id="filter-form">
+            <div class="search-container">
+                <label for="search" class="form-label">Search</label>
+                <div class="input-container">
+                    <input class="search-input" type="text" name="search" id="search" autocomplete="off"
+                        placeholder="Enter Text" />
+                    <button type="button" aria-label="search button" class="btn-search">
+                        <svg class="svg-search" width="18px" height="18px">
+                            <use class="svg-search-icon" href="./svg/sprite.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <button type="button" aria-label="input empty button" class="btn-cancel hidden" id="cancel-btn">
+                        <svg class="svg-cacel" width="18px" height="18px">
+                            <use class="svg-cancel-icon" href="./svg/sprite.svg#icon-x"></use>
+                        </svg>
+                    </button>
                 </div>
+            </div>
+        
+            <!-- Time -->
+            <div class="custom-select-container time-container">
+                <label for="" class="form-label">Time</label>
+                <div class="custom-select-trigger" id="time-trigger">
+                    <span id="time-trigger-text">Select</span>
+                    <svg class="svg-arrow" width="18px" height="18px">
+                        <use class="svg-arrow-icon" href="./svg/sprite.svg#icon-chevron-down"></use>
+                    </svg>
+                </div>
+        
+                <ul class="options hidden-dropdown" id="time-options"></ul>
+            </div>
+        
+            <!-- Area -->
+            <div class="custom-select-container area-container">
+                <label for="" class="form-label">Region</label>
+                <div class="custom-select-trigger" id="area-trigger">
+                    <span id="area-trigger-text">Select</span>
+                    <svg class="svg-arrow" width="18px" height="18px">
+                        <use class="svg-arrow-icon" href="./svg/sprite.svg#icon-chevron-down"></use>
+                    </svg>
+                </div>
+                <ul class="options hidden-dropdown" id="area-options"></ul>
+            </div>
+        
+            <!-- ingredients -->
+            <div class="custom-select-container ingr-container">
+                <label for="" class="form-label">Product</label>
+                <div class="custom-select-trigger" id="ingredients-trigger">
+                    <span id="ingredients-trigger-text">Select</span>
+                    <svg class="svg-arrow" width="18px" height="18px">
+                        <use class="svg-arrow-icon" href="./svg/sprite.svg#icon-chevron-down"></use>
+                    </svg>
+                </div>
+                <ul class="options hidden-dropdown" id="ingredients-options"></ul>
+            </div>
+        
+            <input type="hidden" id="time-hidden-input" />
+            <input type="hidden" id="area-hidden-input" />
+            <input type="hidden" id="ingredients-hidden-input" />
+        </form>
+
+        <div class="menü-card-container container">
+            <div class="cards-container">
+                <ul class="cards-list">
+                    <li class="cards-listing">
+                        <button class="heard-button">
+                            <img src="svg/heart.svg" alt="heart" class="heart-svg" />
+                        </button>
+                        <img src="" alt="cards-img" class="cards-img" />
+                        <span class="loader"></span>
+                        <div class="text-container">
+                            <div class="specification-text"></div>
+                            <div class="card-rating-container">
+                                <div class="rating-container">
+                                    <button class="recipe-button">See recipe</button>
+                                    <div class="rating-star">
+                                        <p class="rating-text"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- categoriler bu divde ayarlancak. (sol taraftaki)-->
-<div class="aside">
-    <div class="container-categories">
-        <button class="categories-button">All categories</button>
-        <div class="category-list">
-            <ul class="category-items-list"></ul>
-        </div>
-    </div>
-    <!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
-    <div class="popular-recipes-container">
-        <h1 class="popular-receips-title">POPULAR RECIPES</h1>
-        <ul id="popular-recipes-gallery"></ul>
-    </div>
+    <!-- categoriler bu divde ayarlancak. (sol taraftaki)-->
 </div>
-
 <!-- Modal Window-->
 <div class="modal" id="recipeModal">
     <div class="modal-content">

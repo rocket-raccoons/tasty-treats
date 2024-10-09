@@ -14,6 +14,7 @@
 @import url('./modal.css');
 @import url('./popular-recipes.css');
 @import url('./favorites.css');
+@import url('./main.css');
 
 body {
   font-family: Arial, sans-serif;
