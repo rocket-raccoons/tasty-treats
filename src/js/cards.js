@@ -80,4 +80,8 @@ export function displayRecipes(recipes) {
 }
 
 // Sayfa yüklendiğinde tarifleri çek
-document.addEventListener('DOMContentLoaded', fetchRecipes);
+document.addEventListener('DOMContentLoaded', _ => {
+    setTimeout(() => {
+        fetchRecipes();
+    }, 100);
+ });

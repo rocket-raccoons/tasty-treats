@@ -1,5 +1,5 @@
 <!-- MENÜ CARD YAPISI -->
-<div class="main-part">
+<div class="main-part container">
     <div class="aside">
         <div class="container-categories">
             <button class="categories-button">All categories</button>
@@ -35,7 +35,7 @@
                     </button>
                 </div>
             </div>
-        
+
             <!-- Time -->
             <div class="custom-select-container time-container">
                 <label for="" class="form-label">Time</label>
@@ -45,10 +45,10 @@
                         <use class="svg-arrow-icon" href="./svg/sprite.svg#icon-chevron-down"></use>
                     </svg>
                 </div>
-        
+
                 <ul class="options hidden-dropdown" id="time-options"></ul>
             </div>
-        
+
             <!-- Area -->
             <div class="custom-select-container area-container">
                 <label for="" class="form-label">Region</label>
@@ -60,7 +60,7 @@
                 </div>
                 <ul class="options hidden-dropdown" id="area-options"></ul>
             </div>
-        
+
             <!-- ingredients -->
             <div class="custom-select-container ingr-container">
                 <label for="" class="form-label">Product</label>
@@ -72,13 +72,13 @@
                 </div>
                 <ul class="options hidden-dropdown" id="ingredients-options"></ul>
             </div>
-        
+
             <input type="hidden" id="time-hidden-input" />
             <input type="hidden" id="area-hidden-input" />
             <input type="hidden" id="ingredients-hidden-input" />
         </form>
 
-        <div class="menü-card-container container">
+        <div class="menü-card-container">
             <div class="cards-container">
                 <ul class="cards-list">
                     <li class="cards-listing">
@@ -102,25 +102,11 @@
         </div>
     </div>
 
-<!-- categoriler bu divde ayarlancak. (sol taraftaki)-->
-<div class="aside">
-    <div class="container-categories">
-        <button class="categories-button">All categories</button>
-        <div class="category-list">
-            <ul class="category-items-list"></ul>
+    <!-- Modal Window-->
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <button class="modal-close-button" onclick="closeModal()">&times;</button>
+            <h2>Recipe Title</h2>
+            <p>Full recipe details go here...</p>
         </div>
     </div>
-    <!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
-    <div class="popular-recipes-container">
-        <h1 class="popular-receips-title">POPULAR RECIPES</h1>
-        <ul id="popular-recipes-gallery"></ul>
-    </div>
-</div>
-<!-- Modal Window-->
-<div class="modal" id="recipeModal">
-    <div class="modal-content">
-        <button class="modal-close-button" onclick="closeModal()">&times;</button>
-        <h2>Recipe Title</h2>
-        <p>Full recipe details go here...</p>
-    </div>
-</div>

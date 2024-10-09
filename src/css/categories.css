@@ -3,7 +3,7 @@
   flex-direction: column;
   margin-top: 20px;
   max-width: 235px;
-  margin-left: 100px;
+  margin-bottom: 64px;
 }
 
 .categories-button {
@@ -29,7 +29,6 @@
 
 .category-btn {
   max-width: 235px;
-  margin-bottom: 24px;
   font: 500 16px/20px Inter;
   color: rgb(from var(--text-color) r g b / 30%);
   background: none;
@@ -45,7 +44,10 @@
 
 .category-items-list {
   overflow-y: scroll;
-  max-height: 400px;
+  max-height: 416px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px
 }
 
 .category-items-list::-webkit-scrollbar {
@@ -55,4 +57,11 @@
 .category-items-list::-webkit-scrollbar-thumb {
   border-radius: 12px;
   background-color: rgb(from var(--text-color) r g b / 18%);
+}
+
+@media screen and (max-width: 768px) {
+  .container-categories {
+    width: 100%;
+    max-width: 100%;
+  }
 }
