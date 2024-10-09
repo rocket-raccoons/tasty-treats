@@ -34,7 +34,12 @@ function handleSelect(inputName, e) {
   triggerText.textContent = e.target.textContent;
   hiddenInput.value = e.target.dataset[inputName];
 
-  queryUrl += `&${inputName}=${hiddenInput.value}`;
+  queryUrl = queryUrl.includes(inputName)
+    ? queryUrl.replace(
+        new RegExp(`${inputName}=[^&]*`),
+        `${inputName}=${hiddenInput.value}`
+      )
+    : `${queryUrl}&${inputName}=${hiddenInput.value}`;
   console.log(queryUrl);
 
   options.classList.toggle('hidden-dropdown');
