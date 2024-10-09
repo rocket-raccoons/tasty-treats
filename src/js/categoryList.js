@@ -1,6 +1,7 @@
 const categoryList = document.querySelector('.category-items-list');
 const allCategories = document.querySelector('.categories-button');
-// const mainCards = document.querySelector('.cards-listing');
+import { displayRecipes } from './cards.js';
+import {fetchRecipes } from './cards.js';
 
 async function fetchCategories() {
     const url = "https://tasty-treats-backend.p.goit.global/api/categories"
@@ -11,7 +12,7 @@ async function fetchCategories() {
         createCategoryList(categories);
         categoryBtnClick();
     } catch (error) {
-        console.log(error);
+        console.log(error + "fetching categories");
     }
 };
 
@@ -21,10 +22,9 @@ async function fetchChosenCategory(categoryName) {
         const response = await fetch(url);
         const data = await response.json();
         const recipes = data.results;
-        console.log(recipes);
-        // renderChosenCategory(recipes);
+        displayRecipes(recipes);
     } catch (error) {
-        console.log(error);
+        console.log(error + "fetching chosen category recipes");
     }
 };
 
@@ -53,38 +53,20 @@ function createCategoryList(categories) {
 
 
 
-// Render the screen by chosen category
 
-// #Bu Fonksiyon Murat'ın yapacağı renderAllItems fonksiyonuna göre düzenlenecek.
-
-// function renderChosenCategory(recipes) {
-//     mainCards.innerHTML = '';
-//     recipes.forEach(recipe => {
-//         const recipeCard = document.createElement('div');
-//         recipeCard.classList.add('recipe-card');
-//         recipeCard.innerHTML = `
-//             <img src="${recipe.image}" alt="${recipe.name}" class="recipe-image">
-//             <h3 class="recipe-title">${recipe.name}</h3>
-//             <p class="recipe-description">${recipe.description}</p>
-//         `;
-//         mainCards.appendChild(recipeCard);
-//     })
-// };
+function resetMainCards() {
+    const cardList = document.querySelector('.cards-list');
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    categoryBtns.forEach(button => {
+        button.style.color = "";
+    });
+    cardList.innerHTML = '';
+    fetchRecipes();
+};
 
 
 
 
-// Reset the main card section
-
-// function resetMainCards() {
-//     mainCards.innerHTML = '';
-//     renderAllItems(); #Murat'tan gelecek fonksiyon
-// };
-
-
-
-
-// allCategories.addEventListener('click', resetMainCards);
+allCategories.addEventListener('click', resetMainCards);
 document.addEventListener('DOMContentLoaded', fetchCategories);
 
-//  #Yorum satırına alınmış her şey Murat'ın yapacağı js fonksiyonlarına göre entegre edilip açılacak.

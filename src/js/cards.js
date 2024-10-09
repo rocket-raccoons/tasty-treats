@@ -1,4 +1,4 @@
-async function fetchRecipes() {
+export async function fetchRecipes() {
   try {
     // API'den tarif verilerini çekiyoruz
     const response = await fetch('https://tasty-treats-backend.p.goit.global/api/recipes?limit=9');
@@ -11,7 +11,7 @@ async function fetchRecipes() {
   }
 }
 
-function displayRecipes(recipes) {
+export function displayRecipes(recipes) {
   const cardsList = document.querySelector('.cards-list');
 
   // Mevcut kartları temizleme (eğer gerekirse)
