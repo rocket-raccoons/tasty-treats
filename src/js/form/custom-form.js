@@ -1,17 +1,22 @@
 export const form = document.getElementById('filter-form');
 export const timeTrigger = document.getElementById('time-trigger');
 export const areaTrigger = document.getElementById('area-trigger');
-export const ingrTrigger = document.getElementById('ingr-trigger');
+export const ingrTrigger = document.getElementById('ingredients-trigger');
 export const timeOptions = document.getElementById('time-options');
 export const areaOptions = document.getElementById('area-options');
-export const ingrOptions = document.getElementById('ingr-options');
+export const ingrOptions = document.getElementById('ingredients-options');
 export const timeTriggerText = document.getElementById('time-trigger-text');
 export const areaTriggerText = document.getElementById('area-trigger-text');
-export const ingrTriggerText = document.getElementById('ingr-trigger-text');
+export const ingrTriggerText = document.getElementById(
+  'ingredients-trigger-text'
+);
 export const timeHiddenInput = document.getElementById('time-hidden-input');
 export const areaHiddenInput = document.getElementById('area-hidden-input');
-export const ingrHiddenInput = document.getElementById('ingr-hidden-input');
+export const ingrHiddenInput = document.getElementById(
+  'ingredients-hidden-input'
+);
 export const searchInput = document.getElementById('search');
+export const cancelBtn = document.getElementById('cancel-btn');
 
 form.addEventListener('click', e => {
   let targetId = e.target.id;
@@ -27,7 +32,7 @@ form.addEventListener('click', e => {
     case 'area-trigger':
       areaOptions.classList.toggle('hidden-dropdown');
       break;
-    case 'ingr-trigger':
+    case 'ingredients-trigger':
       ingrOptions.classList.toggle('hidden-dropdown');
       break;
   }
