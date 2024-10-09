@@ -3,7 +3,7 @@
 .popular-recipes-container {
  gap: 3.2rem;
  }
-ul {
+#popular-recipes-gallery {
  gap: 3.2rem;
 }
 .popular-recipes-title {
