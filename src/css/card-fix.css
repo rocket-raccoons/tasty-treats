@@ -17,7 +17,7 @@
   position: absolute;
   top: 16px;
   right: 16px;
-  background: red;
+  background: none;
   border: none;
   cursor: pointer;
   z-index: 10;
@@ -81,4 +81,5 @@
 .star-svg {
   width: 18px;
   height: 18px;
+  opacity: 0.8;
 }

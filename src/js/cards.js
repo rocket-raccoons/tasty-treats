@@ -95,7 +95,7 @@ function displayRecipes(recipes) {
       })" data-id="recipe._id">
         <button class="favourite-button">
           <svg width="22px" height="22px">
-            <use href="./svg/sprite#icon-heart"></use>
+            <use href="./svg/sprite.svg#icon-heart"></use>
           </svg>
         </button>
         
