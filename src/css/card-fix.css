@@ -1,0 +1,80 @@
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.card-container {
+  width: 335px;
+  height: 335px;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.favourite-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: red;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  width: 22px;
+  height: 22px;
+}
+
+.card-text-content-container {
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+  color: #f8f8f8;
+}
+
+.card-description {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: #f8f8f8;
+}
+
+.card-footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.card-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-rating {
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: #f8f8f8;
+}
+
+.recipe-button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  color: #f8f8f8;
+  background-color: #9bb537;
+}
+
+.star-svg {
+  width: 18px;
+  height: 18px;
+}

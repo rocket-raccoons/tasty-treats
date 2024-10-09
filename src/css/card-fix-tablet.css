@@ -1,0 +1,16 @@
+@media screen and (min-width: 768px) {
+  .cards-list {
+    gap: 16px;
+  }
+
+  .card-container {
+    width: 240px;
+    height: 264px;
+    color: red;
+  }
+
+  .star-svg {
+    width: 16px;
+    height: 16px;
+  }
+}

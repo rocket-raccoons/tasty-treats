@@ -1,0 +1,11 @@
+@media screen and (min-width: 1280px) {
+  .card-container {
+    width: 258px;
+    height: 287px;
+  }
+
+  .star-svg {
+    width: 18px;
+    height: 18px;
+  }
+}
