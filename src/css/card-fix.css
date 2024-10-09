@@ -13,6 +13,33 @@
   align-items: flex-end;
 }
 
+.card-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  filter: blur(4px); /* Add your filter here */
+  z-index: 1; /* Ensure the filter stays below the text */
+  background: linear-gradient(
+    0.94deg,
+    rgba(5, 5, 5, 0.6) 4.82%,
+    rgba(5, 5, 5, 0) 108.72%
+  );
+}
+
+.card-content-container {
+  position: absolute;
+  bottom: 0;
+  z-index: 2; /* Ensure text is above the filter layer */
+  color: white;
+
+  /* padding: 10px; */
+  width: 100%;
+}
+
 .favourite-button {
   position: absolute;
   top: 16px;
@@ -81,5 +108,5 @@
 .star-svg {
   width: 18px;
   height: 18px;
-  opacity: 0.8;
+  filter: drop-shadow(5px 5px 4px rgba(0, 0, 0, 1));
 }

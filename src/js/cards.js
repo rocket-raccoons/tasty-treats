@@ -109,7 +109,7 @@ function displayRecipes(recipes) {
                     <p class="card-rating">${recipe.rating.toFixed(1)}</p>
                     <div class="star-container">
                     <svg class="star-svg">
-                      <use href="./svg/sprite.svg#icon-star"></use>
+                      <use href="./svg/sprite.svg#icon-emptystar"></use>
                     </svg>
 
                     <svg class="star-svg">
