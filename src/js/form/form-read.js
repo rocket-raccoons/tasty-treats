@@ -43,7 +43,7 @@ function handleSelect(inputName, e) {
   console.log(queryUrl);
 
   options.classList.toggle('hidden-dropdown');
-  triggerText.classList.add('dark-trigger');
+  triggerText.classList.add('trigger-active');
   getQueryData(queryUrl);
 }
 
