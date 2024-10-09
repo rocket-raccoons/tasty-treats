@@ -1,27 +1,158 @@
+/* Genel Slider ve Görünüm */
 .slider-main-container {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-  }
-  
-  .slider-container {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .slider-container img, .content {
-    border-radius: 8px;
-    background-size: cover;
-  }
-  
-  .slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    height: 100%;
-  }
-  
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider-container img, .content {
+  border-radius: 8px;
+  background-size: cover;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  height: 100%;
+}
+
+.slide {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.image-container {
+  border-radius: 8px;
+  background-color: #050505;
+  flex: 1;
+  aspect-ratio: 137 / 468;
+  overflow: hidden;
+}
+
+.image-small {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content, .image-medium {
+  flex: 2.56;
+  aspect-ratio: 351 / 468;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(60.78%,70.98%,21.57%,0.6) 0%, rgba(0, 0, 0, 0.6) 50%);
+}
+
+.image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contain {
+  object-fit: contain;
+  object-position: center;
+}
+
+.image-large {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.text-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #F8F8F899;
+  padding: 16px;
+  text-align: center;
+}
+
+.image-medium {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.last-item{
+  background-color: #050505;
+  border-radius: 15px;
+}
+.slide h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.slide p {
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+.subtext {
+  display: block;
+  color: #F8F8F833;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+}
+
+.slider-indicators {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgb(0, 0, 0);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.indicator.active {
+  background-color: #9BB537;
+}
+
+/* Mobil Görünüm */
+@media (max-width: 767px) {
   .slide {
     flex: 0 0 100%;
     display: flex;
@@ -29,189 +160,99 @@
     align-items: stretch;
     gap: 8px;
   }
-  
+
+  /* İlk öğe 1/4 genişlik alacak */
   .image-container {
-    border-radius: 8px;
-    background-color: #050505;
-    flex: 1;
+    flex: 1; /* 1/4 genişlik */
     aspect-ratio: 137 / 468;
     overflow: hidden;
   }
-  
-  .image-small {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .content, .image-medium {
-    flex: 2.56;
+
+  /* İkinci öğe 3/4 genişlik alacak */
+  .content {
+    flex: 3; /* 3/4 genişlik */
     aspect-ratio: 351 / 468;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
   }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
-  }
-  
-  .content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(60.78%,70.98%,21.57%,0.6) 0%, rgba(0, 0, 0, 0.6) 50%);
-  }
-  
-  .other-slide .content::before {
-    background: radial-gradient(circle at center, rgba(60.78%,70.98%,21.57%,0.6) 0%, rgba(0, 0, 0, 0.6) 70%);
-  }
-  
-  .image-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .contain {
-    object-fit: contain;
-    object-position: center;
-  }
-  
-  .contain-left {
-    object-fit: contain;
-    object-position: top left;
-  }
-  
-  .image-large {
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-  }
-  
-  .text-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    color: #F8F8F899;
-    padding: 16px;
-    text-align: center;
-  }
-  
+
+  /* Üçüncü öğe (medium image) mobilde gizlenecek */
   .image-medium {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    display: none;
   }
-  
-  .slide h2 {
-    margin: 0 0 8px;
-    font-size: 20px;
-    font-weight: 600;
-    color: #FFFFFF;
-  }
-  
-  .slide p {
-    font-size: 14px;
-    margin: 0 0 8px;
-  }
-  
-  .subtext {
-    display: block;
-    color: #F8F8F833;
+
+  /* İçerik kısmını daha küçük yapalım */
+  .text-content {
+    padding: 8px;
     font-size: 12px;
-    line-height: 14px;
-    text-align: center;
   }
-  
+
+  /* Slider göstergeleri */
   .slider-indicators {
-    padding: 16px;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    z-index: 10;
+    padding: 8px;
+    gap: 4px;
   }
-  
+
   .indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: rgb(0, 0, 0);
-    cursor: pointer;
-    transition: background-color 0.3s;
+    width: 6px;
+    height: 6px;
   }
-  
-  .indicator.active {
-    background-color: #9BB537;
+}
+
+/* Tablet stilleri */
+@media (min-width: 768px) {
+  .slider-container {
+    max-width: 871px;
+    height: 468px;
   }
-  
-  /* Tablet styles */
-  @media (min-width: 768px) {
-    .slider-container {
-        max-width: 871px;
-    }
-  
-    .slide h2 {
-      font-size: 22px;
-    }
-  
-    .slide p {
-      font-size: 15px;
-    }
+
+  .slide h2 {
+    font-size: 22px;
   }
-  
-  /* Desktop styles */
-  @media (min-width: 1280px) {
-    .slider-main-container {
-      max-width: 1200px;
-    }
-  
-    .slider-container {
-      height: 468px;
-    }
-  
-    .slide {
-      flex: 0 0 871px;
-      gap: 12px;
-    }
-  
-    .image-container {
-      width: 137px;
-    }
-  
-    .content, .image-medium {
-      width: 351px;
-    }
-  
-    .slide h2 {
-      font-size: 24px;
-    }
-  
-    .slide p {
-      font-size: 16px;
-    }
-  
-    .text-content {
-      padding: 20px;
-    }
-  
-    .slider-indicators {
-      padding: 20px;
-    }
-  
-    .indicator {
-      width: 10px;
-      height: 10px;
-    }
+
+  .slide p {
+    font-size: 15px;
   }
+}
+
+/* Masaüstü stilleri */
+@media (min-width: 1280px) {
+  .slider-main-container {
+    max-width: 1200px;
+  }
+
+  .slide {
+    flex: 0 0 871px;
+    gap: 12px;
+  }
+
+  .image-container {
+    width: 137px;
+  }
+
+  .content, .image-medium {
+    width: 351px;
+  }
+
+  .slide h2 {
+    font-size: 24px;
+  }
+
+  .slide p {
+    font-size: 16px;
+  }
+
+  .text-content {
+    padding: 20px;
+  }
+
+  .slider-indicators {
+    padding: 20px;
+  }
+
+  .indicator {
+    width: 10px;
+    height: 10px;
+  }
+}
