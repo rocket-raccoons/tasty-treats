@@ -74,6 +74,10 @@
   background-color: #9bb537;
 }
 
+.recipe-button:hover {
+  color: #050505;
+}
+
 .star-svg {
   width: 18px;
   height: 18px;
