@@ -36,4 +36,8 @@
     font-size: 1.6rem;
     line-height: 20px;
   }
+
+  .form-container {
+    margin-bottom: 16px;
+  }
 }

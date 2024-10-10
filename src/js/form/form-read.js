@@ -1,5 +1,18 @@
 //prettier-ignore
-import { timeOptions, areaOptions, ingrOptions, searchInput, cancelBtn } from './custom-form.js';
+import {
+  timeOptions,
+  areaOptions,
+  ingrOptions,
+  searchInput,
+  cancelBtn,
+  resetBtn,
+  timeTriggerText,
+  areaTriggerText,
+  ingrTriggerText,
+  timeHiddenInput,
+  areaHiddenInput,
+  ingrHiddenInput,
+} from './custom-form.js';
 
 import debounce from 'lodash/debounce';
 
@@ -56,6 +69,24 @@ const handleInput = debounce(function () {
   getQueryData(queryUrl);
 }, 300);
 
+function resetFilter() {
+  queryUrl =
+    'https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9';
+
+  [timeTriggerText, areaTriggerText, ingrTriggerText].forEach(trigger => {
+    trigger.textContent = 'Select';
+    trigger.classList.remove('trigger-active');
+  });
+
+  [timeHiddenInput, areaHiddenInput, ingrHiddenInput, searchInput].forEach(
+    input => (input.value = '')
+  );
+
+  cancelBtn.classList.add('hidden');
+
+  getQueryData(queryUrl);
+}
+
 //event listeners
 timeOptions.addEventListener('click', e => handleSelect('time', e));
 areaOptions.addEventListener('click', e => handleSelect('area', e));
@@ -73,37 +104,4 @@ cancelBtn.addEventListener('click', () => {
   searchInput.value = '';
   cancelBtn.classList.add('hidden');
 });
-
-// timeOptions.addEventListener('click', e => {
-//   if (e.target.tagName !== 'LI') return;
-//   timeTriggerText.textContent = e.target.textContent;
-//   timeHiddenInput.value = e.target.dataset.time;
-//   queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9&time=${timeHiddenInput.value}&area=${areaHiddenInput.value}&ingredients=${ingrHiddenInput.value}&title=${searchInput.value}`;
-
-//   console.log(queryUrl);
-//   getQueryData(queryUrl);
-//   timeOptions.classList.toggle('hidden-dropdown');
-// });
-
-// areaOptions.addEventListener('click', e => {
-//   if (e.target.tagName !== 'LI') return;
-//   areaTriggerText.textContent = e.target.textContent;
-//   areaHiddenInput.value = e.target.dataset.area;
-//   queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9&time=${timeHiddenInput.value}&area=${areaHiddenInput.value}&ingredients=${ingrHiddenInput.value}&title=${searchInput.value}`;
-//   areaOptions.classList.toggle('hidden-dropdown');
-//   console.log(queryUrl);
-
-//   getQueryData(queryUrl);
-// });
-
-// ingrOptions.addEventListener('click', e => {
-//   if (e.target.tagName !== 'LI') return;
-//   ingrTriggerText.textContent = e.target.textContent;
-//   ingrHiddenInput.value = e.target.dataset.ingr;
-//   ingrOptions.classList.toggle('hidden-dropdown');
-//   console.log(ingrHiddenInput.value);
-//   queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9&time=${timeHiddenInput.value}&area=${areaHiddenInput.value}&ingredients=${ingrHiddenInput.value}&title=${searchInput.value}`;
-//   console.log(queryUrl);
-
-//   getQueryData(queryUrl);
-// });
+resetBtn.addEventListener('click', resetFilter);
