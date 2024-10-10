@@ -1,4 +1,3 @@
-/* Genel Slider ve Görünüm */
 .slider-main-container {
   width: 100%;
   max-width: 100%;
@@ -109,7 +108,9 @@
 .last-item{
   background-color: #050505;
   border-radius: 15px;
+  overflow: hidden;
 }
+
 .slide h2 {
   margin: 0 0 8px;
   font-size: 20px;
@@ -119,6 +120,7 @@
 
 .slide p {
   font-size: 14px;
+  line-height: 18px;
   margin: 0 0 8px;
 }
 
@@ -151,7 +153,7 @@
   background-color: #9BB537;
 }
 
-/* Mobil Görünüm */
+
 @media (max-width: 767px) {
   .slide {
     flex: 0 0 100%;
@@ -161,34 +163,34 @@
     gap: 8px;
   }
 
-  /* İlk öğe 1/4 genişlik alacak */
+
   .image-container {
-    flex: 1; /* 1/4 genişlik */
+    flex: 1; 
     aspect-ratio: 137 / 468;
     overflow: hidden;
   }
 
-  /* İkinci öğe 3/4 genişlik alacak */
+ 
   .content {
-    flex: 3; /* 3/4 genişlik */
+    flex: 3; 
     aspect-ratio: 351 / 468;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
   }
 
-  /* Üçüncü öğe (medium image) mobilde gizlenecek */
+
   .image-medium {
     display: none;
   }
 
-  /* İçerik kısmını daha küçük yapalım */
+
   .text-content {
     padding: 8px;
     font-size: 12px;
   }
 
-  /* Slider göstergeleri */
+ 
   .slider-indicators {
     padding: 8px;
     gap: 4px;
@@ -200,40 +202,66 @@
   }
 }
 
-/* Tablet stilleri */
+
 @media (min-width: 768px) {
   .slider-container {
+    width: 100%;
+    max-width: 871px;
     height: 468px;
   }
 
   .slide h2 {
     font-size: 22px;
   }
-
+  
   .slide p {
     font-size: 15px;
   }
+  .last-item{
+    flex: 0 1 351px;
+    max-width: 351px;
+    overflow: hidden;
+  }
+  .last-item .image-medium{
+    width: 500px;
+    height:550px;
+    
+    transform: translate(-10%,-10%);
+  }
 }
 
-/* Masaüstü stilleri */
+
 @media (min-width: 1280px) {
   .slider-main-container {
-    max-width: 1200px;
+    max-width: 602px;
   }
 
   .slide {
-    flex: 0 0 871px;
+    flex: 0 0 602px;
+    max-width: 602px;
     gap: 12px;
   }
 
   .image-container {
-    width: 137px;
+    flex: 0 0 115px;
+    min-width: 115px;
   }
 
-  .content, .image-medium {
-    width: 351px;
+  .content {
+    flex: 0 0 230px;
+    min-width: 230px;
+   
   }
-
+  .last-item{
+    flex: 0 0 230px;
+    min-width: 230px;
+  }
+  .last-item .image-medium{
+    width: 400px;
+    height: 515px;
+    object-position: center;
+    transform: translate(-8%,-5%);
+  }
   .slide h2 {
     font-size: 24px;
   }

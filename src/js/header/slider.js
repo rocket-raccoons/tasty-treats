@@ -38,13 +38,15 @@ document.addEventListener('DOMContentLoaded', function () {
       currentIndex = index;
       updateSlider();
     }
-  
+    
     // Function to update the width of the slides based on window size
     function updateSlideWidth() {
       if (window.innerWidth >= 1280) {
         // For desktop, adjust slide width based on slider container size
-        slideWidth = (871 / slider.offsetWidth) * 100;
-      } else {
+        slideWidth = (602 / slider.offsetWidth) * 100;
+      } 
+
+      else {
         // For mobile/tablet, slide width will be 100%
         slideWidth = 100;
       }
