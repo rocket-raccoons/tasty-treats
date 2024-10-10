@@ -1,4 +1,3 @@
-//prettier-ignore
 import {
   timeOptions,
   areaOptions,
@@ -13,6 +12,7 @@ import {
   areaHiddenInput,
   ingrHiddenInput,
 } from './custom-form.js';
+import { displayRecipes } from '../cards.js';
 
 import debounce from 'lodash/debounce';
 
@@ -28,9 +28,9 @@ async function getQueryData(url) {
     if (!response.ok) {
       throw new Error('Failed to fetch query data');
     }
-
     const data = await response.json();
-    console.log(data.results);
+
+    displayRecipes(data.results);
   } catch (error) {
     console.error('Error fetching query data:', error);
   }
@@ -53,7 +53,6 @@ function handleSelect(inputName, e) {
         `${inputName}=${hiddenInput.value}`
       )
     : `${queryUrl}&${inputName}=${hiddenInput.value}`;
-  console.log(queryUrl);
 
   options.classList.toggle('hidden-dropdown');
   triggerText.classList.add('trigger-active');
@@ -65,7 +64,6 @@ const handleInput = debounce(function () {
   queryUrl = queryUrl.includes('title')
     ? queryUrl.replace(/title=[^&]*/, `title=${searchInput.value}`)
     : `${queryUrl}&title=${searchInput.value}`;
-  console.log(queryUrl);
   getQueryData(queryUrl);
 }, 300);
 

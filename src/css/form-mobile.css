@@ -15,6 +15,7 @@
 
 .search-container {
   flex-basis: 100%;
+  max-width: 335px;
 }
 
 .search-input {
