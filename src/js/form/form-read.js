@@ -29,7 +29,6 @@ async function getQueryData(url) {
       throw new Error('Failed to fetch query data');
     }
     const data = await response.json();
-
     displayRecipes(data.results);
   } catch (error) {
     console.error('Error fetching query data:', error);
@@ -88,7 +87,7 @@ function resetFilter() {
 //event listeners
 timeOptions.addEventListener('click', e => handleSelect('time', e));
 areaOptions.addEventListener('click', e => handleSelect('area', e));
-ingrOptions.addEventListener('click', e => handleSelect('ingredients', e));
+ingrOptions.addEventListener('click', e => handleSelect('ingredient', e));
 searchInput.addEventListener('input', () => {
   handleInput();
   if (searchInput.value !== '') {

@@ -41,9 +41,8 @@ async function getInsertIngr() {
 }
 
 function insertIngr(data) {
-  console.log(data);
   data.forEach(ingr => {
-    const html = `<li data-ingredients="${ingr._id}" class="option">${ingr.name}</li>`;
+    const html = `<li data-ingredient="${ingr._id}" class="option">${ingr.name}</li>`;
     ingrOptions.insertAdjacentHTML('beforeend', html);
   });
 }
