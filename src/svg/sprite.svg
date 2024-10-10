@@ -46,5 +46,8 @@
    <symbol id="icon-x" viewBox="0 0 24 24" fill="none">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="var(--text-color)" d="M18 6 6 18M6 6l12 12"/>
     </symbol>
+    <symbol id="icon-x-reset" viewBox="0 0 24 24" fill="none">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="var(--primary-color)" d="M18 6 6 18M6 6l12 12"/>
+    </symbol>
 </defs>
 </svg>
