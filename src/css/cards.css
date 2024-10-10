@@ -20,15 +20,29 @@
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
-  background-color: #fff;
-  background-size: cover; /* Resmin tüm kartı kaplamasını sağlar */
-  background-position: center; /* Resmi ortalar */
-  background-repeat: no-repeat; /* Resmin tekrarlamasını önler */
+  background-color: var(--white-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+.card-filter {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(
+    0.94deg,
+    rgba(5, 5, 5, 0.6) 4.82%,
+    rgba(5, 5, 5, 0) 108.72%)
 }
 .cards-img {
-  display: none; /* Kart resmi için img elementini gizliyoruz */
+  display: none;
 }
-.cards-listing .heard-button {
+.heard-button {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -37,11 +51,7 @@
   cursor: pointer;
   z-index: 50;
 }
-.heart-svg {
-  width: 24px;
-  height: 24px;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
-}
+
 .cards-img {
   width: 100%;
   height: 60%;
@@ -49,7 +59,7 @@
 }
 .text-container {
   margin-top: 148px;
-  width: 218px;
+  width: 250px;
   height: 31px;
   font-size: 1.4em;
   font-weight: bold;
@@ -58,6 +68,7 @@
   left: 0;
   right: 0;
   padding: 20px;
+  z-index: 50;
 }
 .specification-text {
   width: 218px;
@@ -75,6 +86,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  z-index: 50;
 }
 
 .card-rating-container {
@@ -114,12 +126,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 50;
 }
 
 .rating-star {
   display: flex;
   align-items: center;
-  margin-right: 9px; /* Rating ile buton arasında boşluk */
+  margin-right: 9px;
+  z-index: 50;
 }
 .rating-text {
   font-size: 1.8em;

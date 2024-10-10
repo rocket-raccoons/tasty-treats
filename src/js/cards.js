@@ -10,63 +10,52 @@ export async function fetchRecipes() {
     console.error('API verisi alınırken hata oluştu:', error);
   }
 }
-
+const cardsList = document.querySelector('.cards-list');
 export function displayRecipes(recipes) {
-  const cardsList = document.querySelector('.cards-list');
+
 
   // Mevcut kartları temizleme (eğer gerekirse)
   cardsList.innerHTML = '';
 
   recipes.forEach(recipe => {
-    // Yeni kart elemanı oluştur
-    const card = document.createElement('li');
-    card.classList.add('cards-listing');
+    // Rating için yıldızları oluşturma
+    const filledStars = Math.round(recipe.rating); // Kaç yıldız dolu olacağını hesapla
+    const emptyStars = 5 - filledStars; // Kaç yıldız boş kalacak
 
-    // Kartın arka plan resmini ekle
-    card.style.backgroundImage = `url(${recipe.preview})`;
+    // Her kart için template literal oluşturuluyor
+    const cardHTML = `
+      <li class="cards-listing" style="background-image: url(${recipe.preview});">
+        <div class="card-filter"></div>
+        <button class="heard-button"><svg class="svg-reset" width="22px" height="22px">
+          <use
+            class="heard-svg"
+            href="./svg/sprite.svg#icon-heart"
+          ></use>
+        </svg></button>
+        <div class="text-container">${recipe.title}</div>
+        <div class="specification-text">${recipe.description}</div>
+        <div class="card-rating-container">
+          <div class="rating-container">
+            <button class="recipe-button">See recipe</button>
+            <div class="rating-star">
+            <p class="rating-text">${recipe.rating.toFixed(1)}</p>
+              ${`<svg class="svg-reset" width="18px" height="18px">
+          <use
+            href="./svg/sprite.svg#icon-star  "
+          ></use>
+        </svg>`.repeat(filledStars)}${`<svg class="svg-reset" width="18px" height="18px">
+          <use
+            href="./svg/sprite.svg#icon-emptystar"
+          ></use>
+        </svg>`.repeat(emptyStars)}
+            </div>
+          </div>
+        </div>
+      </li>
+    `;
 
-    // Metin ve rating ekle
-    const cardRatingContainer = document.createElement('div');
-    cardRatingContainer.classList.add('card-rating-container');
-
-    // Başlık ekle
-    const textContainer = document.createElement('div');
-    textContainer.classList.add('text-container');
-    textContainer.textContent = recipe.title;
-
-    // Tarif açıklaması ekle (specification-text)
-    const specificationText = document.createElement('div');
-    specificationText.classList.add('specification-text');
-    specificationText.textContent = recipe.description; // API'den gelen açıklama burada
-
-    // Rating ekle (Sadece puanı gösterecek şekilde)
-    const ratingContainer = document.createElement('div');
-    ratingContainer.classList.add('rating-container');
-
-    const recipeButton = document.createElement('button');
-    recipeButton.classList.add('recipe-button');
-    recipeButton.textContent = 'See recipe';
-
-    const ratingStar = document.createElement('div');
-    ratingStar.classList.add('rating-star');
-
-    const ratingText = document.createElement('p');
-    ratingText.classList.add('rating-text');
-    ratingText.textContent = `${recipe.rating}`; // Sadece puanı gösteriyoruz
-
-    ratingStar.appendChild(ratingText);
-    ratingContainer.appendChild(recipeButton);
-    ratingContainer.appendChild(ratingStar);
-
-    cardRatingContainer.appendChild(ratingContainer);
-
-    // Elemanları karta ekle
-    card.appendChild(textContainer); // Başlık
-    card.appendChild(specificationText); // Tarif açıklaması
-    card.appendChild(cardRatingContainer); // Rating ve buton
-
-    // Kartı listeye ekle
-    cardsList.appendChild(card);
+    // Oluşturulan HTML'i ekrana yerleştir
+    cardsList.insertAdjacentHTML('beforeend', cardHTML);
   });
 
   // Tüm recipe-button öğelerine tıklama olayı ekleyelim
@@ -81,7 +70,8 @@ export function displayRecipes(recipes) {
 
 // Sayfa yüklendiğinde tarifleri çek
 document.addEventListener('DOMContentLoaded', _ => {
-    setTimeout(() => {
-        fetchRecipes();
-    }, 100);
- });
+  setTimeout(() => {
+    fetchRecipes();
+  }, 100);
+});
+
