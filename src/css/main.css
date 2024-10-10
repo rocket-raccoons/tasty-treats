@@ -103,6 +103,11 @@
   top: 100px;
 }
 
-.hidden {
-  display: none;
+.loader-text {
+  color: var(--text-color);
+  font-size: 24px;
+  /* transform: translateX(-50%); */
+  position: relative;
+  top: 50px;
+  left: 30%;
 }
