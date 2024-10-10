@@ -203,7 +203,6 @@
 /* Tablet stilleri */
 @media (min-width: 768px) {
   .slider-container {
-    max-width: 871px;
     height: 468px;
   }
 
