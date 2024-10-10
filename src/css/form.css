@@ -1,4 +1,8 @@
 @media screen and (min-width: 1280px) {
+  #filter-form {
+    flex-wrap: nowrap;
+  }
+
   .search-container {
     flex-basis: 30%;
   }

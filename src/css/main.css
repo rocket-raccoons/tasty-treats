@@ -8,14 +8,14 @@
     flex-direction: row;
     gap: 18px;
   }
+}
 
-  @media screen and (min-width: 1280px) {
-    .main-part {
-      gap: 64px;
-    }
+@media screen and (min-width: 1280px) {
+  .main-part {
+    gap: 64px;
+  }
 
-    .main-section {
-      min-width: 782px;
-    }
+  .main-section {
+    min-width: 782px;
   }
 }
