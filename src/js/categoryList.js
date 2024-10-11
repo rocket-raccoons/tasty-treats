@@ -51,9 +51,6 @@ function createCategoryList(categories) {
     })
 };
 
-
-
-
 function resetMainCards() {
     const cardList = document.querySelector('.cards-list');
     const categoryBtns = document.querySelectorAll('.category-btn');
