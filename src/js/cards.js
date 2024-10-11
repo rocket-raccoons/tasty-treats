@@ -1,4 +1,5 @@
 const cardsList = document.querySelector('.cards-list');
+const favArr = [];
 
 export async function fetchRecipes() {
   try {
@@ -28,9 +29,11 @@ export function displayRecipes(recipes) {
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
-      <button class="heard-button" data-id="${recipe._id}">
-         <svg class="svg-heard" width="22px" height="22px">
-            <use id="heard-use" href="./svg/sprite.svg#icon-heart"></use>
+      <button class="heard-button add-to-fav" data-id="${recipe._id}">
+         <svg class="svg-heard add-to-fav" data-id="${
+           recipe._id
+         }" width="22px" height="22px">
+            <use id="heard-use" class="add-to-fav" href="./svg/sprite.svg#icon-heart"></use>
         </svg></button>
 
       <div class="card-content-container">
@@ -79,4 +82,23 @@ document.addEventListener('DOMContentLoaded', _ => {
   setTimeout(() => {
     fetchRecipes();
   }, 100);
+
+  localStorage.setItem('favArr', favArr);
+});
+
+cardsList.addEventListener('click', e => {
+  if (e.target.classList.contains('add-to-fav')) {
+    const emptyHeart = document.querySelector('#heard-use');
+    const id = e.target.dataset.id;
+
+    if (favArr.includes(id)) {
+      favArr.splice(favArr.indexOf(id), 1);
+      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart');
+    } else {
+      favArr.push(id);
+      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
+    }
+  }
+
+  localStorage.setItem('favArr', favArr);
 });
