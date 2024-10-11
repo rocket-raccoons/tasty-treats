@@ -15,6 +15,10 @@ padding-top: 6.0rem;
 .recipe-content {
 width: 15.5rem;
 }
-
+.recipe-content-instructions {
+ 
+line-clamp: 3;
+-webkit-line-clamp: 3;
+}
  
 }
