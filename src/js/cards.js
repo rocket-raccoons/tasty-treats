@@ -31,7 +31,7 @@ export function displayRecipes(recipes) {
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
-      <button class="heard-button add-to-fav" data-id="${recipe._id}">
+      <button class="heard-button add-to-fav" data-id="${recipe._id}" aria-label="like-btn">
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
