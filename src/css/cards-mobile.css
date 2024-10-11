@@ -54,6 +54,7 @@
 }
 
 .text-container {
+  width: 250px;
   padding: 16px;
 }
 
@@ -61,14 +62,22 @@
   font-size: 1.4rem;
   line-height: 1.8rem;
   font-weight: 600;
-  color: #f8f8f8;
+  color: var(--white-bg);
   margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .specification-text {
   font-size: 1.2rem;
   line-height: 1.6rem;
-  color: #ffffffcc;
+  color: var(--white-bg);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-rating-container {
@@ -89,7 +98,8 @@
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.8rem;
-  color: #ffffff80;
+  color: var(--white-bg);
+  padding-right: 4px;
 }
 
 .recipe-button {
@@ -100,12 +110,12 @@
   border-radius: 8px;
   border: none;
   outline: none;
-  color: #f8f8f8;
+  color: var(--white-bg);
   background-color: var(--primary-color);
 }
 
 .recipe-button:hover {
-  color: #050505;
+  color: var(--secondary-color);
 }
 
 .card-star-svg {
