@@ -18,6 +18,7 @@
   .main-part {
     flex-direction: row;
     gap: 64px;
+    margin-top: 40px;
   }
 
   .aside {
