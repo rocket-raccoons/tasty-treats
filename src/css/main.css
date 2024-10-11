@@ -11,18 +11,10 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .main-section {
-    min-width: 782px;
-  }
-
   .main-part {
     flex-direction: row;
     gap: 64px;
     margin-top: 40px;
-  }
-
-  .aside {
-    max-width: 176px;
   }
 }
 
