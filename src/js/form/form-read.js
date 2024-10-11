@@ -31,6 +31,7 @@ async function getQueryData(url) {
       throw new Error('Failed to fetch query data');
     }
     const data = await response.json();
+    localStorage.setItem('totalPage', data.totalPages);
     displayRecipes(data.results);
   } catch (error) {
     console.error('Error fetching query data:', error);

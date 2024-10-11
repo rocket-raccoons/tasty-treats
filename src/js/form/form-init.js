@@ -51,6 +51,7 @@ export function clearFormLocal() {
   localStorage.setItem('time', '');
   localStorage.setItem('area', '');
   localStorage.setItem('ingredient', '');
+  localStorage.setItem('totalPage', '');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
