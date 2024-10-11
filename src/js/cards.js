@@ -100,5 +100,28 @@ cardsList.addEventListener('click', e => {
     }
   }
 
-  localStorage.setItem('favArr', favArr);
+  localStorage.setItem('favArr', JSON.stringify(favArr));
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+// EXPORT FAV PAGE FUNCTION
+export function getCardHTML(recipe) {
+   const filledStars = Math.round(recipe.rating);
+    const emptyStars = 5 - filledStars;
+  return `
+    <li class="cards-listing" style="background-image: url(${recipe.preview})">
+      ...
+    </li>
+  `;
+} //to export fav page
