@@ -9,7 +9,6 @@
     </div>
     <!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
     <div class="popular-recipes-container">
-      <h1 class="popular-receips-title">POPULAR RECIPES</h1>
       <ul id="popular-recipes-gallery"></ul>
     </div>
   </div>
@@ -114,102 +113,97 @@
       </button>
     </div>
 
-    <di class="menü-card-container">
+    <div class="menü-card-container">
       <div class="cards-container">
         <div class="loader-container hidden" id="loader">
           <div class="loader"></div>
           <p class="loader-text">Loading...</p>
         </div>
+
         <ul class="cards-list">
+          <li class="cards-listing">
+            <button class="heard-button">
+              <img src="svg/heart.svg" alt="heart" class="heart-svg" />
+            </button>
+            <img src="" alt="cards-img" class="cards-img" />
+            <div class="text-container">
+              <div class="specification-text"></div>
+              <div class="card-rating-container">
+                <div class="rating-container">
+                  <button class="recipe-button">See recipe</button>
+                  <div class="rating-star">
+                    <p class="rating-text"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
-      <nav class="pagination">
-        <div class="left-arrow-container">
-          <button class="pagination-btn left-end">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              id="chevron-double-left"
-            >
-              <path
-                d="M17,17a1,1,0,0,1-.71-.29l-4-4a1,1,0,0,1,0-1.41l4-4a1,1,0,0,1,1.41,1.41L14.41,12l3.29,3.29A1,1,0,0,1,17,17Z"
-              ></path>
-              <path
-                d="M11,17a1,1,0,0,1-.71-.29l-4-4a1,1,0,0,1,0-1.41l4-4a1,1,0,0,1,1.41,1.41L8.41,12l3.29,3.29A1,1,0,0,1,11,17Z"
-              ></path>
-            </svg>
-          </button>
-          <button class="pagination-btn left-one">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              id="chevron-left"
-            >
-              <g>
-                <path
-                  d="M13.36 17a1 1 0 0 1-.72-.31l-3.86-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.42L10.9 12l3.18 3.3a1 1 0 0 1 0 1.41 1 1 0 0 1-.72.29z"
-                ></path>
-              </g>
-            </svg>
-          </button>
-        </div>
-        <div class="page-numbers">
-          <button class="active-page pagination-btn">1</button>
-          <button class="pagination-btn">2</button>
-          <button class="pagination-btn">3</button>
-          <button class="pagination-btn">...</button>
-        </div>
-        <div class="right-arrow-container">
-          <button class="right-one pagination-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              id="chevron-right"
-            >
-              <g>
-                <g>
-                  <rect
-                    width="24"
-                    height="24"
-                    opacity="0"
-                    transform="rotate(-90 12 12)"
-                  ></rect>
-                  <path
-                    d="M10.5 17a1 1 0 0 1-.71-.29 1 1 0 0 1 0-1.42L13.1 12 9.92 8.69a1 1 0 0 1 0-1.41 1 1 0 0 1 1.42 0l3.86 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-.7.32z"
-                  ></path>
-                </g>
-              </g>
-            </svg>
-          </button>
-          <button class="right-end pagination-btn">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              id="chevron-double-right"
-            >
-              <path
-                d="M7,17a1,1,0,0,1-.71-1.71L9.59,12,6.29,8.71A1,1,0,0,1,7.71,7.29l4,4a1,1,0,0,1,0,1.41l-4,4A1,1,0,0,1,7,17Z"
-              ></path>
-              <path
-                d="M13,17a1,1,0,0,1-.71-1.71L15.59,12,12.29,8.71a1,1,0,0,1,1.41-1.41l4,4a1,1,0,0,1,0,1.41l-4,4A1,1,0,0,1,13,17Z"
-              ></path>
-            </svg>
-          </button>
-        </div>
-      </nav>
-      <!-- Scroll Button -->
-      <div class="scroll-button">
-        <div class="scroll-button">
-          <button class="scroll-btn" id="scrollBtn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="scroll-btn-svg-icon" viewBox="0 0 16 16">
-              <path fill-rule="evenodd"
-                d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z" />
-              <path fill-rule="evenodd"
-                d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
-            </svg>
-          </button>
-        </div>
-      </div>
+<nav class="pagination">
+  <div class="left-arrow-container">
+    <button class="pagination-btn left-end">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="chevron-double-left">
+        <path
+          d="M17,17a1,1,0,0,1-.71-.29l-4-4a1,1,0,0,1,0-1.41l4-4a1,1,0,0,1,1.41,1.41L14.41,12l3.29,3.29A1,1,0,0,1,17,17Z">
+        </path>
+        <path
+          d="M11,17a1,1,0,0,1-.71-.29l-4-4a1,1,0,0,1,0-1.41l4-4a1,1,0,0,1,1.41,1.41L8.41,12l3.29,3.29A1,1,0,0,1,11,17Z">
+        </path>
+      </svg>
+    </button>
+    <button class="pagination-btn left-one">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="chevron-left">
+        <g>
+          <path
+            d="M13.36 17a1 1 0 0 1-.72-.31l-3.86-4a1 1 0 0 1 0-1.4l4-4a1 1 0 1 1 1.42 1.42L10.9 12l3.18 3.3a1 1 0 0 1 0 1.41 1 1 0 0 1-.72.29z">
+          </path>
+        </g>
+      </svg>
+    </button>
+  </div>
+  <div class="page-numbers">
+    <button class="active-page pagination-btn">1</button>
+    <button class="pagination-btn">2</button>
+    <button class="pagination-btn">3</button>
+    <button class="pagination-btn">...</button>
+  </div>
+  <div class="right-arrow-container">
+    <button class="right-one pagination-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="chevron-right">
+        <g>
+          <g>
+            <rect width="24" height="24" opacity="0" transform="rotate(-90 12 12)"></rect>
+            <path
+              d="M10.5 17a1 1 0 0 1-.71-.29 1 1 0 0 1 0-1.42L13.1 12 9.92 8.69a1 1 0 0 1 0-1.41 1 1 0 0 1 1.42 0l3.86 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-.7.32z">
+            </path>
+          </g>
+        </g>
+      </svg>
+    </button>
+    <button class="right-end pagination-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="chevron-double-right">
+        <path
+          d="M7,17a1,1,0,0,1-.71-1.71L9.59,12,6.29,8.71A1,1,0,0,1,7.71,7.29l4,4a1,1,0,0,1,0,1.41l-4,4A1,1,0,0,1,7,17Z">
+        </path>
+        <path
+          d="M13,17a1,1,0,0,1-.71-1.71L15.59,12,12.29,8.71a1,1,0,0,1,1.41-1.41l4,4a1,1,0,0,1,0,1.41l-4,4A1,1,0,0,1,13,17Z">
+        </path>
+      </svg>
+    </button>
+  </div>
+</nav>
+<!-- Scroll Button -->
+<div class="scroll-button">
+  <button class="scroll-btn" id="scrollBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" class="scroll-btn-svg-icon" viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z" />
+      <path fill-rule="evenodd"
+        d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+    </svg>
+  </button>
+</div>
       <!-- Modal Window-->
       <div class="modal" id="recipeModal">
         <div class="modal-content">

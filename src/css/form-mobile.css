@@ -6,7 +6,6 @@
 
 .custom-select-container {
   position: relative;
-  flex-shrink: 0;
 }
 
 .input-container {
@@ -14,8 +13,7 @@
 }
 
 .search-container {
-  flex-basis: 100%;
-  max-width: 335px;
+  width: 335px;
 }
 
 .search-input {
@@ -73,11 +71,11 @@
 
 .time-container,
 .area-container {
-  flex-basis: calc(100% / 2 - 14px);
+  width: 160px;
 }
 
 .ingr-container {
-  flex-basis: 55%;
+  width: 188px;
 }
 
 .form-label {
@@ -155,4 +153,16 @@
 
 .reset-filter-btn:hove .svg-reset {
   fill: var(--primary-color);
+}
+
+/* line clamp */
+#area-trigger-text,
+#ingredient-trigger-text,
+#time-trigger-text {
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 20px;
 }

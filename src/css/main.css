@@ -6,17 +6,15 @@
 @media screen and (min-width: 768px) {
   .main-part {
     flex-direction: row;
-    gap: 18px;
+    gap: 32px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .main-section {
-    min-width: 782px;
-  }
-
-  .aside {
-    max-width: 176px;
+  .main-part {
+    flex-direction: row;
+    gap: 64px;
+    margin-top: 40px;
   }
 }
 

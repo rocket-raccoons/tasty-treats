@@ -12,6 +12,8 @@ import {
   areaHiddenInput,
   ingrHiddenInput,
 } from './custom-form.js';
+
+import { clearFormLocal } from './form-init.js';
 import { displayRecipes } from '../cards.js';
 
 import debounce from 'lodash/debounce';
@@ -29,6 +31,7 @@ async function getQueryData(url) {
       throw new Error('Failed to fetch query data');
     }
     const data = await response.json();
+    localStorage.setItem('totalPage', data.totalPages);
     displayRecipes(data.results);
   } catch (error) {
     console.error('Error fetching query data:', error);
@@ -82,7 +85,7 @@ function resetFilter() {
   );
 
   cancelBtn.classList.add('hidden');
-
+  clearFormLocal();
   getQueryData(queryUrl);
 }
 
