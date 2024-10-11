@@ -237,9 +237,7 @@ function changePage(newPage) {
 export {changePage}
 // Yeni sayfa için istek gönderen fonksiyon
 function requestPage(page) {
-    // if(page!==1){
         getQueryData(`https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=${page}&limit=9`)
-    //}
 }
 
 // Event listener'ları ayarlama

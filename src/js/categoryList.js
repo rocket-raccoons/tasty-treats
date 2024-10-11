@@ -1,7 +1,7 @@
 const categoryList = document.querySelector('.category-items-list');
 const allCategories = document.querySelector('.categories-button');
 import { displayRecipes } from './cards.js';
-import {fetchRecipes } from './cards.js';
+import { fetchRecipes } from './cards.js';
 
 async function fetchCategories() {
     const url = "https://tasty-treats-backend.p.goit.global/api/categories"

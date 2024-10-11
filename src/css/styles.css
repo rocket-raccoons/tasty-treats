@@ -2,24 +2,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 /* Sections style */
-@import url('./root.css');
-@import url('./reset.css');
-@import url('./header/nav.css');
-@import url('./header/order-popup.css');
-@import url('./header/greetings.css');
-@import url('./header/slider.css');
-@import url('./form-mobile.css');
-@import url('./form-tablet.css');
-@import url('./form.css');
-@import url('./categories.css');
-@import url('./modal.css');
-@import url('./popular-recipes.css');
-@import url('./popular-recipes-tablet.css');
-@import url('./popular-recipes-desktop.css');
-@import url('./favorites.css');
-@import url('./cards-mobile.css');
-@import url('./cards-tablet.css');
-@import url('./cards.css');
-@import url('./main.css');
-@import url('./pagination.css');
-@import url('./scroll-button.css');
+@import url('./root.min.css');
+@import url('./reset.min.css');
+@import url('./header/nav.min.css');
+@import url('./header/order-popup.min.css');
+@import url('./header/greetings.min.css');
+@import url('./header/slider.min.css');
+@import url('./form-mobile.min.css');
+@import url('./form-tablet.min.css');
+@import url('./form.min.css');
+@import url('./categories.min.css');
+@import url('./modal.min.css');
+@import url('./popular-recipes.min.css');
+@import url('./popular-recipes-tablet.min.css');
+@import url('./popular-recipes-desktop.min.css');
+@import url('./favorites.min.css');
+@import url('./cards-mobile.min.css');
+@import url('./cards-tablet.min.css');
+@import url('./cards.min.css');
+@import url('./main.min.css');
+@import url('./pagination.min.css');
+@import url('./scroll-button.min.css');
+
