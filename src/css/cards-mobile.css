@@ -10,7 +10,7 @@
   position: relative;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: var(--white-bg);
+  background-color: #F8F8F8;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -62,7 +62,7 @@
   font-size: 1.4rem;
   line-height: 1.8rem;
   font-weight: 600;
-  color: var(--white-bg);
+  color: #F8F8F8;
   margin-bottom: 8px;
   white-space: nowrap;
   overflow: hidden;
@@ -72,7 +72,6 @@
 .specification-text {
   font-size: 1.2rem;
   line-height: 1.6rem;
-  color: var(--white-bg);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -98,7 +97,7 @@
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.8rem;
-  color: var(--white-bg);
+  color: #F8F8F8;
   padding-right: 4px;
 }
 
@@ -110,12 +109,12 @@
   border-radius: 8px;
   border: none;
   outline: none;
-  color: var(--white-bg);
+  color: #F8F8F8;
   background-color: var(--primary-color);
 }
 
 .recipe-button:hover {
-  color: var(--secondary-color);
+  color: #050505;
 }
 
 .card-star-svg {
