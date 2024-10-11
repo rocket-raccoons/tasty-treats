@@ -11,12 +11,12 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .main-part {
-    gap: 64px;
-  }
-
   .main-section {
     min-width: 782px;
+  }
+
+  .aside {
+    max-width: 176px;
   }
 }
 
