@@ -190,10 +190,11 @@ const doubleRight = document.getElementById('doubleRight');
 
 let currentPage = 1;
 let totalPages = 1;
-
+let allPages = null;
 // Sayfa yüklendiğinde çalışacak fonksiyon
 async function initPagination() {
     totalPages = await fetchRecipes();
+    allPages = totalPages;
     updatePageButtons();
 }
 
@@ -211,47 +212,61 @@ async function fetchRecipes() {
 
 // Sayfa butonlarını güncelleyen fonksiyon
 function updatePageButtons() {
+    let balance = -1;
+    if(currentPage == totalPages && totalPages !=1){
+        balance = -2
+    }
+    if(currentPage != totalPages && currentPage == 1){
+        balance = 0
+    }
     pageButtons.forEach((button, index) => {
-        const pageNum = currentPage - 1 + index;
+        const pageNum = currentPage + balance + index;
         button.textContent = pageNum;
-        button.classList.toggle('active-page', pageNum === currentPage);
+        button.classList.toggle('active-page', pageNum == currentPage);
         button.style.display = pageNum > 0 && pageNum <= totalPages ? 'inline-block' : 'none';
     });
 
     // Navigasyon butonlarının durumunu güncelle
-    singleLeft.disabled = currentPage === 1;
-    doubleLeft.disabled = currentPage === 1;
-    singleRight.disabled = currentPage === totalPages;
-    doubleRight.disabled = currentPage === totalPages;
+    singleLeft.disabled = currentPage == 1;
+    doubleLeft.disabled = currentPage == 1;
+    singleRight.disabled = currentPage == totalPages;
+    doubleRight.disabled = currentPage == totalPages;
 }
 
 // Sayfa değiştirme fonksiyonu
-function changePage(newPage) {
+function changePage(newPage, from) {
+        console.log("page : ", newPage);
+        
+        totalPages = localStorage.getItem('totalPage') ? Number(localStorage.getItem('totalPage')) : allPages;
+        
+        console.log("total page : ", totalPages);
+        
     if (newPage >= 1 && newPage <= totalPages) {
         currentPage = newPage;
         updatePageButtons();
-        requestPage(currentPage);
-        
+    }
+    if(from == "page-number"){
+        requestPage(newPage);
     }
 }
 export {changePage}
 // Yeni sayfa için istek gönderen fonksiyon
 function requestPage(page) {
-        getQueryData(`https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=${page}&limit=9`)
+        //Kendin istek at
 }
 
 // Event listener'ları ayarlama
 pagination.addEventListener('click', (e) => {
     if (e.target.classList.contains('page-number')) {
-        changePage(parseInt(e.target.textContent));
+        changePage(parseInt(e.target.textContent),"page-number");
     } else if (e.target.id === 'singleLeft') {
-        changePage(currentPage - 1);
+        changePage(currentPage - 1,"page-number");
     } else if (e.target.id === 'singleRight') {
-        changePage(currentPage + 1);
+        changePage(currentPage + 1,"page-number");
     } else if (e.target.id === 'doubleLeft') {
-        changePage(1);
+        changePage(1,"page-number");
     } else if (e.target.id === 'doubleRight') {
-        changePage(totalPages);
+        changePage(totalPages,"page-number");
     }
 });
 

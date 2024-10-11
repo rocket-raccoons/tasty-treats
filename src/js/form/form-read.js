@@ -32,6 +32,7 @@ export async function getQueryData(url) {
     }
     const data = await response.json();
     localStorage.setItem('totalPage', data.totalPages);
+    changePage(1, "form-read");
     displayRecipes(data.results);
   } catch (error) {
     console.error('Error fetching query data:', error);
@@ -87,7 +88,6 @@ function resetFilter() {
   cancelBtn.classList.add('hidden');
   clearFormLocal();
   getQueryData(queryUrl);
-  changePage(1)
 }
 
 //event listeners
