@@ -89,10 +89,11 @@ document.addEventListener('DOMContentLoaded', _ => {
 });
 
 cardsList.addEventListener('click', e => {
-  if (e.target.classList.contains('add-to-fav') && e.target.tagName === 'svg') {
-    const id = e.target.dataset.id;
-    const emptyHeart = e.target.querySelector('.svguse');
-    console.log(emptyHeart);
+  const favButton = e.target.closest('.heard-button');
+
+  if (favButton) {
+    const id = favButton.dataset.id;
+    const emptyHeart = favButton.querySelector('.svguse');
 
     if (favArr.includes(id)) {
       favArr.splice(favArr.indexOf(id), 1);
@@ -101,11 +102,10 @@ cardsList.addEventListener('click', e => {
       favArr.push(id);
       emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
     }
+
+    localStorage.setItem('favArr', JSON.stringify(favArr));
   }
-
-  localStorage.setItem('favArr', JSON.stringify(favArr));
 });
-
 
 
 
