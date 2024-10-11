@@ -45,6 +45,7 @@ function handleSelect(inputName, e) {
 
   triggerText.textContent = e.target.textContent;
   hiddenInput.value = e.target.dataset[inputName];
+  localStorage.setItem(`${inputName}`, hiddenInput.value);
 
   queryUrl = queryUrl.includes(inputName)
     ? queryUrl.replace(
@@ -63,6 +64,7 @@ const handleInput = debounce(function () {
   queryUrl = queryUrl.includes('title')
     ? queryUrl.replace(/title=[^&]*/, `title=${searchInput.value}`)
     : `${queryUrl}&title=${searchInput.value}`;
+  localStorage.setItem('title', searchInput.value);
   getQueryData(queryUrl);
 }, 300);
 
