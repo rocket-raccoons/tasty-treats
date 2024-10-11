@@ -8,11 +8,13 @@ export async function fetchRecipes() {
       'https://tasty-treats-backend.p.goit.global/api/recipes?limit=9'
     );
     const data = await response.json();
-
+    
     // Tarifleri gösterme fonksiyonunu çağır
     displayRecipes(data.results);
+    return data.totalPages;
   } catch (error) {
     console.error('API verisi alınırken hata oluştu:', error);
+    return "hata";
   }
 }
 

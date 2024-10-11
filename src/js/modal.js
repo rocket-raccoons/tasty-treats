@@ -27,5 +27,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Example to open the modal (you can remove this if you have your own trigger)
     // document.querySelector('.see-recipe').addEventListener('click', openModal);
-    document.querySelector('.recipe-button').addEventListener('click', openModal);
+    // document.querySelector('.recipe-button').addEventListener('click', openModal);
 });

@@ -12,7 +12,7 @@ import {
   areaHiddenInput,
   ingrHiddenInput,
 } from './custom-form.js';
-
+import { changePage } from '../pagination.js';
 import { clearFormLocal } from './form-init.js';
 import { displayRecipes } from '../cards.js';
 
@@ -23,7 +23,7 @@ let queryUrl =
 
 //functions
 //urlden veri cekme
-async function getQueryData(url) {
+export async function getQueryData(url) {
   try {
     const response = await fetch(url);
 
@@ -87,6 +87,7 @@ function resetFilter() {
   cancelBtn.classList.add('hidden');
   clearFormLocal();
   getQueryData(queryUrl);
+  changePage(1)
 }
 
 //event listeners
