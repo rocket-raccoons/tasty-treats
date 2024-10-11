@@ -10,6 +10,9 @@
 @import url('./form-mobile.css');
 @import url('./form-tablet.css');
 @import url('./form.css');
+@import url('./cards-mobile.css');
+@import url('./cards-tablet.css');
+@import url('./cards.css');
 @import url('./categories.css');
 @import url('./modal.css');
 @import url('./popular-recipes.css');
@@ -18,5 +21,3 @@
 @import url('./favorites.css');
 @import url('./main.css');
 @import url('./pagination.css');
-
-
