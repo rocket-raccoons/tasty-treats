@@ -1,28 +1,28 @@
-// to fetch header
-    fetch('partials/header.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-                        .then(data => {
-                const tempDiv = document.createElement('div'); // to add div temporarly 
-                tempDiv.innerHTML = data; // add to the temp div
+// // to fetch header
+//     fetch('partials/header.html')
+//             .then(response => {
+//                 if (!response.ok) {
+//                     throw new Error('Network response was not ok');
+//                 }
+//                 return response.text();
+//             })
+//                         .then(data => {
+//                 const tempDiv = document.createElement('div'); // to add div temporarly 
+//                 tempDiv.innerHTML = data; // add to the temp div
 
-                // just select navbar
-                const navbar = tempDiv.querySelector('nav.navbar');
+//                 // just select navbar
+//                 const navbar = tempDiv.querySelector('nav.navbar');
 
-                // if theres navbar add it
-                if (navbar) {
-                    document.getElementById('header').appendChild(navbar); // add navbar to the heaeder
-                } else {
-                    console.error('Navbar not found in header.html');
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-            });
+//                 // if theres navbar add it
+//                 if (navbar) {
+//                     document.getElementById('header').appendChild(navbar); // add navbar to the heaeder
+//                 } else {
+//                     console.error('Navbar not found in header.html');
+//                 }
+//             })
+//             .catch(error => {
+//                 console.error('Fetch error:', error);
+//             });
 
 
 
