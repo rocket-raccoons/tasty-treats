@@ -47,5 +47,14 @@ function insertIngr(data) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', getInsertAreas);
-document.addEventListener('DOMContentLoaded', getInsertIngr);
+export function clearFormLocal() {
+  localStorage.setItem('time', '');
+  localStorage.setItem('area', '');
+  localStorage.setItem('ingredient', '');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  getInsertAreas();
+  getInsertIngr();
+  clearFormLocal();
+});

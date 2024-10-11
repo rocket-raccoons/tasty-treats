@@ -12,6 +12,8 @@ import {
   areaHiddenInput,
   ingrHiddenInput,
 } from './custom-form.js';
+
+import { clearFormLocal } from './form-init.js';
 import { displayRecipes } from '../cards.js';
 
 import debounce from 'lodash/debounce';
@@ -82,7 +84,7 @@ function resetFilter() {
   );
 
   cancelBtn.classList.add('hidden');
-
+  clearFormLocal();
   getQueryData(queryUrl);
 }
 
