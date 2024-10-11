@@ -33,7 +33,7 @@ export function displayRecipes(recipes) {
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
-            <use id="heard-use" class="add-to-fav" href="./svg/sprite.svg#icon-heart"></use>
+            <use class="add-to-fav svguse" href="./svg/sprite.svg#icon-heart"></use>
         </svg></button>
 
       <div class="card-content-container">
@@ -87,9 +87,10 @@ document.addEventListener('DOMContentLoaded', _ => {
 });
 
 cardsList.addEventListener('click', e => {
-  if (e.target.classList.contains('add-to-fav')) {
-    const emptyHeart = document.querySelector('#heard-use');
+  if (e.target.classList.contains('add-to-fav') && e.target.tagName === 'svg') {
     const id = e.target.dataset.id;
+    const emptyHeart = e.target.querySelector('.svguse');
+    console.log(emptyHeart);
 
     if (favArr.includes(id)) {
       favArr.splice(favArr.indexOf(id), 1);
