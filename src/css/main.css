@@ -19,6 +19,7 @@
   }
   .aside {
     max-width: 176px;
+    margin-top: 0;
   }
 }
 

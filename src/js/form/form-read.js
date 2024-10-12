@@ -21,8 +21,7 @@ import debounce from 'lodash/debounce';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-let queryUrl =
-  'https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9';
+let queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9`;
 
 //functions
 //urlden veri cekme
@@ -30,7 +29,6 @@ export async function getQueryData(url) {
   try {
     cardsList.innerHTML = '';
     loader.classList.remove('hidden');
-
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -55,6 +53,7 @@ export async function getQueryData(url) {
 //select optiona göre url düzenleme
 function handleSelect(inputName, e) {
   if (e.target.tagName !== 'LI') return;
+  const category = localStorage.getItem('category');
 
   const triggerText = document.getElementById(`${inputName}-trigger-text`);
   const hiddenInput = document.getElementById(`${inputName}-hidden-input`);
@@ -64,6 +63,7 @@ function handleSelect(inputName, e) {
   hiddenInput.value = e.target.dataset[inputName];
   localStorage.setItem(`${inputName}`, hiddenInput.value);
 
+  //input verisini urlye ekleme
   queryUrl = queryUrl.includes(inputName)
     ? queryUrl.replace(
         new RegExp(`${inputName}=[^&]*`),
@@ -71,7 +71,12 @@ function handleSelect(inputName, e) {
       )
     : `${queryUrl}&${inputName}=${hiddenInput.value}`;
 
-  options.classList.toggle('hidden-dropdown');
+  //localden gelen category verisini urlye ekleme
+  queryUrl = queryUrl.includes('category')
+    ? queryUrl.replace(/category=[^&]*/, `category=${category}`)
+    : `${queryUrl}&category=${category}`;
+
+  options.classList.add('hidden-dropdown');
   triggerText.classList.add('trigger-active');
   getQueryData(queryUrl);
 }
@@ -85,7 +90,7 @@ const handleInput = debounce(function () {
   getQueryData(queryUrl);
 }, 300);
 
-function resetFilter() {
+export function resetFilter() {
   queryUrl =
     'https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9';
 
