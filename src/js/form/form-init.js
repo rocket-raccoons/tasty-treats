@@ -17,6 +17,7 @@ async function getInsertAreas() {
     console.error('Error fetching areas:', error);
   }
 }
+
 function insertArea(data) {
   data.forEach(area => {
     const html = `<li data-area="${area.name}" class="option">${area.name}</li>`;
@@ -41,10 +42,20 @@ async function getInsertIngr() {
 
 function insertIngr(data) {
   data.forEach(ingr => {
-    const html = `<li data-ingr="${ingr.name}" class="option">${ingr.name}</li>`;
+    const html = `<li data-ingredient="${ingr._id}" class="option">${ingr.name}</li>`;
     ingrOptions.insertAdjacentHTML('beforeend', html);
   });
 }
 
-document.addEventListener('DOMContentLoaded', getInsertAreas);
-document.addEventListener('DOMContentLoaded', getInsertIngr);
+export function clearFormLocal() {
+  localStorage.setItem('time', '');
+  localStorage.setItem('area', '');
+  localStorage.setItem('ingredient', '');
+  localStorage.setItem('totalPage', '');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  getInsertAreas();
+  getInsertIngr();
+  clearFormLocal();
+});

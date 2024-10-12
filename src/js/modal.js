@@ -45,9 +45,11 @@ export function initModal() {
       console.error('Error fetching recipe details:', error);
       modalContent.innerHTML = '<p>Error loading recipe details. Please try again.</p>';
     }
+
   }
   
   export function closeModal() {
     const modal = document.getElementById('recipeModal');
     modal.style.display = 'none';
   }
+

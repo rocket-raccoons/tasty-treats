@@ -5,6 +5,7 @@
 
   .search-container {
     flex-basis: 60%;
+    flex-grow: 0;
   }
 
   .custom-select-trigger {
@@ -13,14 +14,17 @@
 
   .time-container {
     flex-basis: calc(40% - 16px);
+    flex-grow: 0;
   }
 
   .area-container {
     flex-basis: calc(40% - 16px);
+    flex-grow: 0;
   }
 
   .ingr-container {
     flex-basis: 40%;
+    flex-grow: 0;
   }
 
   .form-lanbel {
@@ -35,5 +39,10 @@
   .option {
     font-size: 1.6rem;
     line-height: 20px;
+  }
+
+  .form-container {
+    margin-bottom: 16px;
+    max-width: 419px;
   }
 }
