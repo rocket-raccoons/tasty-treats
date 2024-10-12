@@ -1,3 +1,5 @@
+import { openModal, initModal } from './modal.js';
+
 export const cardsList = document.querySelector('.cards-list');
 const favArr = [];
 
@@ -71,6 +73,7 @@ export function displayRecipes(recipes) {
     cardsList.insertAdjacentHTML('beforeend', cardHTML);
   });
 
+  addRecipeButtonListeners();
   // Tüm recipe-button öğelerine tıklama olayı ekleyelim
   const recipeButtons = document.querySelectorAll('.recipe-button');
   recipeButtons.forEach(button => {
@@ -81,14 +84,27 @@ export function displayRecipes(recipes) {
   });
 }
 
-// Sayfa yüklendiğinde tarifleri çek
-document.addEventListener('DOMContentLoaded', _ => {
-  setTimeout(() => {
-    fetchRecipes();
-  }, 100);
+// Update the event listener for recipe buttons
+function addRecipeButtonListeners() {
+  const recipeButtons = document.querySelectorAll('.recipe-button');
+  recipeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const recipeId = this.getAttribute('data-id');
+      openModal(recipeId);
+    });
+  });
+}
 
-  localStorage.setItem('favArr', favArr);
-});
+  function updateLocalStorage() {
+    localStorage.setItem('favArr', JSON.stringify(favArr));
+  }
+  
+  function initFavorites() {
+    const storedFavArr = localStorage.getItem('favArr');
+    if (storedFavArr) {
+      favArr = JSON.parse(storedFavArr);
+    }
+  }
 
 cardsList.addEventListener('click', e => {
   const favButton = e.target.closest('.heard-button');
@@ -105,9 +121,26 @@ cardsList.addEventListener('click', e => {
       emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
     }
 
-    localStorage.setItem('favArr', JSON.stringify(favArr));
+    updateLocalStorage(); // Update localStorage after changing favArr
   }
 });
+
+// Sayfa yüklendiğinde tarifleri çek
+document.addEventListener('DOMContentLoaded', () => {
+  // initModal(); // Initialize modal functionality
+
+  setTimeout(() => {
+    fetchRecipes().then(() => {
+      addRecipeButtonListeners(); // Add listeners after recipes are loaded
+    });
+  }, 100);
+
+    // Initialize favArr from localStorage if it exists
+    const storedFavArr = localStorage.getItem('favArr');
+    if (storedFavArr) {
+      favArr.push(...JSON.parse(storedFavArr));
+    }
+  });
 
 // EXPORT FAV PAGE FUNCTION
 export function getCardHTML(recipe) {
@@ -115,7 +148,7 @@ export function getCardHTML(recipe) {
   const emptyStars = 5 - filledStars;
   return `
     <li class="cards-listing" style="background-image: url(${recipe.preview})">
-      ...
+      <!-- ... (rest of the card HTML) ... -->
     </li>
   `;
 } //to export fav page
