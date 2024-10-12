@@ -96,9 +96,15 @@
   }
 }
 
+.cards-container {
+  position: relative;
+}
+
 .loader-container {
   position: absolute;
   top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .loader-text {

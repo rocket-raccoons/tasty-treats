@@ -11,10 +11,11 @@ import {
   timeHiddenInput,
   areaHiddenInput,
   ingrHiddenInput,
+  loader,
 } from './custom-form.js';
 import { changePage } from '../pagination.js';
 import { clearFormLocal } from './form-init.js';
-import { displayRecipes } from '../cards.js';
+import { displayRecipes, cardsList } from '../cards.js';
 
 import debounce from 'lodash/debounce';
 
@@ -25,6 +26,9 @@ let queryUrl =
 //urlden veri cekme
 export async function getQueryData(url) {
   try {
+    cardsList.innerHTML = '';
+    loader.classList.remove('hidden');
+
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -32,10 +36,12 @@ export async function getQueryData(url) {
     }
     const data = await response.json();
     localStorage.setItem('totalPage', data.totalPages);
-    changePage(1, "form-read");
+    changePage(1, 'form-read');
     displayRecipes(data.results);
   } catch (error) {
     console.error('Error fetching query data:', error);
+  } finally {
+    loader.classList.add('hidden');
   }
 }
 

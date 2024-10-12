@@ -1,4 +1,4 @@
-const cardsList = document.querySelector('.cards-list');
+export const cardsList = document.querySelector('.cards-list');
 const favArr = [];
 
 export async function fetchRecipes() {
@@ -8,13 +8,13 @@ export async function fetchRecipes() {
       'https://tasty-treats-backend.p.goit.global/api/recipes?limit=9'
     );
     const data = await response.json();
-    
+
     // Tarifleri gösterme fonksiyonunu çağır
     displayRecipes(data.results);
     return data.totalPages;
   } catch (error) {
     console.error('API verisi alınırken hata oluştu:', error);
-    return "hata";
+    return 'hata';
   }
 }
 
@@ -31,7 +31,9 @@ export function displayRecipes(recipes) {
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
-      <button class="heard-button add-to-fav" data-id="${recipe._id}" aria-label="like-btn">
+      <button class="heard-button add-to-fav" data-id="${
+        recipe._id
+      }" aria-label="like-btn">
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
@@ -107,21 +109,10 @@ cardsList.addEventListener('click', e => {
   }
 });
 
-
-
-
-
-
-
-
-
-
-
-
 // EXPORT FAV PAGE FUNCTION
 export function getCardHTML(recipe) {
-   const filledStars = Math.round(recipe.rating);
-    const emptyStars = 5 - filledStars;
+  const filledStars = Math.round(recipe.rating);
+  const emptyStars = 5 - filledStars;
   return `
     <li class="cards-listing" style="background-image: url(${recipe.preview})">
       ...
