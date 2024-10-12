@@ -2,6 +2,7 @@ const categoryList = document.querySelector('.category-items-list');
 const allCategories = document.querySelector('.categories-button');
 import { displayRecipes } from './cards.js';
 import { fetchRecipes } from './cards.js';
+import { changePage } from './pagination.js';
 
 async function fetchCategories() {
     const url = "https://tasty-treats-backend.p.goit.global/api/categories"
@@ -21,8 +22,10 @@ async function fetchChosenCategory(categoryName) {
     try {
         const response = await fetch(url);
         const data = await response.json();
+        localStorage.setItem('totalPage', data.totalPages);
         const recipes = data.results;
         displayRecipes(recipes);
+        changePage(1);
     } catch (error) {
         console.log(error + "fetching chosen category recipes");
     }
@@ -38,6 +41,7 @@ function categoryBtnClick() {
             });
             e.target.style.color = "var(--primary-color)";
             let categoryName = e.target.innerText;
+            localStorage.setItem('category', categoryName);
             fetchChosenCategory(categoryName);
         })
     })
@@ -58,7 +62,11 @@ function resetMainCards() {
         button.style.color = "";
     });
     cardList.innerHTML = '';
-    fetchRecipes();
+    localStorage.setItem('category', "");
+    fetchRecipes().then(data => {
+        localStorage.setItem('totalPage', data);
+    });
+    changePage(1);
 };
 
 
