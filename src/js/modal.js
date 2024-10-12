@@ -1,3 +1,6 @@
+// const tempRecipeID = document.getElementById('recipeID').value;
+const tempRecipeID = None
+
 document.addEventListener('DOMContentLoaded', () => {
     // const modal = document.querySelector('.modal');
     const modal = document.getElementById('recipeModal');
