@@ -1,26 +1,118 @@
-<div class="menü-card-container container">
-  <!-- MENÜ CARD YAPISI -->
-  <div class="cards-container">
-    <ul class="cards-list">
-      <li class="cards-listing">
-        <button class="heard-button">
-          <img src="svg/heart.svg" alt="heart" class="heart-svg" />
-        </button>
-        <img src="" alt="cards-img" class="cards-img" />
-        <span class="loader"></span>
-        <div class="card-text-rating-container">
-          <div class="text-container"></div>
-          <div class="rating-container">
-            <button class="recipe-button">See recipe</button>
-            <div class="rating-star">
-              <p class="rating-text"></p>
-            </div>
+<!-- MENÜ CARD YAPISI -->
+<main class="main-part container">
+  <aside class="aside">
+    <div class="container-categories">
+      <button class="categories-button">All categories</button>
+      <div class="category-list">
+        <ul class="category-items-list"></ul>
+      </div>
+    </div>
+    <!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
+    <div class="popular-recipes-container">
+      <h1 class="popular-recipes-title">POPULAR RECIPES</h1>
+      <ul id="popular-recipes-gallery"></ul>
+    </div>
+  </aside>
+
+  <section class="main-section">
+    <div class="form-container">
+      <div id="filter-form">
+        <div class="search-container">
+          <label for="search" class="form-label">Search</label>
+          <div class="input-container">
+            <input
+              class="search-input"
+              type="text"
+              name="search"
+              id="search"
+              autocomplete="off"
+              placeholder="Enter Text"
+            />
+            <button type="button" aria-label="search button" class="btn-search">
+              <svg class="svg-search" width="18px" height="18px">
+                <use
+                  class="svg-search-icon"
+                  href="./svg/sprite.svg#icon-search"
+                ></use>
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="input empty button"
+              class="btn-cancel hidden"
+              id="cancel-btn"
+            >
+              <svg class="svg-cacel" width="18px" height="18px">
+                <use
+                  class="svg-cancel-icon"
+                  href="./svg/sprite.svg#icon-x"
+                ></use>
+              </svg>
+            </button>
           </div>
         </div>
-      </li>
-    </ul>
-  </div>
-</div>
+
+        <!-- Time -->
+        <div class="custom-select-container time-container">
+          <h3 class="form-label">Time</h3>
+          <div class="custom-select-trigger" id="time-trigger">
+            <span id="time-trigger-text">Select</span>
+            <svg class="svg-arrow" width="18px" height="18px">
+              <use
+                class="svg-arrow-icon"
+                href="./svg/sprite.svg#icon-chevron-down"
+              ></use>
+            </svg>
+          </div>
+
+          <ul class="options hidden-dropdown" id="time-options"></ul>
+        </div>
+
+        <!-- Area -->
+        <div class="custom-select-container area-container">
+          <h3 class="form-label">Region</h3>
+          <div class="custom-select-trigger" id="area-trigger">
+            <span id="area-trigger-text">Select</span>
+            <svg class="svg-arrow" width="18px" height="18px">
+              <use
+                class="svg-arrow-icon"
+                href="./svg/sprite.svg#icon-chevron-down"
+              ></use>
+            </svg>
+          </div>
+          <ul class="options hidden-dropdown" id="area-options"></ul>
+        </div>
+
+        <!-- ingredients -->
+        <div class="custom-select-container ingr-container">
+          <h3 class="form-label">Product</h3>
+          <div class="custom-select-trigger" id="ingredient-trigger">
+            <span id="ingredient-trigger-text">Select</span>
+            <svg class="svg-arrow" width="18px" height="18px">
+              <use
+                class="svg-arrow-icon"
+                href="./svg/sprite.svg#icon-chevron-down"
+              ></use>
+            </svg>
+          </div>
+          <ul class="options hidden-dropdown" id="ingredient-options"></ul>
+        </div>
+
+        <input type="hidden" id="time-hidden-input" />
+        <input type="hidden" id="area-hidden-input" />
+        <input type="hidden" id="ingredient-hidden-input" />
+      </div>
+
+      <button class="reset-filter-btn" id="reset-filter-btn">
+        <svg class="svg-reset" width="16px" height="16px">
+          <use
+            class="svg-cancel-icon"
+            href="./svg/sprite.svg#icon-x-reset"
+          ></use>
+        </svg>
+        Reset the filter
+      </button>
+    </div>
 
 <!-- Modal Window-->
 <div class="modal" id="recipeModal">

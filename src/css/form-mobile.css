@@ -13,16 +13,27 @@
 }
 
 .search-container {
-  flex-basis: 100%;
+  width: 335px;
 }
 
 .search-input {
   outline: none;
-  border: 1px solid #05050533;
+  border: 1px solid rgb(from var(--text-color) r g b / 20%);
+  color: var(--text-color);
   background-color: transparent;
   padding: 14px 48px;
   border-radius: 15px;
   width: 100%;
+}
+
+.search-input:focus + .btn-search > .svg-search {
+  fill: var(--primary-color);
+}
+
+.svg-search,
+.svg-arrow {
+  fill: rgb(from var(--text-color) r g b / 20%);
+  transition: fill 0.3s;
 }
 
 .btn-search {
@@ -47,7 +58,7 @@
 
 .custom-select-trigger {
   cursor: pointer;
-  border: 1px solid #05050533;
+  border: 1px solid rgb(from var(--text-color) r g b / 20%);
   border-radius: 15px;
   background-color: transparent;
   display: flex;
@@ -55,16 +66,16 @@
   justify-content: space-between;
   padding: 14px 18px;
   font-size: 1.4rem;
-  color: #05050580;
+  color: rgb(from var(--text-color) r g b / 20%);
 }
 
 .time-container,
 .area-container {
-  flex-basis: calc(100% / 2 - 14px);
+  width: 160px;
 }
 
 .ingr-container {
-  flex-basis: 55%;
+  width: 188px;
 }
 
 .form-label {
@@ -72,14 +83,16 @@
   font-size: 1.2rem;
   line-height: 14px;
   font-weight: 500;
-  color: #05050580;
+  color: rgb(from var(--text-color) r g b / 20%);
   margin-bottom: 8px;
 }
 
 .options {
   max-height: 176px;
   padding: 14px 18px;
-  background-color: #ffffff;
+  background-color: var(--white-bg);
+  box-shadow: 0px 4px 36px 0px rgb(from var(--text-color) r g b / 10%);
+
   border-radius: 15px;
   overflow-y: scroll;
   position: absolute;
@@ -101,14 +114,56 @@
 .option {
   font-size: 1.4rem;
   line-height: 18px;
-  color: #0505054d;
+  color: rgb(from var(--text-color) r g b / 30%);
   cursor: pointer;
 }
 
 .option:hover {
-  color: #050505;
+  color: var(--text-color);
 }
 
-.hidden-dropdown {
+.hidden-dropdown,
+.hidden {
   display: none;
+}
+
+.trigger-active {
+  color: var(--text-color);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+  max-width: 335px;
+}
+
+.reset-filter-btn {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  color: rgb(from var(--text-color) r g b / 30%);
+}
+
+.reset-filter-btn:hover {
+  color: var(--text-color);
+}
+
+.reset-filter-btn:hove .svg-reset {
+  fill: var(--primary-color);
+}
+
+/* line clamp */
+#area-trigger-text,
+#ingredient-trigger-text,
+#time-trigger-text {
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 20px;
 }

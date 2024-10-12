@@ -1,45 +1,62 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    const indicatorsContainer = document.querySelector('.slider-indicators');
-    let currentIndex = 0;
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slide');
+  const indicatorsContainer = document.querySelector('.slider-indicators');
+  let currentIndex = 0;
+  let slideWidth = 100;
 
-    // Create indicators
-    slides.forEach((_, index) => {
-        const indicator = document.createElement('div');
-        indicator.classList.add('indicator');
-        indicator.addEventListener('click', () => goToSlide(index));
-        indicatorsContainer.appendChild(indicator);
-    });
+  slides.forEach((_, index) => {
+      const indicator = document.createElement('div');
+      indicator.classList.add('indicator');
+      indicator.addEventListener('click', () => goToSlide(index));
+      indicatorsContainer.appendChild(indicator);
+  });
 
-    const indicators = document.querySelectorAll('.indicator');
+  const indicators = document.querySelectorAll('.indicator');
 
-    function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 871}px)`;
-        updateIndicators();
-    }
+  function updateSlider() {
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+      updateIndicators();
+  }
 
-    function updateIndicators() {
-        indicators.forEach((indicator, index) => {
-            if (index === currentIndex) {
-                indicator.classList.add('active');
-            } else {
-                indicator.classList.remove('active');
-            }
-        });
-    }
+  function updateIndicators() {
+      indicators.forEach((indicator, index) => {
+          if (index === currentIndex) {
+              indicator.classList.add('active');
+          } else {
+              indicator.classList.remove('active');
+          }
+      });
+  }
 
-    function goToSlide(index) {
-        currentIndex = index;
-        updateSlider();
-    }
+  function goToSlide(index) {
+      currentIndex = index;
+      updateSlider();
+  }
 
-    // Initialize slider
-    updateSlider();
+  function updateSlideWidth() {
+      const sliderContainerWidth = slider.offsetWidth;
 
-    // Optional: Auto-slide every 5 seconds
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-    }, 5000);
+      if (window.innerWidth >= 1280) {
+          slideWidth = (602 / sliderContainerWidth) * 100;  
+      } 
+      else if (window.innerWidth >= 768 && window.innerWidth < 945) {
+          slideWidth = (sliderContainerWidth / 1) / sliderContainerWidth * 100;
+      } 
+      else {
+          slideWidth = 100;
+      }
+      updateSlider();
+  }
+
+  updateSlideWidth();
+  updateSlider();
+
+  window.addEventListener('resize', updateSlideWidth);
+
+  setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlider();
+  }, 5000);
 });
+

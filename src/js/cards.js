@@ -1,21 +1,121 @@
-// API'den fotoğraf çeken ve HTML'deki img'ye ekleyen fonksiyon
-async function fetchRecipePhoto() {
+export const cardsList = document.querySelector('.cards-list');
+const favArr = [];
+
+export async function fetchRecipes() {
   try {
-    // API'den veriyi çekiyoruz
-    const response = await fetch('https://tasty-treats-backend.p.goit.global/api/recipes');
+    // API'den tarif verilerini çekiyoruz
+    const response = await fetch(
+      'https://tasty-treats-backend.p.goit.global/api/recipes?limit=9'
+    );
     const data = await response.json();
 
-    // API'nin array döndürdüğünü biliyoruz, ilk öğeyi alıyoruz
-    const photoUrl = data[0].preview; // İlk tarifin 'preview' alanını alıyoruz
-
-    // HTML'deki img etiketini seçip fotoğrafı ekliyoruz
-    const cardImg = document.querySelector('.cards-img');
-    cardImg.src = photoUrl; // Fotoğraf URL'sini img etiketine ekliyoruz
-
+    // Tarifleri gösterme fonksiyonunu çağır
+    displayRecipes(data.results);
+    return data.totalPages;
   } catch (error) {
-    console.error('API isteği sırasında bir hata oluştu:', error);
+    console.error('API verisi alınırken hata oluştu:', error);
+    return 'hata';
   }
 }
 
-// Sayfa yüklendiğinde fotoğrafı çek
-document.addEventListener('DOMContentLoaded', fetchRecipePhoto);
+export function displayRecipes(recipes) {
+  // Mevcut kartları temizleme (eğer gerekirse)
+  cardsList.innerHTML = '';
+
+  recipes.forEach(recipe => {
+    // Rating için yıldızları oluşturma
+    const filledStars = Math.round(recipe.rating);
+    const emptyStars = 5 - filledStars;
+
+    const cardHTML = `
+      <li class="cards-listing" style="background-image: url(${
+        recipe.preview
+      });">
+      <button class="heard-button add-to-fav" data-id="${
+        recipe._id
+      }" aria-label="like-btn">
+         <svg class="svg-heard add-to-fav" data-id="${
+           recipe._id
+         }" width="22px" height="22px">
+            <use class="add-to-fav svguse" href="./svg/sprite.svg#icon-heart"></use>
+        </svg></button>
+
+      <div class="card-content-container">
+         <div class="text-container">
+            <h3 class="card-title">${recipe.title}</h3>
+              <p class="specification-text">${recipe.description}</p>
+          </div>
+
+          <div class="card-rating-container">
+              <div class="rating-container">
+                  <p class="rating-text">${recipe.rating.toFixed(1)}</p>
+                  <div class="star-container">
+                    ${`<svg class="card-star-svg">
+                    <use href="./svg/sprite.svg#icon-star"></use>
+                      </svg>`.repeat(filledStars)}
+
+                    ${`<svg class="card-star-svg">
+                    <use href="./svg/sprite.svg#icon-emptystar"></use>
+                    </svg>`.repeat(emptyStars)}
+                  </div>    
+                </div>
+              
+            <button class="recipe-button" data-id="${
+              recipe._id
+            }">See recipe</button>
+        </div>      
+      </li>
+    `;
+
+    // Oluşturulan HTML'i ekrana yerleştir
+    cardsList.insertAdjacentHTML('beforeend', cardHTML);
+  });
+
+  // Tüm recipe-button öğelerine tıklama olayı ekleyelim
+  const recipeButtons = document.querySelectorAll('.recipe-button');
+  recipeButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      // Butona tıklandığında metin rengi siyah olacak
+      button.style.color = '#000';
+    });
+  });
+}
+
+// Sayfa yüklendiğinde tarifleri çek
+document.addEventListener('DOMContentLoaded', _ => {
+  setTimeout(() => {
+    fetchRecipes();
+  }, 100);
+
+  localStorage.setItem('favArr', favArr);
+});
+
+cardsList.addEventListener('click', e => {
+  const favButton = e.target.closest('.heard-button');
+
+  if (favButton) {
+    const id = favButton.dataset.id;
+    const emptyHeart = favButton.querySelector('.svguse');
+
+    if (favArr.includes(id)) {
+      favArr.splice(favArr.indexOf(id), 1);
+      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart');
+    } else {
+      favArr.push(id);
+      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
+    }
+
+    localStorage.setItem('favArr', JSON.stringify(favArr));
+  }
+});
+
+// EXPORT FAV PAGE FUNCTION
+export function getCardHTML(recipe) {
+  const filledStars = Math.round(recipe.rating);
+  const emptyStars = 5 - filledStars;
+  return `
+    <li class="cards-listing" style="background-image: url(${recipe.preview})">
+      ...
+    </li>
+  `;
+} //to export fav page

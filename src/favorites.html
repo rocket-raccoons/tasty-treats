@@ -1,78 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <!-- <script type="module" src="./js/header/nav.js" defer></script> -->
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/root.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/header/nav.js" defer></script>
+    <script type="module" src="./js/favorites.js" defer></script>
+  </head>
 
-<body class="fav-body">
+  <body class="fav-body">
     <!-- to fetch header -->
 
-    <div id="header"></div>
-    <script>
-    fetch('partials/header.html')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.text();
-            })
-                        .then(data => {
-                const tempDiv = document.createElement('div'); // to add div temporarly 
-                tempDiv.innerHTML = data; // add to the temp div
-
-                // just select navbar
-                const navbar = tempDiv.querySelector('nav.navbar');
-
-                // if theres navbar add it
-                if (navbar) {
-                    document.getElementById('header').appendChild(navbar); // add navbar to the heaeder
-                } else {
-                    console.error('Navbar not found in header.html');
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-            });
-    </script>
-
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <ul class="navbar-menu">
+          <li>
+            <a href="/tasty-treats/" class="active inter-font-500">Home</a>
+          </li>
+          <li>
+            <a href="/tasty-treats/favorites.html" class="inter-font-500"
+              >Favorites</a
+            >
+          </li>
+        </ul>
+        <div class="navbar-logo">
+          <h1 class="inter-font font-weight-600"><span>tasty</span>treats.</h1>
+        </div>
+        <div class="navbar-actions">
+          <a href="#cart" class="cart-icon"
+            ><i class="fas fa-shopping-cart"></i
+          ></a>
+          <div class="theme-toggle">
+            <button
+              id="themeToggle"
+              class="toggle-switch"
+              aria-label="Toggle dark mode"
+            >
+              <span class="toggle-slider">
+                <span class="toggle-knob"></span>
+              </span>
+            </button>
+            <span class="sunSide show">
+              <i class="fa-solid fa-sun"></i>
+            </span>
+            <span class="moonSide">
+              <i class="fa-solid fa-moon"></i>
+            </span>
+          </div>
+          <button id="mobileMenuToggle" class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="sideMenu" class="side-menu">
+      <button id="closeSideMenu" class="close-side-menu">&times;</button>
+      <ul class="side-menu-items">
+        <li><a href="/tasty-treats/">Home</a></li>
+        <li><a href="/tasty-treats/favorites.html">Favorites</a></li>
+      </ul>
+      <div class="side-menu-theme-toggle">
+        <span class="sunSide show">
+          <i class="fa-solid fa-sun"></i>
+        </span>
+        <span class="moonSide">
+          <i class="fa-solid fa-moon"></i>
+        </span>
+        <button
+          id="sideMenuThemeToggle"
+          class="toggle-switch"
+          aria-label="Toggle dark mode"
+        >
+          <span class="toggle-slider">
+            <span class="toggle-knob"></span>
+          </span>
+        </button>
+      </div>
+    </div>
 
     <div class="fav-img">
-        <img class="fav-img-item-big" src="./img/favorites-large-plate.png" alt="fav-hero-prepared-large-plate-photo">
-        <img class="fav-img-item-medium" src="./img/favorites-medium-plate-pic.png" alt="fav-hero-prepared-medium-plate-photo">
-        <img class="fav-img-item-small" src="./img/favorites-small-plate-pic.png" alt="fav-hero-prepared-small-plate-photo">
+      <img
+        class="fav-img-item-big"
+        src="./img/favorites-large-plate.png"
+        alt="fav-hero-prepared-large-plate-photo"
+      />
+      <img
+        class="fav-img-item-medium"
+        src="./img/favorites-medium-plate-pic.png"
+        alt="fav-hero-prepared-medium-plate-photo"
+      />
+      <!-- <img class="fav-img-item-small" src="./img/favorites-small-plate-pic.png" alt="fav-hero-prepared-small-plate-photo"> -->
     </div>
 
-
-    <div class="fav-container">
+    <!-- <div class="fav-container">
         <div class="fav-categories-list">
-            <button class="fav-categories-list-button">All categories</button>
-            <button class="fav-categories-list-button">Dessert</button>
-            <button class="fav-categories-list-button">Breakfast</button>
-            <button class="fav-categories-list-button">Chicken</button>
-            <button class="fav-categories-list-button">Lamb</button>
-            <button class="fav-categories-list-button">Miscellaneous</button>
-            <button class="fav-categories-list-button">Pork</button>
-            <button class="fav-categories-list-button">Seafood</button>
-            <button class="fav-categories-list-button">Vegan</button>
-            <button class="fav-categories-list-button">Vegetarian</button>
-        </div>
+             <button class="fav-categories-list-button">All categories</button> 
+            KATEGORİ BUTONLARI 
+        </div> -->
 
-        <!-- ------------------------------------------------------ -->
-        <ul class="fav-list">
-            <li class="fav-list-recipe">
-            </li>
-            <li class="fav-list-recipe">
-            </li>
-            <li class="fav-list-recipe">
-            </li>
-        </ul>
-    </div>
+    <!-- ------------------------------------------------------ -->
 
-</body>
-
+    <div id="message-container"></div>
+  </body>
 </html>
