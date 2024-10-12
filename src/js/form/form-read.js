@@ -24,7 +24,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 let queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9`;
 
 //functions
-//urlden veri cekme
+//makes api call and calls displayRecipes function
 export async function getQueryData(url) {
   try {
     cardsList.innerHTML = '';
@@ -50,11 +50,11 @@ export async function getQueryData(url) {
   }
 }
 
-//select optiona göre url düzenleme
+//when click on select option it creates url and calls getQueryData function
 function handleSelect(inputName, e) {
   if (e.target.tagName !== 'LI') return;
-  const category = localStorage.getItem('category');
 
+  const category = localStorage.getItem('category');
   const triggerText = document.getElementById(`${inputName}-trigger-text`);
   const hiddenInput = document.getElementById(`${inputName}-hidden-input`);
   const options = document.getElementById(`${inputName}-options`);
@@ -81,8 +81,16 @@ function handleSelect(inputName, e) {
   getQueryData(queryUrl);
 }
 
-//inputa göre url düzenleme
+//300ms after input stops it creates url calls getQueryData function
 const handleInput = debounce(function () {
+  //for display and hide cancel button
+  if (searchInput.value !== '') {
+    cancelBtn.classList.remove('hidden');
+  } else {
+    cancelBtn.classList.add('hidden');
+  }
+
+  //add inpt value to url
   queryUrl = queryUrl.includes('title')
     ? queryUrl.replace(/title=[^&]*/, `title=${searchInput.value}`)
     : `${queryUrl}&title=${searchInput.value}`;
@@ -90,6 +98,7 @@ const handleInput = debounce(function () {
   getQueryData(queryUrl);
 }, 300);
 
+//resets all filters on form
 export function resetFilter() {
   queryUrl =
     'https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9';
@@ -108,21 +117,17 @@ export function resetFilter() {
   getQueryData(queryUrl);
 }
 
+//clears input value and hides cancel button
+function clearInput() {
+  handleInput();
+  searchInput.value = '';
+  cancelBtn.classList.add('hidden');
+}
+
 //event listeners
 timeOptions.addEventListener('click', e => handleSelect('time', e));
 areaOptions.addEventListener('click', e => handleSelect('area', e));
 ingrOptions.addEventListener('click', e => handleSelect('ingredient', e));
-searchInput.addEventListener('input', () => {
-  handleInput();
-  if (searchInput.value !== '') {
-    cancelBtn.classList.remove('hidden');
-  } else {
-    cancelBtn.classList.add('hidden');
-  }
-});
-cancelBtn.addEventListener('click', () => {
-  handleInput();
-  searchInput.value = '';
-  cancelBtn.classList.add('hidden');
-});
+searchInput.addEventListener('input', handleInput);
+cancelBtn.addEventListener('click', clearInput);
 resetBtn.addEventListener('click', resetFilter);
