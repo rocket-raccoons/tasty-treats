@@ -127,11 +127,11 @@ cardsList.addEventListener('click', e => {
 
 // Sayfa yüklendiğinde tarifleri çek
 document.addEventListener('DOMContentLoaded', () => {
-  // initModal(); // Initialize modal functionality
 
   setTimeout(() => {
     fetchRecipes().then(() => {
       addRecipeButtonListeners(); // Add listeners after recipes are loaded
+      initModal(); // Initialize modal functionality
     });
   }, 100);
 
