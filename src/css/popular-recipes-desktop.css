@@ -4,12 +4,16 @@
  gap: 3.2rem;
  }
 #popular-recipes-gallery {
+ width: 23.4rem;
  gap: 3.2rem;
 }
 .popular-recipes-title {
 font-size: 2.4rem;
 line-height: 2.8rem;
 padding-top: 6.0rem;
+}
+.recipe-container{
+    width: 23.4rem;
 }
 
 .recipe-content {

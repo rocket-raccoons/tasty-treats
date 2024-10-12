@@ -4,20 +4,25 @@
  gap: 3.2rem;
 }
 
-#popular-recipes-gallery {      
+#popular-recipes-gallery { 
+width: 17.6rem;    
 gap: 1.6rem;
 }
 
 .popular-recipes-title {
-  
-padding-top: 6.4rem;
-
+ 
+padding-top: 6.0rem;
 }
 
+
 .recipe-container {  
+width: 17.6rem;
 gap: 1.9rem;  
 padding-right: 3.2rem;
 
+}
+.mobile-special {
+    display: flex;
 }
 .recipe-content{
 width: 17.6rem;
