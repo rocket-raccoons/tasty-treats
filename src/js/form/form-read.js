@@ -18,6 +18,8 @@ import { clearFormLocal } from './form-init.js';
 import { displayRecipes, cardsList } from '../cards.js';
 
 import debounce from 'lodash/debounce';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 let queryUrl =
   'https://tasty-treats-backend.p.goit.global/api/recipes?category=&page=1&limit=9';
@@ -32,14 +34,19 @@ export async function getQueryData(url) {
     const response = await fetch(url);
 
     if (!response.ok) {
-      throw new Error('Failed to fetch query data');
+      throw new Error('An error occurred while fetching recipes');
     }
     const data = await response.json();
     localStorage.setItem('totalPage', data.totalPages);
     changePage(1, 'form-read');
     displayRecipes(data.results);
   } catch (error) {
-    console.error('Error fetching query data:', error);
+    iziToast.error({
+      title: '',
+      message: `Sorry! An error occurred while fetching recipes please try again!`,
+      position: 'topRight',
+    });
+    console.log(error.message);
   } finally {
     loader.classList.add('hidden');
   }
