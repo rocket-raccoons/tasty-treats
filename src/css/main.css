@@ -3,10 +3,22 @@
   flex-direction: column;
 }
 
+.main-section {
+  width: 782px;
+}
+
+.aside {
+  margin-top: 80px;
+  width: 100%;
+}
+
 @media screen and (min-width: 768px) {
   .main-part {
     flex-direction: row;
     gap: 32px;
+  }
+  .aside {
+    max-width: 176px;
   }
 }
 
@@ -15,6 +27,9 @@
     flex-direction: row;
     gap: 64px;
     margin-top: 40px;
+  }
+  .aside {
+    max-width: 234px;
   }
 }
 
@@ -114,8 +129,4 @@
   position: relative;
   top: 50px;
   left: 30%;
-}
-
-.main-section {
-  width: 782px;
 }
