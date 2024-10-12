@@ -8,9 +8,9 @@
 @import url('./header/order-popup.min.css');
 @import url('./header/greetings.min.css');
 @import url('./header/slider.min.css');
-@import url('./form-mobile.min.css');
-@import url('./form-tablet.min.css');
-@import url('./form.min.css');
+@import url('./form-mobile.css');
+@import url('./form-tablet.css');
+@import url('./form.css');
 @import url('./categories.min.css');
 @import url('./modal.min.css');
 @import url('./popular-recipes.min.css');
@@ -25,4 +25,3 @@
 @import url('./main.css');
 @import url('./pagination.min.css');
 @import url('./scroll-button.min.css');
-

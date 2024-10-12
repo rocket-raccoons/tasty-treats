@@ -43,5 +43,6 @@
 
   .form-container {
     margin-bottom: 16px;
+    max-width: 419px;
   }
 }
