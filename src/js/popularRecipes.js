@@ -6,10 +6,9 @@ async function fetchData() {
     try {
         const response = await fetch("https://tasty-treats-backend.p.goit.global/api/recipes/popular");
         const data = await response.json();
-        console.log(data);
-
+        
         const recipes = data;
-        console.log(recipes);
+        
 
         const popularRecipes = document.querySelector("#popular-recipes-gallery");
         popularRecipes.innerHTML = '';
@@ -52,7 +51,7 @@ async function fetchData() {
 
             li.appendChild(recipeContainer);
 
-            console.log("Appending LI:", li);
+            
 
 
             fragment.appendChild(li);
