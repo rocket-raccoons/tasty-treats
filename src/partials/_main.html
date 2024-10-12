@@ -1,6 +1,6 @@
 <!-- MENÜ CARD YAPISI -->
-<div class="main-part container">
-  <div class="aside">
+<main class="main-part container">
+  <aside class="aside">
     <div class="container-categories">
       <button class="categories-button">All categories</button>
       <div class="category-list">
@@ -12,11 +12,11 @@
       <h1 class="popular-recipes-title">POPULAR RECIPES</h1>
       <ul id="popular-recipes-gallery"></ul>
     </div>
-  </div>
+  </aside>
 
-  <div class="main-section">
+  <section class="main-section">
     <div class="form-container">
-      <form method="GET" id="filter-form">
+      <div id="filter-form">
         <div class="search-container">
           <label for="search" class="form-label">Search</label>
           <div class="input-container">
@@ -54,7 +54,7 @@
 
         <!-- Time -->
         <div class="custom-select-container time-container">
-          <label for="" class="form-label">Time</label>
+          <h3 class="form-label">Time</h3>
           <div class="custom-select-trigger" id="time-trigger">
             <span id="time-trigger-text">Select</span>
             <svg class="svg-arrow" width="18px" height="18px">
@@ -70,7 +70,7 @@
 
         <!-- Area -->
         <div class="custom-select-container area-container">
-          <label for="" class="form-label">Region</label>
+          <h3 class="form-label">Region</h3>
           <div class="custom-select-trigger" id="area-trigger">
             <span id="area-trigger-text">Select</span>
             <svg class="svg-arrow" width="18px" height="18px">
@@ -85,7 +85,7 @@
 
         <!-- ingredients -->
         <div class="custom-select-container ingr-container">
-          <label for="" class="form-label">Product</label>
+          <h3 class="form-label">Product</h3>
           <div class="custom-select-trigger" id="ingredient-trigger">
             <span id="ingredient-trigger-text">Select</span>
             <svg class="svg-arrow" width="18px" height="18px">
@@ -101,7 +101,7 @@
         <input type="hidden" id="time-hidden-input" />
         <input type="hidden" id="area-hidden-input" />
         <input type="hidden" id="ingredient-hidden-input" />
-      </form>
+      </div>
 
       <button class="reset-filter-btn" id="reset-filter-btn">
         <svg class="svg-reset" width="16px" height="16px">
@@ -176,5 +176,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+</main>
