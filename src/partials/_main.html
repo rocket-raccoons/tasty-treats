@@ -114,9 +114,63 @@
       </button>
     </div>
 
-<!-- Modal Window-->
-<div class="modal" id="recipeModal">
-  <div class="modal-content">
-    <!-- Modal content will be dynamically inserted here -->
-  </div>
-</div>
+    <div class="menü-card-container">
+      <div class="cards-container">
+        <div class="loader-container hidden" id="loader">
+          <div class="loader"></div>
+          <p class="loader-text">Loading...</p>
+        </div>
+        <ul class="cards-list"></ul>
+      </div>
+      <div class="pagination">
+        <div class="left-arrow-container">
+          <button id="doubleLeft" class="pagination-btn left-end">
+            &laquo;
+          </button>
+          <button id="singleLeft" class="pagination-btn left-one">
+            &lsaquo;
+          </button>
+        </div>
+        <div class="number-container">
+          <button class="pagination-btn page-number active-page">1</button>
+          <button class="pagination-btn page-number">2</button>
+          <button class="pagination-btn page-number">3</button>
+        </div>
+        <div class="right-arrow-container">
+          <button id="singleRight" class="right-one pagination-btn">
+            &rsaquo;
+          </button>
+          <button id="doubleRight" class="right-end pagination-btn">
+            &raquo;
+          </button>
+        </div>
+      </div>
+      <div class="scroll-button">
+        <button class="scroll-btn" id="scrollBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            class="scroll-btn-svg-icon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
+            />
+          </svg>
+        </button>
+      </div>
+      <!-- Modal Window-->
+      <div class="modal" id="recipeModal">
+        <div class="modal-content">
+          <!-- Modal content will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

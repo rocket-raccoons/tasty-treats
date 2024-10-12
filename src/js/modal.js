@@ -1,31 +1,55 @@
 // modal.js
 export function initModal() {
     const modal = document.getElementById('recipeModal');
-    const closeButton = document.querySelector('.modal-close-button');
-
-    // Function to open the modal with fade-in effect
-    function openModal() {
-        modal.style.display = 'flex';
-        setTimeout(() => {
-            modal.classList.add('fade-in');
-        }, 10);
+    const closeButton = modal.querySelector('.modal-close-button');
+  
+    closeButton.onclick = closeModal;
+  
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+  
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && modal.style.display === 'block') {
+        closeModal();
+      }
+    });
+  }
+  
+  export async function openModal(recipeId) {
+    const modal = document.getElementById('recipeModal');
+    const modalContent = modal.querySelector('.modal-content');
+  
+    // Show loading state
+    modalContent.innerHTML = '<p>Loading recipe details...</p>';
+    modal.style.display = 'block';
+  
+    try {
+      const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}`);
+      const recipe = await response.json();
+  
+      // Update modal content with recipe details
+      modalContent.innerHTML = `
+        <button class="modal-close-button" onclick="closeModal()">&times;</button>
+        <h2>${recipe.title}</h2>
+        <img src="${recipe.thumb}" alt="${recipe.title}" style="max-width: 100%;">
+        <p>${recipe.instructions}</p>
+        <h3>Ingredients:</h3>
+        <ul>
+          ${recipe.ingredients.map(ing => `<li>${ing.name}: ${ing.measure}</li>`).join('')}
+        </ul>
+      `;
+    } catch (error) {
+      console.error('Error fetching recipe details:', error);
+      modalContent.innerHTML = '<p>Error loading recipe details. Please try again.</p>';
     }
 
-    // Function to close the modal with fade-out effect
-    function closeModal() {
-        modal.style.display = 'none';
-        modal.classList.remove('fade-in');
-        modal.classList.add('fade-out');
-        // modal.addEventListener('animationend', () => {
-        //     modal.style.display = 'none';
-        //     modal.classList.remove('fade-out');
-        // }, { once: true });
-    }
+  }
+  
+  export function closeModal() {
+    const modal = document.getElementById('recipeModal');
+    modal.style.display = 'none';
+  }
 
-    // Event listener for the close button
-    closeButton.addEventListener('click', closeModal);
-
-    // Example to open the modal (you can remove this if you have your own trigger)
-    // document.querySelector('.see-recipe').addEventListener('click', openModal);
-    // document.querySelector('.recipe-button').addEventListener('click', openModal);
-});
