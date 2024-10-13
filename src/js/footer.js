@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const footerList =document.querySelector('.footer-list');
+const footerList =document.querySelector('.footer-list');
 const modal = document.getElementById('myModal');
 const btn = document.getElementById('openModalBtn');
 const span = document.getElementsByClassName('close')[0];
@@ -21,8 +21,12 @@ const createLi=({name,role,imgSrc,github})=>{
     <div class="footer-list-item-info">    
         <h2 class="footer-list-item-name">${name}</h2>
         <p class="footer-list-item-text">${role}</p>
-        <div>
-        <a class="footer-list-item-link" href="${github}" target="_blank">GitHub</a>
+        <div class="footer-list-item-links">
+        <a class="footer-list-item-link" href="${github}" target="_blank">GitHub 
+            // <svg class="icon-github-logo" width="24" height="24">
+            //     <use xlink:href="../svg/github-logo.svg.svg#icon-github-logo"></use>
+            // </svg>
+        </a>
         </div>
     </div>
      `;
@@ -48,11 +52,6 @@ window.onclick = function(event) {
       modal.style.display = "none";
     }
   }
-
-
-
-
-
 
 });
 

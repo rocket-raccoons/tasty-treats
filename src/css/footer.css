@@ -10,7 +10,7 @@
     backdrop-filter: blur(8px);
 }
 .modal-content-footer {
-    background-color: #fefefe;
+    background-color: var(--white-bg);
     margin: 1% auto; 
     padding: 20px;
     border: 1px solid #888;
@@ -21,6 +21,16 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.modal-content-footer.dark-mode {
+    background-color: var(--text-color);
+    box-shadow: 0 5px 15px rgb(0, 0, 0);
+}
+
+.footer-list-item-links.dark-mode  {
+    color: var(--white-bg);
+
 }
 .footer{
     display: flex;
@@ -102,4 +112,16 @@ border-radius: 15px;
 }
 #closeModalBtn{
     cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.icon-github-logo {
+  width: 1.02734375em;
 }
