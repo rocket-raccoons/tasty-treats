@@ -4,7 +4,7 @@ import { displayRecipes, cardsList } from './cards.js';
 import { fetchRecipes } from './cards.js';
 import { changePage } from './pagination.js';
 import { loader } from './form/custom-form.js';
-import { resetFilter } from './form/form-read.js';
+import { resetFilter, displayLoader, hideLoader } from './form/form-read.js';
 
 async function fetchCategories() {
   const url = 'https://tasty-treats-backend.p.goit.global/api/categories';
@@ -29,7 +29,7 @@ async function fetchChosenCategory(categoryName) {
   const url = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${categoryName}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}`;
   try {
     cardsList.innerHTML = '';
-    loader.classList.remove('hidden');
+    displayLoader();
     const response = await fetch(url);
     const data = await response.json();
     localStorage.setItem('totalPage', data.totalPages);
@@ -40,7 +40,7 @@ async function fetchChosenCategory(categoryName) {
   } catch (error) {
     console.log(error + 'fetching chosen category recipes');
   } finally {
-    loader.classList.add('hidden');
+    hideLoader();
   }
 }
 
