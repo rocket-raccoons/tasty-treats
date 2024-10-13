@@ -51,10 +51,13 @@ function getFavoriteIds() {
         messageContainer.innerHTML = ""
         messageContainer.innerHTML = `
         <div class="fav-message-container">
-        <svg class="fav-chefs-hat" type="fav-chefs-hat-svg" width="68" height="58">
-            <use href="./svg/sprite.svg#icon-chef-hat">
-        </svg> <br><br><br>
-    <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
+
+        <img  src="./img/raccoon-sad-fav.png" class="fav-raccoon">
+        
+        <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
+
+
+        <img  src="./img/raccoon-sad-fav.png" class="fav-chefs-hat">
         </div>
         `;
 }
