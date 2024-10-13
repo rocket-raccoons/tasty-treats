@@ -24,7 +24,7 @@
 //                 console.error('Fetch error:', error);
 //             });
 
-
+const messageContainer = document.getElementById('message-container'); // to select message container
 
 // to fetch(?) ids from local storage
 
@@ -40,14 +40,15 @@ function getFavoriteIds() {
         favArr = [];  // if favoriteIdsturns null then return an empty array
     }
 
-    const messageContainer = document.getElementById('message-container');
+    const favoriteCards = document.querySelector('.favoriteCards');
     
-        if (messageContainer) { 
-            messageContainer.innerHTML = ""; // clean all mesages in message container
+    if (favoriteCards) { 
+        favoriteCards.innerHTML = ""; // clean all mesages in message container
         }
 
 
-    if (favArr.length === 0 && messageContainer) {
+    if (favArr.length === 0) {
+        messageContainer.innerHTML = ""
         messageContainer.innerHTML = `
         <div class="fav-message-container">
         <svg class="fav-chefs-hat" type="fav-chefs-hat-svg" width="68" height="58">
@@ -99,8 +100,8 @@ async function renderFavoriteRecipes() {
     } else {
 
         // messageContainer.innerHTML += favImgDiv; // fotoğrafları message container içerisine eklemek için
-        const messageContainer = document.getElementById('message-container');
-        messageContainer.innerHTML = '';
+        const favoriteCards = document.querySelector('.favorite-cards');
+        favoriteCards.innerHTML = '';
         
 
         const favImgDiv = `
@@ -142,7 +143,7 @@ async function renderFavoriteRecipes() {
         </div>      
       </li>
     `;
-            messageContainer.innerHTML += cardHTML; // Kartı messageContainer'a ekle
+            favoriteCards.innerHTML += cardHTML; // Kartı messageContainer'a ekle
         });
     }
 }

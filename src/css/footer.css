@@ -114,14 +114,16 @@ border-radius: 15px;
     cursor: pointer;
 }
 
-.icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
+
+
+.modal-menu-button-icon{
+    z-index: 100;
+    fill: var(--color1);
+    cursor: pointer;
 }
-.icon-github-logo {
-  width: 1.02734375em;
+
+.footer-list-item-link{
+    display: flex;
+    align-items: center;
+    gap:10px;
 }

@@ -80,6 +80,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+    color: #f8f8f8;
 }
 
 .card-rating-container {
@@ -119,7 +120,6 @@
 .recipe-button:hover {
   color: #050505;
 }
-
 .card-star-svg {
   width: 16px;
   height: 16px;

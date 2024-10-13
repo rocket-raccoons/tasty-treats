@@ -12,6 +12,7 @@ import {
   areaHiddenInput,
   ingrHiddenInput,
   loader,
+  pagination,
 } from './custom-form.js';
 import { changePage } from '../pagination.js';
 import { clearFormLocal } from './form-init.js';
@@ -28,7 +29,7 @@ let queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=
 export async function getQueryData(url) {
   try {
     cardsList.innerHTML = '';
-    loader.classList.remove('hidden');
+    displayLoader();
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -46,7 +47,7 @@ export async function getQueryData(url) {
     });
     console.log(error.message);
   } finally {
-    loader.classList.add('hidden');
+    hideLoader();
   }
 }
 
@@ -112,6 +113,10 @@ export function resetFilter() {
     input => (input.value = '')
   );
 
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  categoryBtns.forEach(button => {
+    button.style.color = '';
+  });
   cancelBtn.classList.add('hidden');
   clearFormLocal();
   getQueryData(queryUrl);
@@ -122,6 +127,18 @@ function clearInput() {
   handleInput();
   searchInput.value = '';
   cancelBtn.classList.add('hidden');
+}
+
+//displays loader on screen
+export function displayLoader() {
+  loader.classList.remove('hidden');
+  pagination.style.display = 'none';
+}
+
+//hides loader from screen
+export function hideLoader() {
+  loader.classList.add('hidden');
+  pagination.style.display = 'flex';
 }
 
 //event listeners

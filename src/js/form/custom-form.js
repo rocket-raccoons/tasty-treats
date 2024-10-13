@@ -19,7 +19,7 @@ export const searchInput = document.getElementById('search');
 export const cancelBtn = document.getElementById('cancel-btn');
 export const resetBtn = document.getElementById('reset-filter-btn');
 export const loader = document.getElementById('loader');
-
+export const pagination = document.querySelector('.pagination');
 //custom form functionality
 form.addEventListener('click', e => {
   let targetId = e.target.id;
