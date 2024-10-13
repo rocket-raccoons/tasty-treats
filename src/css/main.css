@@ -6,6 +6,13 @@
 .main-section {
   width: 782px;
 }
+@media screen and (max-width: 426px) {
+  .main-section {
+    width: 100%;
+    max-width: 426px; 
+    margin: 0 auto; 
+  }
+}
 
 .aside {
   margin-top: 80px;
