@@ -4,101 +4,467 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <!-- Preload the stylesheet -->
+    <link
+      rel="preload"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      as="style"
+    />
+    <!-- Link to the stylesheet -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="./js/header/nav.js" defer></script>
+    <script src="./js/header/slider.js" defer></script>
+    <script src="./js/header/orderPopup.js" defer></script>
     <script type="module" crossorigin src="/tasty-treats/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/index-o1Z_E8cd.css">
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/styles-CUHzzICJ.js">
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/vendor-BE0UidyL.js">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/styles-bBr8Nbdy.css">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/vendor-DnveWo0P.css">
   </head>
 
   <body>
     <header id="header">
-      
+      <nav class="navbar">
+  <div class="container navbar-container">
+    <ul class="navbar-menu">
+      <li><a href="/tasty-treats/" class="active inter-font-500">Home</a></li>
+      <li><a href="/tasty-treats/favorites.html" class="inter-font-500">Favorites</a></li>
+    </ul>
+    <div class="navbar-logo">
+      <h1 class="inter-font font-weight-600"><span>tasty</span>treats.</h1>
+    </div>
+    <div class="navbar-actions">
+      <a href="#cart" class="cart-icon" aria-label="cart"><i class="fas fa-shopping-cart"></i></a>
+      <div class="theme-toggle">
+        <button
+          id="themeToggle"
+          class="toggle-switch"
+          aria-label="Toggle dark mode"
+        >
+          <span class="toggle-slider">
+            <span class="toggle-knob"></span>
+          </span>
+        </button>
+        <span class="sunSide show">
+          <i class="fa-solid fa-sun"></i>
+        </span>
+        <span class="moonSide">
+          <i class="fa-solid fa-moon"></i>
+        </span>
+      </div>
+      <button id="mobileMenuToggle" class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="sideMenu" class="side-menu">
+  <button id="closeSideMenu" class="close-side-menu">&times;</button>
+  <ul class="side-menu-items">
+    <li><a href="/tasty-treats/">Home</a></li>
+    <li><a href="/tasty-treats/favorites.html">Favorites</a></li>
+  </ul>
+  <div class="side-menu-theme-toggle">
+    <span class="sunSide show">
+      <i class="fa-solid fa-sun"></i>
+    </span>
+    <span class="moonSide">
+      <i class="fa-solid fa-moon"></i>
+    </span>
+    <button
+      id="sideMenuThemeToggle"
+      class="toggle-switch"
+      aria-label="Toggle dark mode"
+    >
+      <span class="toggle-slider">
+        <span class="toggle-knob"></span>
+      </span>
+    </button>
+  </div>
+</div>
+<div class="greetings container">
+  <div class="text-side">
+    <h1 class="title">
+      Learn to Cook <span class="highlight">Tasty Treats'</span> Customizable
+      Masterclass
+    </h1>
+    <p class="description">
+      TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step
+      Video Guides.
+    </p>
+    <button class="order" onclick="openPopup()">Order Now</button>
+  </div>
+  <div class="slider-main-container">
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide">
+          <figure class="image-container">
+            <img
+              src="/tasty-treats/assets/1-C_J-UnDV.webp"
+              alt="Small Image"
+              class="image-small"
+            />
+          </figure>
+          <div class="content">
+            <figure class="image-wrapper">
+              <img
+                src="/tasty-treats/assets/2-BykmY0nq.webp"
+                alt="Large Image"
+                class="image-large contain"
+              />
+            </figure>
+            <figcaption class="text-content">
+              <p>Grilled, smoky, delicious barbecue</p>
+              <span class="subtext">Spanish</span>
+            </figcaption>
+          </div>
+          <figure class="last-item">
+            <img
+              src="/tasty-treats/assets/3-sgDFNy10.webp"
+              alt="Medium Image"
+              class="image-medium"
+            />
+          </figure>
+        </div>
+        <div class="slide">
+          <figure class="image-container">
+            <img
+              src="/tasty-treats/assets/4-BUiJN1TL.webp"
+              alt="Small Image"
+              class="image-small"
+            />
+          </figure>
+          <div class="content different-content">
+            <figure class="image-wrapper">
+              <img
+                src="/tasty-treats/assets/5-CiV8rzSo.webp"
+                alt="Large Image"
+                class="image-large contain"
+              />
+            </figure>
+            <figcaption class="text-content">
+              <p>Hot, cheesy and satisfying pizza</p>
+              <span class="subtext">Italian</span>
+            </figcaption>
+          </div>
+          <figure class="last-item">
+            <img
+              src="/tasty-treats/assets/5-CiV8rzSo.webp"
+              alt="Medium Image"
+              class="image-medium"
+            />
+          </figure>
+        </div>
+        <div class="slide">
+          <figure class="image-container">
+            <img
+              src="/tasty-treats/assets/7-3bAo2iT_.webp"
+              alt="Small Image"
+              class="image-small"
+            />
+          </figure>
+          <div class="content">
+            <figure class="image-wrapper">
+              <img
+                src="/tasty-treats/assets/8-5hiY3FgZ.webp"
+                alt="Large Image"
+                class="image-large contain"
+              />
+            </figure>
+            <figcaption class="text-content">
+              <p>Fluffy and sweet pancakes</p>
+              <span class="subtext">American</span>
+            </figcaption>
+          </div>
+          <figure class="last-item">
+            <img
+              src="/tasty-treats/assets/8-5hiY3FgZ.webp"
+              alt="Medium Image"
+              class="image-medium"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="slider-indicators"></div>
+  </div>
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup">
+      <button class="close-button" onclick="closePopup()">✕</button>
+      <h2>ORDER NOW</h2>
+      <form
+        id="orderForm"
+        action="https://formspree.io/f/mpwzzazz"
+        method="POST"
+      >
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="comment">Comment</label>
+          <textarea id="comment" name="comment" required></textarea>
+        </div>
+        <button type="submit" class="submit-button">Send</button>
+      </form>
+    </div>
+  </div>
+</div>
+
     </header>
 
-    <aside>
-      <!-- categoriler bu divde ayarlancak. (sol taraftaki)-->
-<div class="container-categories">
-  <button class="categories-button">All categories</button>
-  <div class="category-list"></div>
-</div>
-<!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
- <div class="popular-recipes-container">
-<h1 class="popular-receips-title">POPULAR RECIPES</h1>
-<ul id="popular-recipes-gallery"></ul>
-</div>
-    </aside>
-
-    <main>
-      <div class="menü-card-container container">
-  <!--search kısmı ayarlanacak-->
-  <div class="form-container">
-    <form class="filter-form" id="filter-form">
-      <div class="label-container search-label-container">
-        <label for="" class="label search-label">Search</label>
-        <div class="input-container">
-          <svg width="18px" height="18px" class="search-svg">
-            <use href="/tasty-treats/assets/sprite-BbrU-n4v.svg#icon-search"></use>
-          </svg>
-          <input type="text" placeholder="Enter Text" class="form-input" />
-        </div>
+    <!-- MENÜ CARD YAPISI -->
+<main class="main-part container">
+  <aside class="aside">
+    <div class="container-categories">
+      <button class="categories-button">All categories</button>
+      <div class="category-list">
+        <ul class="category-items-list"></ul>
       </div>
+    </div>
+    <!-- popüler yemekler bu divde ayarlancak. (sol aşağıdaki) -->
+    <div class="popular-recipes-container">
+      <h1 class="popular-recipes-title">POPULAR RECIPES</h1>
+      <ul id="popular-recipes-gallery" class=" popular-recipes-gallery"></ul>
+    </div>
+  </aside>
 
-      <div class="label-container">
-        <label for="" class="label time-label">Time</label>
-        <div class="select-container">
-          <select name="time" id="time"></select>
-          <svg width="18px" height="18px">
-            <use href="/tasty-treats/assets/sprite-BbrU-n4v.svg#icon-chevron-right"></use>
-          </svg>
-        </div>
-      </div>
-
-      <div class="label-container">
-        <label for="" class="label area-label">Area</label>
-        <div class="select-container">
-          <select name="area" id="area"></select>
-          <svg width="18px" height="18px">
-            <use href="/tasty-treats/assets/sprite-BbrU-n4v.svg#icon-chevron-right"></use>
-          </svg>
-        </div>
-      </div>
-
-      <div class="label-container ingredients-label-container">
-        <label for="" class="label ingredients-label">Ingredients</label>
-        <div class="select-container">
-          <select name="ingredients" id="ingredients"></select>
-          <svg width="18px" height="18px">
-            <use href="/tasty-treats/assets/sprite-BbrU-n4v.svg#icon-chevron-right"></use>
-          </svg>
-        </div>
-      </div>
-    </form>
-  </div>
-  <!-- cards yapısı yapılacak -->
-  <div class="cards-container">
-    <ul class="cards-list">
-      <li class="cards-listing">
-        <img src="" alt class="cards-img" />
-        <button class="heard-button"></button>
-        <div class="card-text-rating-container">
-          <div class="text-container">
-            <!-- menüdeki ürün ismi başlığı ve p'deki ürün yazıları gelicek. -->
-          </div>
-          <div class="rating-container">
-            <button class="reciep-button">See reciep</button>
-            <div class="rating-star">
-              <p class="rating-text"></p>
-              <!-- star kısmı ve puan kısmı ayarlanıcak-->
-            </div>
+  <section class="main-section">
+    <div class="form-container">
+      <div id="filter-form">
+        <div class="search-container">
+          <label for="search" class="form-label">Search</label>
+          <div class="input-container">
+            <input
+              class="search-input"
+              type="text"
+              name="search"
+              id="search"
+              autocomplete="off"
+              placeholder="Enter Text"
+            />
+            <button type="button" aria-label="search button" class="btn-search">
+              <svg class="svg-search" width="18px" height="18px">
+                <use
+                  class="svg-search-icon"
+                  href="/tasty-treats/assets/sprite-B_ptjhEe.svg#icon-search"
+                ></use>
+              </svg>
+            </button>
+            <button
+              type="button"
+              aria-label="input empty button"
+              class="btn-cancel hidden"
+              id="cancel-btn"
+            >
+              <svg class="svg-cacel" width="18px" height="18px">
+                <use
+                  class="svg-cancel-icon"
+                  href="/tasty-treats/assets/sprite-B_ptjhEe.svg#icon-x"
+                ></use>
+              </svg>
+            </button>
           </div>
         </div>
-      </li>
-    </ul>
-  </div>
-</div>
 
-    </main>
+        <!-- Time -->
+        <div class="custom-select-container time-container">
+          <h3 class="form-label">Time</h3>
+          <div class="custom-select-trigger" id="time-trigger">
+            <span id="time-trigger-text">Select</span>
+            <svg class="svg-arrow" width="18px" height="18px">
+              <use
+                class="svg-arrow-icon"
+                href="/tasty-treats/assets/sprite-B_ptjhEe.svg#icon-chevron-down"
+              ></use>
+            </svg>
+          </div>
+
+          <ul class="options hidden-dropdown" id="time-options"></ul>
+        </div>
+
+        <!-- Area -->
+        <div class="custom-select-container area-container">
+          <h3 class="form-label">Region</h3>
+          <div class="custom-select-trigger" id="area-trigger">
+            <span id="area-trigger-text">Select</span>
+            <svg class="svg-arrow" width="18px" height="18px">
+              <use
+                class="svg-arrow-icon"
+                href="/tasty-treats/assets/sprite-B_ptjhEe.svg#icon-chevron-down"
+              ></use>
+            </svg>
+          </div>
+          <ul class="options hidden-dropdown" id="area-options"></ul>
+        </div>
+
+        <!-- ingredients -->
+        <div class="custom-select-container ingr-container">
+          <h3 class="form-label">Product</h3>
+          <div class="custom-select-trigger" id="ingredient-trigger">
+            <span id="ingredient-trigger-text">Select</span>
+            <svg class="svg-arrow" width="18px" height="18px">
+              <use
+                class="svg-arrow-icon"
+                href="/tasty-treats/assets/sprite-B_ptjhEe.svg#icon-chevron-down"
+              ></use>
+            </svg>
+          </div>
+          <ul class="options hidden-dropdown" id="ingredient-options"></ul>
+        </div>
+
+        <input type="hidden" id="time-hidden-input" />
+        <input type="hidden" id="area-hidden-input" />
+        <input type="hidden" id="ingredient-hidden-input" />
+      </div>
+
+      <button class="reset-filter-btn" id="reset-filter-btn">
+        <svg class="svg-reset" width="16px" height="16px">
+          <use
+            class="svg-cancel-icon"
+            href="/tasty-treats/assets/sprite-B_ptjhEe.svg#icon-x-reset"
+          ></use>
+        </svg>
+        Reset the filter
+      </button>
+    </div>
+
+    <div class="menü-card-container">
+      <div class="cards-container">
+        <div class="loader-container hidden" id="loader">
+          <div class="loader"></div>
+          <p class="loader-text">Loading...</p>
+        </div>
+        <ul class="cards-list"></ul>
+      </div>
+      <div class="pagination">
+        <div class="left-arrow-container">
+          <button id="doubleLeft" class="pagination-btn left-end">
+            &laquo;
+          </button>
+          <button id="singleLeft" class="pagination-btn left-one">
+            &lsaquo;
+          </button>
+        </div>
+        <div class="number-container">
+          <button class="pagination-btn page-number active-page">1</button>
+          <button class="pagination-btn page-number">2</button>
+          <button class="pagination-btn page-number">3</button>
+        </div>
+        <div class="right-arrow-container">
+          <button id="singleRight" class="right-one pagination-btn">
+            &rsaquo;
+          </button>
+          <button id="doubleRight" class="right-end pagination-btn">
+            &raquo;
+          </button>
+        </div>
+      </div>
+      <div class="scroll-button">
+        <button class="scroll-btn" id="scrollBtn">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            class="scroll-btn-svg-icon"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"
+            />
+          </svg>
+        </button>
+      </div>
+      <!-- Modal Window-->
+      <div class="modal" id="recipeModal">
+        <div class="modal-content">
+          <button class="modal-close-button">&times;</button>
+          <!-- Modal content will be dynamically inserted here -->
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
 
     <footer>
-      
+      <!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/root.css">
+    <script type="module" src="../js/footer.js" defer></script>
+    
+    <title>footer</title>
+</head>
+<body>
+    
+</body> -->
+<footer class="footer">
+    <div class="footer-text">
+        <p>© 2024. All rights reserved.
+        Developed by: 
+      </p>
+      <span>
+            <svg id="openModalBtn" class="icon-raccoon" width="32" height="32" viewBox="0 0 32 32">
+                <use xlink:href="/tasty-treats/assets/icon-footer-raccoon-Bf8Hd9G5.svg#icon-raccoon"></use>
+            </svg>
+        </span>
+            
+    </div>
+
+
+<!-- MODAL WİNDOW -->
+
+
+<div id="myModal" class="modal">
+    <div class="modal-content-footer">
+        <span class="close">
+            <!-- X BUTTON    -->
+             <svg id="closeModalBtn" class="closefootericon" width="32" height="32" viewBox="0 0 32 32">
+                <use xlink:href="/tasty-treats/assets/icon-footer-x-BUErJMgt.svg#icon-footer-x"></use>
+             </svg>
+        </span>
+        <div class="footer-container">
+            <ul class="footer-list">
+               <!-- developers names... -->
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</footer>
+
+</html>
+
+
+
+
+
+
+
     </footer>
   </body>
 </html>
