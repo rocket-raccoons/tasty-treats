@@ -30,22 +30,29 @@ export function initModal() {
       const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}`);
       const recipe = await response.json();
       
-      console.log(recipe.youtube);
+      // console.log(recipe.youtube);
+      // console.log(recipe.cookingTime)
       // Update modal content with recipe details
       modalContent.innerHTML = `
-        <div style="padding: 20px;">
-        <button class="modal-close-button" onclick="closeModal()">&times;</button> 
         <div class= "modal-heading">
           <div style="flex: 1;">
             <iframe class="modal-iframe" src="https://www.youtube.com/embed/${new URL(recipe.youtube).searchParams.get('v')}" frameborder="0" allowfullscreen></iframe>
           </div>
-        <div style="flex: 1;">
+        <div class="modal-recipe-container" style="flex: 1;">
         <h2>${recipe.title}</h2>
-        <p>Rating: ${recipe.rating}</p>
-        <h3>Ingredients:</h3>
+        <div class="modal-rating-container">
+        <div class="modal-star-container">
+        <p class="rating star_rating">${'★'.repeat(Math.round(recipe.rating))}☆</p>
+        
+        </div>
+        <!-- <p class="cooking-time">${recipe.cookingTime} min</p> -->
+        </div>
+        <div class="modal-recipe-ingredients-container">
+        <!-- <h3>Ingredients:</h3> -->
         <ul class="modal-recipe-ingredients">
-          ${recipe.ingredients.map(ing => `<li class="modal-recipe-ingredients-item">${ing.name}: ${ing.measure}</li>`).join('')}
+          ${recipe.ingredients.map(ing => `<li class="modal-recipe-ingredients-item"><p class="ingredient">${ing.name}</p><p class="ingredient-portion"> ${ing.measure}</p></li>`).join('')}
         </ul>
+        </div>
         </div>
         </div>
         <p>${recipe.instructions}</p>
