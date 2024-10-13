@@ -31,7 +31,7 @@ export function initModal() {
       const recipe = await response.json();
       
       // console.log(recipe.youtube);
-      // console.log(recipe.cookingTime)
+      console.log(recipe.time);
       // Update modal content with recipe details
       modalContent.innerHTML = `
         <div class= "modal-heading">
@@ -43,9 +43,8 @@ export function initModal() {
         <div class="modal-rating-container">
         <div class="modal-star-container">
         <p class="rating star_rating">${'★'.repeat(Math.round(recipe.rating))}☆</p>
-        
         </div>
-        <!-- <p class="cooking-time">${recipe.cookingTime} min</p> -->
+        <p class="cooking-time">${recipe.time} min</p>
         </div>
         <div class="modal-recipe-ingredients-container">
         <!-- <h3>Ingredients:</h3> -->

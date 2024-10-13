@@ -83,7 +83,16 @@
     }
     
 }
+.modal-rating-container {
+    display: block;
+}
 
+.cooking-time {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 20px 0;
+}
 .modal-recipe-container {
     margin-top: 20px;
 }
