@@ -7,7 +7,6 @@ import { loader } from './form/custom-form.js';
 
 async function fetchCategories() {
     const url = "https://tasty-treats-backend.p.goit.global/api/categories"
-    localStorage.setItem('category','');
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -23,8 +22,6 @@ async function fetchChosenCategory(categoryName) {
     const time = localStorage.getItem('time');
     const area = localStorage.getItem('area');
     const ingredient = localStorage.getItem('ingredient');
-    console.log("boş",time, area, ingredient);
-    
     const url = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${categoryName}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}`
     try {
         cardsList.innerHTML ='';
