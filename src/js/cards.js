@@ -23,7 +23,7 @@ export async function fetchRecipes() {
 
 //displaying recipes on the page
 export function displayRecipes(recipes) {
-  const favArr = JSON.parse(localStorage.getItem('favArr')) || [];
+  const favArr = localStorage.getItem('favArr') ? JSON.parse(localStorage.getItem('favArr')) : [];
 
   cardsList.innerHTML = '';
   if (recipes.length === 0) {
