@@ -1,6 +1,13 @@
 @media screen and (min-width: 768px) {
   .cards-list {
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px;
+    justify-content: center;
+  }
+  
+  .cards-listing:nth-child(n+9) {
+    display: none; 
   }
 
   .cards-listing {
