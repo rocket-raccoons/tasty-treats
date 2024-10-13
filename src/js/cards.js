@@ -80,13 +80,7 @@ export function displayRecipes(recipes) {
   addRecipeButtonListeners();
   // Tüm recipe-button öğelerine tıklama olayı ekleyelim
   const recipeButtons = document.querySelectorAll('.recipe-button');
-  recipeButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      // Butona tıklandığında metin rengi siyah olacak
-      button.style.color = '#000';
-    });
-  });
-}
+    };
 
 // Update the event listener for recipe buttons
 function addRecipeButtonListeners() {
