@@ -24,7 +24,7 @@ export function displayRecipes(recipes) {
   // Mevcut kartları temizleme (eğer gerekirse)
   cardsList.innerHTML = '';
   if (recipes.length === 0) {
-    cardsList.innerHTML = `<img class="no-results" src="https://media1.tenor.com/m/Cj9rNn9J6V4AAAAC/lost.gif"></img>
+    cardsList.innerHTML = `<img class="no-results" src="./img/nothing.gif"></img>
                                     <h1 class="no-results-text">Sorry! No results were found that match your filters.</h1>`;
   }
 
@@ -80,7 +80,7 @@ export function displayRecipes(recipes) {
   addRecipeButtonListeners();
   // Tüm recipe-button öğelerine tıklama olayı ekleyelim
   const recipeButtons = document.querySelectorAll('.recipe-button');
-    };
+}
 
 // Update the event listener for recipe buttons
 function addRecipeButtonListeners() {
