@@ -80,6 +80,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+    color: #f8f8f8;
 }
 
 .card-rating-container {
