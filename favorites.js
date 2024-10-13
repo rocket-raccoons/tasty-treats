@@ -1,4 +1,4 @@
-import"./assets/styles-BXt5_OyY.js";function i(){const s=localStorage.getItem("favArr");let t=[];try{t=s?JSON.parse(s):[]}catch(r){console.error("Error parsing favArr from localStorage:",r),t=[]}const e=document.getElementById("message-container");return e&&(e.innerHTML=""),t.length===0&&e&&(e.innerHTML=`
+import"./assets/styles-CUHzzICJ.js";function i(){const s=localStorage.getItem("favArr");let t=[];try{t=s?JSON.parse(s):[]}catch(r){console.error("Error parsing favArr from localStorage:",r),t=[]}const e=document.getElementById("message-container");return e&&(e.innerHTML=""),t.length===0&&e&&(e.innerHTML=`
         <div class="fav-message-container">
         <svg class="fav-chefs-hat" type="fav-chefs-hat-svg" width="68" height="58">
             <use href="./svg/sprite.svg#icon-chef-hat">
