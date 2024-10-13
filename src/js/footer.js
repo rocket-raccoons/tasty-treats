@@ -22,10 +22,11 @@ const createLi=({name,role,imgSrc,github})=>{
         <h2 class="footer-list-item-name">${name}</h2>
         <p class="footer-list-item-text">${role}</p>
         <div class="footer-list-item-links">
-        <a class="footer-list-item-link" href="${github}" target="_blank">GitHub 
-            // <svg class="icon-github-logo" width="24" height="24">
-            //     <use xlink:href="../svg/github-logo.svg.svg#icon-github-logo"></use>
-            // </svg>
+        <a class="footer-list-item-link" href="${github}" target="_blank">
+            <svg class="icon-github-logo" width="20" height="20">
+                <use xlink:href="./svg/github-icon.svg#icon-github-logo"></use>
+            </svg>
+            GitHub 
         </a>
         </div>
     </div>
@@ -44,14 +45,11 @@ btn.onclick = function() {
 
 span.onclick = function() {
     modal.style.display = "none";
-}
+};
 
-// to close the modal if clicked outside of it
 window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target === modal) {
+        modal.style.display = "none";
     }
-  }
-
+}
 });
-
