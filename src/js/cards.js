@@ -1,3 +1,4 @@
+import { pagination } from './form/custom-form.js';
 import { openModal, initModal } from './modal.js';
 
 export const cardsList = document.querySelector('.cards-list');
@@ -23,7 +24,7 @@ export async function fetchRecipes() {
 
 //displaying recipes on the page
 export function displayRecipes(recipes) {
-  const favArr = JSON.parse(localStorage.getItem('favArr')) || [];
+  const favArr = localStorage.getItem('favArr') ? JSON.parse(localStorage.getItem('favArr')) : [];
 
   cardsList.innerHTML = '';
   if (recipes.length === 0) {
@@ -32,7 +33,9 @@ export function displayRecipes(recipes) {
       <p class="no-results-text">Sorry! No results were found that match your filters.</p>
       <img class="no-results" src="./img/nothing.gif"></img>
     </div>`;
+    pagination.style.display = "none";
   } else {
+    pagination.style.display="flex";
     recipes.forEach(recipe => {
       // Rating için yıldızları oluşturma
       const filledStars = Math.round(recipe.rating);
