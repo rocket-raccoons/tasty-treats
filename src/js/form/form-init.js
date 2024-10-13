@@ -65,6 +65,7 @@ export function clearFormLocal() {
   localStorage.setItem('ingredient', '');
   localStorage.setItem('title', '');
   localStorage.setItem('totalPage', '');
+  localStorage.setItem('category','');
 }
 
 //initialize form

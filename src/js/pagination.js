@@ -105,8 +105,9 @@ function requestPage(page) {
     : '';
   const area = localStorage.getItem('area');
   const ingredient = localStorage.getItem('ingredient');
+  const title = localStorage.getItem("title");
   getRecipesOnPage(
-    `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=${page}&limit=9&time=${time}&area=${area}&ingredient=${ingredient}`
+    `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=${page}&limit=9&time=${time}&area=${area}&ingredient=${ingredient}&title=${title}`
   );
 }
 

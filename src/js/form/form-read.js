@@ -22,7 +22,7 @@ export async function getQueryData(url) {
       throw new Error('An error occurred while fetching recipes');
     }
     const data = await response.json();
-    localStorage.setItem('totalPage', data.totalPages);
+    localStorage.setItem('totalPage', data.totalPages ? data.totalPages : 1);
     changePage(1, 'form-read');
     displayRecipes(data.results);
   } catch (error) {
@@ -79,10 +79,17 @@ const handleInput = debounce(function () {
   }
 
   //add inpt value to url
-  queryUrl = queryUrl.includes('title')
-    ? queryUrl.replace(/title=[^&]*/, `title=${searchInput.value}`)
-    : `${queryUrl}&title=${searchInput.value}`;
-  localStorage.setItem('title', searchInput.value);
+  // queryUrl = queryUrl.includes('title')
+  //   ? queryUrl.replace(/title=[^&]*/, `title=${searchInput.value}`)
+  //   : `${queryUrl}&title=${searchInput.value}`;
+  const category = localStorage.getItem("category");
+  const time = localStorage.getItem("time");
+  const area = localStorage.getItem("area");
+  const ingredient = localStorage.getItem("ingredient");
+
+  queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}&title=${searchInput.value}`
+  localStorage.setItem('title', searchInput.value ? searchInput.value : "");
+  
   getQueryData(queryUrl);
 }, 300);
 
