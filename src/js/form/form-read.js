@@ -130,7 +130,6 @@ export function displayLoader() {
 //hides loader from screen
 export function hideLoader() {
   loader.classList.add('hidden');
-  pagination.style.display = 'flex';
 }
 
 //hides options when clicked inside form but not on options
