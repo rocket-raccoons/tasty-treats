@@ -147,3 +147,39 @@
     bottom: -10px; /* Adjust as needed */
     left: 0;
 }
+
+.addToFavoriteButton{
+    background-color: var(--primary-color);
+    color: #f8f8f8;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+@media screen and (min-width: 768px) {
+    .addToFavoriteButton {
+        padding: 14px 28px;
+    }
+    
+}
+
+.giveRatingButton {
+    background-color: var(--white-bg);
+    /* color: var(--white-bg); */
+    color: var(--text-color);
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 24px;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+@media screen and (min-width: 768px) {
+    .giveRatingButton {
+        padding: 14px 28px;
+    }
+    
+}

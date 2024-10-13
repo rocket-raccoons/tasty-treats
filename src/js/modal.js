@@ -57,8 +57,8 @@ export function initModal() {
         </div>
         <p>${recipe.instructions}</p>
         <div style="display: flex; gap: 20px; margin-top: 20px;">
-          <button id="addToFavoriteButton">Add to Favorite</button>
-          <button id="giveRatingButton">Give a Rating</button>
+          <button class="addToFavoriteButton">Add to Favorite</button>
+          <button class="giveRatingButton">Give a Rating</button>
         </div>
         </div>
       `;
