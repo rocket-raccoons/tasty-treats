@@ -17,11 +17,9 @@
 @import url('./popular-recipes-tablet.css');
 @import url('./popular-recipes-desktop.css');
 @import url('./favorites.min.css');
-@import url('./cards-mobile.min.css');
 @import url('./cards-mobile.css');
-@import url('./cards-tablet.min.css');
 @import url('./cards-tablet.css');
-@import url('./cards.min.css');
+@import url('./cards.css');
 @import url('./main.css');
 @import url('./pagination.min.css');
 @import url('./scroll-button.min.css');
