@@ -83,7 +83,7 @@
         padding:0px 20px 0px 20px;
     }
         .fav-message.dark-mode {
-            color: var(--toggle-knob-color);
+            color: var(--text-color);
         }
 }
 
