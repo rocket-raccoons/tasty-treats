@@ -69,21 +69,27 @@
         margin-top: 48px;
         margin-bottom: 24px;
     }
-
-    
-    .fav-chefs-hat {
+    .fav-raccoon{
+        width: 300px;
+        height: 300px;
         display: flex;
         align-items: center;
         margin-bottom: 24px;
+    }
+    
+    .fav-chefs-hat {
+        display: none;
     }
 
     .fav-message {
         height: 72px;
         font-size: 14px;
-        font-weight: 400;
+        font-weight: 600;
         line-height: 18px;
-        color: var(--secondary-color);
         padding:0px 20px 0px 20px;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
         .fav-message.dark-mode {
@@ -95,6 +101,10 @@
 
 
 @media screen and (min-width:768px) {
+    .fav-raccoon{
+        display: none;
+    }
+    
     .fav-img{
         margin-top:50px
     }
@@ -115,9 +125,11 @@ width: 481px;
     }
 
     .fav-chefs-hat{
-        width: 97px;
-        height: 83px;
+        width: 400px;
+        height: 400px;
         margin-bottom: 32px;
+        display: flex;
+        align-items: center;
     }
 }
 
@@ -153,8 +165,8 @@ width: 481px;
     }
 
     .fav-chefs-hat {
-        width: 97px;
-        height: 83px;
+        width: 400px;
+        height: 400px;
         margin-bottom:32px;
     }
     .fav-message{
