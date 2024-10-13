@@ -63,6 +63,7 @@ export function clearFormLocal() {
   localStorage.setItem('time', '');
   localStorage.setItem('area', '');
   localStorage.setItem('ingredient', '');
+  localStorage.setItem('title', '');
   localStorage.setItem('totalPage', '');
 }
 

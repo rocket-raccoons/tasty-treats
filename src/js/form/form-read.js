@@ -112,6 +112,10 @@ export function resetFilter() {
     input => (input.value = '')
   );
 
+  const categoryBtns = document.querySelectorAll('.category-btn');
+  categoryBtns.forEach(button => {
+    button.style.color = '';
+  });
   cancelBtn.classList.add('hidden');
   clearFormLocal();
   getQueryData(queryUrl);
