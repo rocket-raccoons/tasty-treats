@@ -1,8 +1,9 @@
 const categoryList = document.querySelector('.category-items-list');
 const allCategories = document.querySelector('.categories-button');
-import { displayRecipes } from './cards.js';
+import { displayRecipes, cardsList } from './cards.js';
 import { fetchRecipes } from './cards.js';
 import { changePage } from './pagination.js';
+import { loader } from './form/custom-form.js';
 
 async function fetchCategories() {
     const url = "https://tasty-treats-backend.p.goit.global/api/categories"
@@ -18,16 +19,25 @@ async function fetchCategories() {
 };
 
 async function fetchChosenCategory(categoryName) {
-    const url = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${categoryName}&page=1&limit=9`
+    const time = localStorage.getItem('time');
+    const area = localStorage.getItem('area');
+    const ingredient = localStorage.getItem('ingredient');
+    const url = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${categoryName}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}`
     try {
+        cardsList.innerHTML ='';
+        loader.classList.remove('hidden');
         const response = await fetch(url);
         const data = await response.json();
         localStorage.setItem('totalPage', data.totalPages);
+        localStorage.setItem('category',categoryName);
         const recipes = data.results;
         displayRecipes(recipes);
         changePage(1);
     } catch (error) {
         console.log(error + "fetching chosen category recipes");
+    }
+    finally{
+        loader.classList.add('hidden');
     }
 };
 
