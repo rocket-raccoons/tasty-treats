@@ -29,31 +29,17 @@ export function initModal() {
     try {
       const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}`);
       const recipe = await response.json();
-      
-      console.log(recipe.youtube);
+  
       // Update modal content with recipe details
       modalContent.innerHTML = `
-        <div style="padding: 20px;">
-        <button class="modal-close-button" onclick="closeModal()">&times;</button> 
-        <div class= "modal-heading">
-          <div style="flex: 1;">
-            <iframe class="modal-iframe" src="https://www.youtube.com/embed/${new URL(recipe.youtube).searchParams.get('v')}" frameborder="0" allowfullscreen></iframe>
-          </div>
-        <div style="flex: 1;">
+        <button class="modal-close-button" onclick="closeModal()">&times;</button>
         <h2>${recipe.title}</h2>
-        <p>Rating: ${recipe.rating}</p>
-        <h3>Ingredients:</h3>
-        <ul class="modal-recipe-ingredients">
-          ${recipe.ingredients.map(ing => `<li class="modal-recipe-ingredients-item">${ing.name}: ${ing.measure}</li>`).join('')}
-        </ul>
-        </div>
-        </div>
+        <img src="${recipe.thumb}" alt="${recipe.title}" style="max-width: 100%;">
         <p>${recipe.instructions}</p>
-        <div style="display: flex; gap: 20px; margin-top: 20px;">
-          <button id="addToFavoriteButton">Add to Favorite</button>
-          <button id="giveRatingButton">Give a Rating</button>
-        </div>
-        </div>
+        <h3>Ingredients:</h3>
+        <ul>
+          ${recipe.ingredients.map(ing => `<li>${ing.name}: ${ing.measure}</li>`).join('')}
+        </ul>
       `;
     } catch (error) {
       console.error('Error fetching recipe details:', error);

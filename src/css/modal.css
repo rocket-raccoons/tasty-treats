@@ -39,34 +39,10 @@
     cursor: pointer;
 }
 
-.modal-heading {
-    display: flex;
-    gap: 20px;
-}
-
 /* Embedded YouTube video */
-/* .modal-content iframe { */
-.modal-iframe {
+.modal-content iframe {
     width: 100%;
     height: 315px;
     border: none;
     border-radius: 10px;
-}
-
-.modal-recipe-ingredients-item {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-    position: relative;
-}
-
-.modal-recipe-ingredients-item:after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: #888;
-    position: absolute;
-    bottom: -10px; /* Adjust as needed */
-    left: 0;
 }
