@@ -1,4 +1,6 @@
-const cardsList = document.querySelector('.cards-list');
+import { openModal, initModal } from './modal.js';
+
+export const cardsList = document.querySelector('.cards-list');
 const favArr = [];
 
 export async function fetchRecipes() {
@@ -8,19 +10,23 @@ export async function fetchRecipes() {
       'https://tasty-treats-backend.p.goit.global/api/recipes?limit=9'
     );
     const data = await response.json();
-    
+
     // Tarifleri gösterme fonksiyonunu çağır
     displayRecipes(data.results);
     return data.totalPages;
   } catch (error) {
     console.error('API verisi alınırken hata oluştu:', error);
-    return "hata";
+    return 'hata';
   }
 }
 
 export function displayRecipes(recipes) {
   // Mevcut kartları temizleme (eğer gerekirse)
   cardsList.innerHTML = '';
+  if (recipes.length === 0) {
+    cardsList.innerHTML = `<img class="no-results" src="https://media1.tenor.com/m/Cj9rNn9J6V4AAAAC/lost.gif"></img>
+                                    <h1 class="no-results-text">Sorry! No results were found that match your filters.</h1>`;
+  }
 
   recipes.forEach(recipe => {
     // Rating için yıldızları oluşturma
@@ -31,7 +37,9 @@ export function displayRecipes(recipes) {
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
-      <button class="heard-button add-to-fav" data-id="${recipe._id}" aria-label="like-btn">
+      <button class="heard-button add-to-fav" data-id="${
+        recipe._id
+      }" aria-label="like-btn">
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
@@ -69,6 +77,7 @@ export function displayRecipes(recipes) {
     cardsList.insertAdjacentHTML('beforeend', cardHTML);
   });
 
+  addRecipeButtonListeners();
   // Tüm recipe-button öğelerine tıklama olayı ekleyelim
   const recipeButtons = document.querySelectorAll('.recipe-button');
   recipeButtons.forEach(button => {
@@ -79,14 +88,27 @@ export function displayRecipes(recipes) {
   });
 }
 
-// Sayfa yüklendiğinde tarifleri çek
-document.addEventListener('DOMContentLoaded', _ => {
-  setTimeout(() => {
-    fetchRecipes();
-  }, 100);
+// Update the event listener for recipe buttons
+function addRecipeButtonListeners() {
+  const recipeButtons = document.querySelectorAll('.recipe-button');
+  recipeButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const recipeId = this.getAttribute('data-id');
+      openModal(recipeId);
+    });
+  });
+}
 
-  localStorage.setItem('favArr', favArr);
-});
+function updateLocalStorage() {
+  localStorage.setItem('favArr', JSON.stringify(favArr));
+}
+
+function initFavorites() {
+  const storedFavArr = localStorage.getItem('favArr');
+  if (storedFavArr) {
+    favArr = JSON.parse(storedFavArr);
+  }
+}
 
 cardsList.addEventListener('click', e => {
   const favButton = e.target.closest('.heard-button');
@@ -103,28 +125,33 @@ cardsList.addEventListener('click', e => {
       emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
     }
 
-    localStorage.setItem('favArr', JSON.stringify(favArr));
+    updateLocalStorage(); // Update localStorage after changing favArr
   }
 });
 
+// Sayfa yüklendiğinde tarifleri çek
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    fetchRecipes().then(() => {
+      addRecipeButtonListeners(); // Add listeners after recipes are loaded
+      initModal(); // Initialize modal functionality
+    });
+  }, 100);
 
-
-
-
-
-
-
-
-
-
+  // Initialize favArr from localStorage if it exists
+  const storedFavArr = localStorage.getItem('favArr');
+  if (storedFavArr) {
+    favArr.push(...JSON.parse(storedFavArr));
+  }
+});
 
 // EXPORT FAV PAGE FUNCTION
 export function getCardHTML(recipe) {
-   const filledStars = Math.round(recipe.rating);
-    const emptyStars = 5 - filledStars;
+  const filledStars = Math.round(recipe.rating);
+  const emptyStars = 5 - filledStars;
   return `
     <li class="cards-listing" style="background-image: url(${recipe.preview})">
-      ...
+      <!-- ... (rest of the card HTML) ... -->
     </li>
   `;
 } //to export fav page

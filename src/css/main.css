@@ -3,10 +3,23 @@
   flex-direction: column;
 }
 
+.main-section {
+  width: 782px;
+}
+
+.aside {
+  margin-top: 80px;
+  width: 100%;
+}
+
 @media screen and (min-width: 768px) {
   .main-part {
     flex-direction: row;
     gap: 32px;
+  }
+  .aside {
+    max-width: 176px;
+    margin-top: 0;
   }
 }
 
@@ -15,6 +28,9 @@
     flex-direction: row;
     gap: 64px;
     margin-top: 40px;
+  }
+  .aside {
+    max-width: 234px;
   }
 }
 
@@ -96,9 +112,15 @@
   }
 }
 
+.cards-container {
+  position: relative;
+}
+
 .loader-container {
   position: absolute;
   top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .loader-text {
@@ -108,8 +130,4 @@
   position: relative;
   top: 50px;
   left: 30%;
-}
-
-.main-section {
-  width: 782px;
 }

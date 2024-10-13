@@ -18,7 +18,9 @@ export const ingrHiddenInput = document.getElementById(
 export const searchInput = document.getElementById('search');
 export const cancelBtn = document.getElementById('cancel-btn');
 export const resetBtn = document.getElementById('reset-filter-btn');
+export const loader = document.getElementById('loader');
 
+//custom form functionality
 form.addEventListener('click', e => {
   let targetId = e.target.id;
 
@@ -38,8 +40,3 @@ form.addEventListener('click', e => {
       break;
   }
 });
-
-for (let i = 5; i <= 160; i += 5) {
-  const html = `<li data-time="${i}" class="option">${i} min</li>`;
-  timeOptions.insertAdjacentHTML('beforeend', html);
-}

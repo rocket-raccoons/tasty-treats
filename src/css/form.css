@@ -18,4 +18,8 @@
   .ingr-container {
     flex-basis: calc(30% - 16px);
   }
+
+  .form-container {
+    max-width: 780px;
+  }
 }
