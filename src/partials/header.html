@@ -187,7 +187,15 @@
         </div>
         <div class="form-group">
           <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required />
+
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+90 123 456 78 90"
+            pattern="^\+90\s\d{3}\s\d{3}\s\d{2}\s\d{2}$"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
