@@ -10,7 +10,7 @@ import"./assets/footer-mascot-T9mK7Qjj.js";const n=document.getElementById("mess
         </div>
         `),e}async function d(r){const e=await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${r}`);if(!e.ok)throw new Error("Network response was not ok");return await e.json()}async function l(){const r=c();try{return await Promise.all(r.map(t=>d(t)))}catch(e){return console.error("Error fetching favorite recipes:",e),[]}}async function i(){const r=await l();if(r.length!==0){const e=document.querySelector(".favorite-cards");e.innerHTML="",r.forEach(t=>{const a=Math.round(t.rating),s=5-a,o=`
       <li class="cards-listing" style="background-image: url(${t.preview});">
-        <button class="heard-button" data-id="${t._id}" aria-label="like-btn"><svg class="svg-heard add-to-fav" data-id="${t._id}" width="22px" height="22px"><use href="./svg/sprite.svg#icon-heart-filled"></use></svg></button>
+        <button class="heard-button" data-id="${t._id}" aria-label="like-btn"><svg class="svg-heard add-to-fav" data-id="${t._id}" width="22px" height="22px"><use href="./img/svg/sprite.svg#icon-heart-filled"></use></svg></button>
       <div class="card-content-container">
          <div class="text-container">
             <h3 class="card-title">${t.title}</h3>
@@ -22,11 +22,11 @@ import"./assets/footer-mascot-T9mK7Qjj.js";const n=document.getElementById("mess
                   <p class="rating-text">${t.rating.toFixed(1)}</p>
                   <div class="star-container">
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-star"></use>
+                    <use href="./img/svg/sprite.svg#icon-star"></use>
                       </svg>`.repeat(a)}
 
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-emptystar"></use>
+                    <use href="./img/svg/sprite.svg#icon-emptystar"></use>
                     </svg>`.repeat(s)}
                   </div>    
                 </div>
