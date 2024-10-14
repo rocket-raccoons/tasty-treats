@@ -6,6 +6,7 @@ export const cardsList = document.querySelector('.cards-list');
 const favArr = [];
 let favArrCategory = [];
 
+//this is a comment line
 
 //https request for all recipes and display them
 export async function fetchRecipes() {
@@ -35,8 +36,8 @@ export async function fetchRecipes() {
 export function displayRecipes(recipes) {
   const favArr = localStorage.getItem('favArr')
     ? JSON.parse(localStorage.getItem('favArr'))
-        : [];
-    
+    : [];
+
   cardsList.innerHTML = '';
   if (recipes.length === 0) {
     cardsList.innerHTML = `
@@ -56,9 +57,9 @@ export function displayRecipes(recipes) {
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
-      <button class="heard-button add-to-fav" data-category="${recipe.category}" data-id="${
-        recipe._id
-      }" aria-label="like-btn">
+      <button class="heard-button add-to-fav" data-category="${
+        recipe.category
+      }" data-id="${recipe._id}" aria-label="like-btn">
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
@@ -114,26 +115,33 @@ function addRecipeButtonListeners() {
 
 //updates local storage for fav recipes
 function updateLocalStorage() {
-    localStorage.setItem('favArr', JSON.stringify(favArr));
-    localStorage.setItem('favArrCategory', JSON.stringify(favArrCategory)) ? JSON.stringify(favArrCategory) : [];
+  localStorage.setItem('favArr', JSON.stringify(favArr));
+  localStorage.setItem('favArrCategory', JSON.stringify(favArrCategory))
+    ? JSON.stringify(favArrCategory)
+    : [];
 }
 
 // Add or remove a recipe from favArr and update localStorage
 function addRemoveFav(e) {
-    const favButton = e.target.closest('.heard-button');
+  const favButton = e.target.closest('.heard-button');
 
-    if (favButton) {
-        const favCategory = favButton.dataset.category;
+  if (favButton) {
+    const favCategory = favButton.dataset.category;
     const id = favButton.dataset.id;
     const emptyHeart = favButton.querySelector('.svguse');
 
     if (favArr.includes(id)) {
-
       favArr.splice(favArr.indexOf(id), 1);
-      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart');
+      emptyHeart.setAttribute(
+        'href',
+        '/tasty-treats/svg/sprite.svg#icon-heart'
+      );
     } else {
       favArr.push(id);
-      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart-filled');
+      emptyHeart.setAttribute(
+        'href',
+        '/tasty-treats/svg/sprite.svg#icon-heart-filled'
+      );
     }
 
     updateLocalStorage(); // Update localStorage after changing favArr
