@@ -1,18 +1,5 @@
-import {
-  timeOptions,
-  areaOptions,
-  ingrOptions,
-  searchInput,
-  cancelBtn,
-  resetBtn,
-  timeTriggerText,
-  areaTriggerText,
-  ingrTriggerText,
-  timeHiddenInput,
-  areaHiddenInput,
-  ingrHiddenInput,
-  loader,
-} from './custom-form.js';
+//prettier-ignore
+import {form, timeOptions, areaOptions, ingrOptions, searchInput, cancelBtn, resetBtn, timeTriggerText, areaTriggerText, ingrTriggerText,loader,pagination,} from './custom-form.js';
 import { changePage } from '../pagination.js';
 import { clearFormLocal } from './form-init.js';
 import { displayRecipes, cardsList } from '../cards.js';
@@ -28,14 +15,14 @@ let queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=
 export async function getQueryData(url) {
   try {
     cardsList.innerHTML = '';
-    loader.classList.remove('hidden');
+    displayLoader();
     const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error('An error occurred while fetching recipes');
     }
     const data = await response.json();
-    localStorage.setItem('totalPage', data.totalPages);
+    localStorage.setItem('totalPage', data.totalPages ? data.totalPages : 1);
     changePage(1, 'form-read');
     displayRecipes(data.results);
   } catch (error) {
@@ -46,7 +33,7 @@ export async function getQueryData(url) {
     });
     console.log(error.message);
   } finally {
-    loader.classList.add('hidden');
+    hideLoader();
   }
 }
 
@@ -56,20 +43,20 @@ function handleSelect(inputName, e) {
 
   const category = localStorage.getItem('category');
   const triggerText = document.getElementById(`${inputName}-trigger-text`);
-  const hiddenInput = document.getElementById(`${inputName}-hidden-input`);
+  // const hiddenInput = document.getElementById(`${inputName}-hidden-input`);
   const options = document.getElementById(`${inputName}-options`);
+  const queryValue = e.target.dataset[inputName];
 
   triggerText.textContent = e.target.textContent;
-  hiddenInput.value = e.target.dataset[inputName];
-  localStorage.setItem(`${inputName}`, hiddenInput.value);
+  localStorage.setItem(`${inputName}`, queryValue);
 
   //input verisini urlye ekleme
   queryUrl = queryUrl.includes(inputName)
     ? queryUrl.replace(
         new RegExp(`${inputName}=[^&]*`),
-        `${inputName}=${hiddenInput.value}`
+        `${inputName}=${queryValue}`
       )
-    : `${queryUrl}&${inputName}=${hiddenInput.value}`;
+    : `${queryUrl}&${inputName}=${queryValue}`;
 
   //localden gelen category verisini urlye ekleme
   queryUrl = queryUrl.includes('category')
@@ -78,6 +65,7 @@ function handleSelect(inputName, e) {
 
   options.classList.add('hidden-dropdown');
   triggerText.classList.add('trigger-active');
+  console.log(queryUrl);
   getQueryData(queryUrl);
 }
 
@@ -90,11 +78,15 @@ const handleInput = debounce(function () {
     cancelBtn.classList.add('hidden');
   }
 
-  //add inpt value to url
-  queryUrl = queryUrl.includes('title')
-    ? queryUrl.replace(/title=[^&]*/, `title=${searchInput.value}`)
-    : `${queryUrl}&title=${searchInput.value}`;
-  localStorage.setItem('title', searchInput.value);
+  const category = localStorage.getItem('category');
+  const time = localStorage.getItem('time');
+  const area = localStorage.getItem('area');
+  const ingredient = localStorage.getItem('ingredient');
+  const inputValue = searchInput.value.trim();
+
+  queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}&title=${inputValue}`;
+  localStorage.setItem('title', searchInput.value ? inputValue : '');
+
   getQueryData(queryUrl);
 }, 300);
 
@@ -108,9 +100,7 @@ export function resetFilter() {
     trigger.classList.remove('trigger-active');
   });
 
-  [timeHiddenInput, areaHiddenInput, ingrHiddenInput, searchInput].forEach(
-    input => (input.value = '')
-  );
+  searchInput.value = '';
 
   const categoryBtns = document.querySelectorAll('.category-btn');
   categoryBtns.forEach(button => {
@@ -123,15 +113,63 @@ export function resetFilter() {
 
 //clears input value and hides cancel button
 function clearInput() {
-  handleInput();
   searchInput.value = '';
   cancelBtn.classList.add('hidden');
+  handleInput();
+}
+
+//displays loader on screen
+export function displayLoader() {
+  loader.classList.remove('hidden');
+  pagination.style.display = 'none';
+}
+
+//hides loader from screen
+export function hideLoader() {
+  loader.classList.add('hidden');
+}
+
+//hides options when clicked inside form but not on options
+function hideOptions() {
+  [timeOptions, areaOptions, ingrOptions].forEach(option =>
+    option.classList.add('hidden-dropdown')
+  );
+}
+
+//hide options when clicked outside form
+function outsideClick(e) {
+  if (form && !form.contains(e.target)) hideOptions();
+}
+
+//custom form functionality
+function customForm(e) {
+  let targetId = e.target.id;
+
+  if (e.target.tagName === 'svg' || e.target.tagName === 'SPAN') {
+    targetId = e.target.parentElement.id;
+  }
+
+  switch (targetId) {
+    case 'time-trigger':
+      timeOptions.classList.toggle('hidden-dropdown');
+      break;
+    case 'area-trigger':
+      areaOptions.classList.toggle('hidden-dropdown');
+      break;
+    case 'ingredient-trigger':
+      ingrOptions.classList.toggle('hidden-dropdown');
+      break;
+    default:
+      if (e.target.tagName === 'LI') {
+        const name = e.target.dataset.name;
+        handleSelect(name, e);
+      } else hideOptions();
+  }
 }
 
 //event listeners
-timeOptions.addEventListener('click', e => handleSelect('time', e));
-areaOptions.addEventListener('click', e => handleSelect('area', e));
-ingrOptions.addEventListener('click', e => handleSelect('ingredient', e));
+form.addEventListener('click', e => customForm(e));
 searchInput.addEventListener('input', handleInput);
 cancelBtn.addEventListener('click', clearInput);
 resetBtn.addEventListener('click', resetFilter);
+window.addEventListener('click', e => outsideClick(e));

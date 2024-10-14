@@ -41,10 +41,10 @@ function getFavoriteIds() {
     }
 
     const favoriteCards = document.querySelector('.favoriteCards');
-    
-    if (favoriteCards) { 
+
+    if (favoriteCards) {
         favoriteCards.innerHTML = ""; // clean all mesages in message container
-        }
+    }
 
 
     if (favArr.length === 0) {
@@ -60,14 +60,14 @@ function getFavoriteIds() {
         <img  src="./img/raccoon-sad-fav.png" class="fav-chefs-hat">
         </div>
         `;
+    }
+    return favArr;
 }
-return favArr;
-            } 
 
 //async function to fetch data 
-async function fetchById(id) { 
+async function fetchById(id) {
     const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${id}`);
-        if (!response.ok) {
+    if (!response.ok) {
         throw new Error('Network response was not ok');// to control if the fetch is okay
     }
     const recipe = await response.json(); //turn api response JSN format
@@ -94,18 +94,18 @@ async function fetchFavorites() {
 
 //to display recipes 
 async function renderFavoriteRecipes() {
-    
+
     const recipes = await fetchFavorites(); //fetch favorite recipes with fetchAllFavorites function
 
-    if (recipes.length === 0) { 
+    if (recipes.length === 0) {
         // console.log('No favorite recipes found'); //eğer favori tarif yoksa mesaj göster
-    
+
     } else {
 
         // messageContainer.innerHTML += favImgDiv; // fotoğrafları message container içerisine eklemek için
         const favoriteCards = document.querySelector('.favorite-cards');
         favoriteCards.innerHTML = '';
-        
+
 
         const favImgDiv = `
         <div class="fav-img"> 
@@ -116,10 +116,11 @@ async function renderFavoriteRecipes() {
             const filledStars = Math.round(recipe.rating);
             const emptyStars = 5 - filledStars;
             const cardHTML = `
-      <li class="cards-listing" style="background-image: url(${
-        recipe.preview
-      });">
-
+      <li class="cards-listing" style="background-image: url(${recipe.preview
+                });">
+        <button class="heard-button" data-id="${recipe._id
+                }" aria-label="like-btn"><svg class="svg-heard add-to-fav" data-id="${recipe._id
+                }" width="22px" height="22px"><use href="./svg/sprite.svg#icon-heart-filled"></use></svg></button>
       <div class="card-content-container">
          <div class="text-container">
             <h3 class="card-title">${recipe.title}</h3>
@@ -140,18 +141,32 @@ async function renderFavoriteRecipes() {
                   </div>    
                 </div>
               
-            <button class="recipe-button" data-id="${
-              recipe._id
-            }">See recipe</button>
+            <button class="recipe-button" data-id="${recipe._id
+                }">See recipe</button>
         </div>      
       </li>
     `;
             favoriteCards.innerHTML += cardHTML; // Kartı messageContainer'a ekle
         });
+        favoritesHeartBtn();
     }
 }
 
-
+function favoritesHeartBtn() {
+    const likeButtons = document.querySelectorAll('.heard-button');
+    likeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const recipeId = button.dataset.id;
+            const favArrString = localStorage.getItem('favArr');
+            if (favArrString.includes(recipeId)) {
+                let favArr = JSON.parse(favArrString)
+                favArr.splice(favArr.indexOf(recipeId), 1);
+                localStorage.setItem('favArr', JSON.stringify(favArr));
+            }
+            renderFavoriteRecipes();
+        });
+    });
+}
 
 document.addEventListener('DOMContentLoaded', renderFavoriteRecipes);
 

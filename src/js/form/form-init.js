@@ -22,7 +22,7 @@ async function getInsertAreas() {
 //insert areas in options
 function insertArea(data) {
   data.forEach(area => {
-    const html = `<li data-area="${area.name}" class="option">${area.name}</li>`;
+    const html = `<li data-area="${area.name}" data-name="area" class="option">${area.name}</li>`;
     areaOptions.insertAdjacentHTML('beforeend', html);
   });
 }
@@ -46,14 +46,14 @@ async function getInsertIngr() {
 //insert ingredients in options
 function insertIngr(data) {
   data.forEach(ingr => {
-    const html = `<li data-ingredient="${ingr._id}" class="option">${ingr.name}</li>`;
+    const html = `<li data-ingredient="${ingr._id}" data-name="ingredient" class="option">${ingr.name}</li>`;
     ingrOptions.insertAdjacentHTML('beforeend', html);
   });
 }
 
 function insertTime() {
   for (let i = 5; i <= 120; i += 5) {
-    const html = `<li data-time="${i}" class="option">${i} min</li>`;
+    const html = `<li data-time="${i}" data-name="time" class="option">${i} min</li>`;
     timeOptions.insertAdjacentHTML('beforeend', html);
   }
 }
@@ -65,6 +65,7 @@ export function clearFormLocal() {
   localStorage.setItem('ingredient', '');
   localStorage.setItem('title', '');
   localStorage.setItem('totalPage', '');
+  localStorage.setItem('category','');
 }
 
 //initialize form

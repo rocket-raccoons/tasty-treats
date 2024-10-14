@@ -1,8 +1,11 @@
+import iziToast from 'izitoast';
+import { pagination } from './form/custom-form.js';
 import { openModal, initModal } from './modal.js';
 
 export const cardsList = document.querySelector('.cards-list');
 const favArr = [];
 
+//https request for all recipes and display them
 export async function fetchRecipes() {
   try {
     // API'den tarif verilerini çekiyoruz
@@ -15,25 +18,39 @@ export async function fetchRecipes() {
     displayRecipes(data.results);
     return data.totalPages;
   } catch (error) {
+    iziToast.error({
+      title: '',
+      message: `Sorry! An error occured while fetching recipes. Please try again!`,
+      position: 'topRight',
+    });
+
     console.error('API verisi alınırken hata oluştu:', error);
     return 'hata';
   }
 }
 
+//displaying recipes on the page
 export function displayRecipes(recipes) {
-  // Mevcut kartları temizleme (eğer gerekirse)
+  const favArr = localStorage.getItem('favArr')
+    ? JSON.parse(localStorage.getItem('favArr'))
+    : [];
+
   cardsList.innerHTML = '';
   if (recipes.length === 0) {
-    cardsList.innerHTML = `<img class="no-results" src="https://media1.tenor.com/m/Cj9rNn9J6V4AAAAC/lost.gif"></img>
-                                    <h1 class="no-results-text">Sorry! No results were found that match your filters.</h1>`;
-  }
+    cardsList.innerHTML = `
+    <div class="no-results-container loader-container">
+      <p class="no-results-text">Sorry! No results were found that match your filters.</p>
+      <img class="no-results" src="./img/nothing.gif"></img>
+    </div>`;
+    pagination.style.display = 'none';
+  } else {
+    pagination.style.display = 'flex';
+    recipes.forEach(recipe => {
+      // Rating için yıldızları oluşturma
+      const filledStars = Math.round(recipe.rating);
+      const emptyStars = 5 - filledStars;
 
-  recipes.forEach(recipe => {
-    // Rating için yıldızları oluşturma
-    const filledStars = Math.round(recipe.rating);
-    const emptyStars = 5 - filledStars;
-
-    const cardHTML = `
+      const cardHTML = `
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
@@ -43,7 +60,9 @@ export function displayRecipes(recipes) {
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
-            <use class="add-to-fav svguse" href="./svg/sprite.svg#icon-heart"></use>
+            <use class="add-to-fav svguse" href="/tasty-treats/svg/sprite.svg#${
+              favArr.includes(recipe._id) ? 'icon-heart-filled' : 'icon-heart'
+            }"></use>
         </svg></button>
 
       <div class="card-content-container">
@@ -57,11 +76,11 @@ export function displayRecipes(recipes) {
                   <p class="rating-text">${recipe.rating.toFixed(1)}</p>
                   <div class="star-container">
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-star"></use>
+                    <use href="/tasty-treats/svg/sprite.svg#icon-star"></use>
                       </svg>`.repeat(filledStars)}
 
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-emptystar"></use>
+                    <use href="/tasty-treats/svg/sprite.svg#icon-emptystar"></use>
                     </svg>`.repeat(emptyStars)}
                   </div>    
                 </div>
@@ -73,14 +92,12 @@ export function displayRecipes(recipes) {
       </li>
     `;
 
-    // Oluşturulan HTML'i ekrana yerleştir
-    cardsList.insertAdjacentHTML('beforeend', cardHTML);
-  });
+      cardsList.insertAdjacentHTML('beforeend', cardHTML);
+    });
 
-  addRecipeButtonListeners();
-  // Tüm recipe-button öğelerine tıklama olayı ekleyelim
-  const recipeButtons = document.querySelectorAll('.recipe-button');
-    };
+    addRecipeButtonListeners();
+  }
+}
 
 // Update the event listener for recipe buttons
 function addRecipeButtonListeners() {
@@ -93,18 +110,13 @@ function addRecipeButtonListeners() {
   });
 }
 
+//updates local storage for fav recipes
 function updateLocalStorage() {
   localStorage.setItem('favArr', JSON.stringify(favArr));
 }
 
-function initFavorites() {
-  const storedFavArr = localStorage.getItem('favArr');
-  if (storedFavArr) {
-    favArr = JSON.parse(storedFavArr);
-  }
-}
-
-cardsList.addEventListener('click', e => {
+// Add or remove a recipe from favArr and update localStorage
+function addRemoveFav(e) {
   const favButton = e.target.closest('.heard-button');
 
   if (favButton) {
@@ -113,17 +125,20 @@ cardsList.addEventListener('click', e => {
 
     if (favArr.includes(id)) {
       favArr.splice(favArr.indexOf(id), 1);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart');
+      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart');
     } else {
       favArr.push(id);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
+      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart-filled');
     }
 
     updateLocalStorage(); // Update localStorage after changing favArr
   }
-});
+}
 
-// Sayfa yüklendiğinde tarifleri çek
+// Add event listener to cardsList for adding/removing favs
+cardsList.addEventListener('click', e => addRemoveFav(e));
+
+// Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     fetchRecipes().then(() => {
