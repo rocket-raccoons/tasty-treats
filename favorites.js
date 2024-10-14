@@ -1,4 +1,4 @@
-import"./assets/footer-mascot-T9mK7Qjj.js";const n="../img/svg/sprite.svg",i=document.getElementById("message-container");function d(){const r=localStorage.getItem("favArr");let e=[];try{e=r?JSON.parse(r):[]}catch(a){console.error("Error parsing favArr from localStorage:",a),e=[]}const t=document.querySelector(".favoriteCards");return t&&(t.innerHTML=""),e.length===0&&(i.innerHTML="",i.innerHTML=`
+import"./assets/footer-mascot-T9mK7Qjj.js";const n="assets/sprite-B_ptjhEe.svg",i=document.getElementById("message-container");function d(){const r=localStorage.getItem("favArr");let e=[];try{e=r?JSON.parse(r):[]}catch(a){console.error("Error parsing favArr from localStorage:",a),e=[]}const t=document.querySelector(".favoriteCards");return t&&(t.innerHTML=""),e.length===0&&(i.innerHTML="",i.innerHTML=`
         <div class="fav-message-container">
 
         <img  src="./img/raccoon-sad-fav.png" class="fav-raccoon">
