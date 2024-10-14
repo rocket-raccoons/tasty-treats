@@ -26,7 +26,9 @@ body {
   transform: none;
   text-align: center;
 }
-
+.navbar-logo a{
+  color:inherit;
+}
 .navbar-logo h1 {
   font-size: 18px;
   line-height: 20px;
