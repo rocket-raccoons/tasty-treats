@@ -1,6 +1,7 @@
 const messageContainer = document.getElementById('message-container'); // to select message container
 let currentCategory = 'All Categories';
 let previousSelectedButton = null;
+let favoriteRecipes = []; // State to store favorite recipes
 
 // to fetch ids from local storage
 function getFavoriteIds() {
@@ -62,17 +63,26 @@ async function fetchFavorites() {
 
 // to display recipes 
 async function renderFavoriteRecipes() {
-    const recipes = await fetchFavorites();
+    favoriteRecipes = await fetchFavorites();
 
-    if (recipes.length === 0) {
-        // Display a message if no favorite recipes are found
+    if (favoriteRecipes.length === 0) {
+        // Clear categories and display a message if no favorite recipes are found
+        const favCategoriesList = document.querySelector('.fav-categories-list');
+        favCategoriesList.innerHTML = '';
+        messageContainer.innerHTML = `
+        <div class="fav-message-container">
+            <img src="./img/raccoon-sad-fav.png" class="fav-raccoon">
+            <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
+            <img src="./img/raccoon-sad-fav.png" class="fav-chefs-hat">
+        </div>
+        `;
     } else {
         // Extract categories from recipes and store in local storage
-        const categories = [...new Set(recipes.map(recipe => recipe.category))];
+        const categories = [...new Set(favoriteRecipes.map(recipe => recipe.category))];
         localStorage.setItem('favArrCategory', JSON.stringify(categories));
 
         renderCategoryNames();
-        renderRecipes(recipes);
+        renderRecipes(favoriteRecipes);
     }
 }
 
@@ -106,9 +116,22 @@ function favoritesHeartBtn() {
                 }
             }
 
+            // Update the state and re-render the affected elements
+            favoriteRecipes = favoriteRecipes.filter(recipe => recipe._id !== recipeId);
             renderCategoryNames();
-            if (currentCategory === 'All Categories') {
-                renderFavoriteRecipes();
+            if (favoriteRecipes.length === 0) {
+                // Clear categories and display a message if no favorite recipes are left
+                const favCategoriesList = document.querySelector('.fav-categories-list');
+                favCategoriesList.innerHTML = '';
+                messageContainer.innerHTML = `
+                <div class="fav-message-container">
+                    <img src="./img/raccoon-sad-fav.png" class="fav-raccoon">
+                    <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
+                    <img src="./img/raccoon-sad-fav.png" class="fav-chefs-hat">
+                </div>
+                `;
+            } else if (currentCategory === 'All Categories') {
+                renderRecipes(favoriteRecipes);
             } else {
                 filterRecipesByCategory(currentCategory);
             }
@@ -148,7 +171,7 @@ function renderCategoryNames() {
         allCategoriesButton.style.color = '#fff';
         allCategoriesButton.style.border = '1px solid var(--primary-color)';
         previousSelectedButton = allCategoriesButton;
-        renderFavoriteRecipes();
+        renderRecipes(favoriteRecipes);
     });
     allCategoriesLi.appendChild(allCategoriesButton);
     favCategoriesList.appendChild(allCategoriesLi);
@@ -177,10 +200,8 @@ function renderCategoryNames() {
 }
 
 function filterRecipesByCategory(category) {
-    fetchFavorites().then(recipes => {
-        const filteredRecipes = recipes.filter(recipe => recipe.category === category);
-        renderRecipes(filteredRecipes);
-    });
+    const filteredRecipes = favoriteRecipes.filter(recipe => recipe.category === category);
+    renderRecipes(filteredRecipes);
 }
 
 function renderRecipes(recipes) {
