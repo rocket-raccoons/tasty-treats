@@ -1,0 +1,169 @@
+#filter-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.custom-select-container {
+  position: relative;
+}
+
+.input-container {
+  position: relative;
+}
+
+.search-container {
+  width: 335px;
+}
+
+.search-input {
+  outline: none;
+  border: 1px solid rgb(from var(--text-color) r g b / 20%);
+  color: var(--text-color);
+  background-color: transparent;
+  padding: 14px 48px;
+  border-radius: 15px;
+  width: 100%;
+  line-height: 18px;
+}
+
+.search-input:focus + .btn-search > .svg-search {
+  fill: var(--primary-color);
+}
+
+.svg-search,
+.svg-arrow {
+  fill: rgb(from var(--text-color) r g b / 20%);
+  transition: fill 0.3s;
+}
+
+.btn-search {
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 18px;
+}
+
+.btn-cancel {
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
+}
+
+.custom-select-trigger {
+  cursor: pointer;
+  border: 1px solid rgb(from var(--text-color) r g b / 20%);
+  border-radius: 15px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  font-size: 1.4rem;
+  color: rgb(from var(--text-color) r g b / 20%);
+}
+
+.time-container,
+.area-container {
+  width: 160px;
+}
+
+.ingr-container {
+  width: 188px;
+}
+
+.form-label {
+  display: inline-block;
+  font-size: 1.2rem;
+  line-height: 14px;
+  font-weight: 500;
+  color: rgb(from var(--text-color) r g b / 20%);
+  margin-bottom: 8px;
+}
+
+.options {
+  max-height: 176px;
+  padding: 14px 18px;
+  background-color: var(--white-bg);
+  box-shadow: 0px 4px 36px 0px rgb(from var(--text-color) r g b / 10%);
+
+  border-radius: 15px;
+  overflow-y: scroll;
+  position: absolute;
+  z-index: 50;
+  transition: display 4s ease-in-out;
+  min-width: 100%;
+}
+
+.options::-webkit-scrollbar {
+  width: 6px;
+}
+
+.options::-webkit-scrollbar-thumb {
+  width: 6px;
+  background-color: #0505051a;
+  border-radius: 12px;
+}
+
+.option {
+  font-size: 1.4rem;
+  line-height: 18px;
+  color: rgb(from var(--text-color) r g b / 30%);
+  cursor: pointer;
+}
+
+.option:hover {
+  color: var(--text-color);
+}
+
+.hidden-dropdown,
+.hidden {
+  display: none;
+}
+
+.trigger-active {
+  color: var(--text-color);
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+  max-width: 335px;
+}
+
+.reset-filter-btn {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  color: rgb(from var(--text-color) r g b / 30%);
+}
+
+.reset-filter-btn:hover {
+  color: var(--text-color);
+}
+
+.reset-filter-btn:hover .svg-reset {
+  fill: var(--primary-color);
+}
+
+/* line clamp */
+#area-trigger-text,
+#ingredient-trigger-text,
+#time-trigger-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  line-height: 18px;
+}
