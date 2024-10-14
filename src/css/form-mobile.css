@@ -162,9 +162,8 @@
 #ingredient-trigger-text,
 #time-trigger-text {
   display: -webkit-box;
-  line-clamp: 1;
-  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   overflow: hidden;
   line-height: 18px;
 }
