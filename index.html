@@ -3,7 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>TastyTreats</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/tasty-treats/assets/apple-icon-57x57-CtUZ6o1D.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/tasty-treats/assets/apple-icon-60x60-BEvpNfjs.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/tasty-treats/assets/apple-icon-72x72-D06Fa2Ux.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/tasty-treats/assets/apple-icon-76x76-DgZh1iQ_.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/tasty-treats/assets/apple-icon-114x114-by4aDhw-.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/tasty-treats/assets/apple-icon-120x120-D7o-BTg3.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/tasty-treats/assets/apple-icon-144x144-w1qIfZ-r.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/tasty-treats/assets/apple-icon-152x152-CSuqfa6a.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/tasty-treats/assets/apple-icon-180x180-ivVrKn_a.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/tasty-treats/assets/android-icon-192x192-DeISd_ZL.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <!-- Preload the stylesheet -->
@@ -19,11 +76,11 @@
     />
     <!-- <script type="module" src="./js/footer.js" defer></script> -->
     <script type="module" crossorigin src="/tasty-treats/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-D0gk66OO.js">
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-C-fIKR33.js">
     <link rel="modulepreload" crossorigin href="/tasty-treats/assets/vendor-BE0UidyL.js">
-    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-Dv02cpKz.css">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-DRNXwx5F.css">
     <link rel="stylesheet" crossorigin href="/tasty-treats/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/index-CE8PXlGG.css">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/index-Dk45x35-.css">
   </head>
 
   <body>
@@ -106,7 +163,7 @@
       TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step
       Video Guides.
     </p>
-    <button class="order" onclick="openPopup()">Order Now</button>
+    <button class="order">Order Now</button>
   </div>
   <div class="slider-main-container">
     <div class="slider-container">
@@ -204,7 +261,7 @@
   </div>
   <div id="popupOverlay" class="popup-overlay">
     <div class="popup">
-      <button class="close-button" onclick="closePopup()">✕</button>
+      <button class="close-button">✕</button>
       <h2>ORDER NOW</h2>
       <form
         id="orderForm"
@@ -213,19 +270,46 @@
       >
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="name"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required />
+
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+90 123 456 78 90"
+            pattern="^\+90\s\d{3}\s\d{3}\s\d{2}\s\d{2}$"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="comment">Comment</label>
-          <textarea id="comment" name="comment" required></textarea>
+          <textarea
+            id="comment"
+            name="comment"
+            rows="4"
+            cols="50"
+            placeholder="comment..."
+            required
+          ></textarea>
         </div>
         <button type="submit" class="submit-button">Send</button>
       </form>
@@ -425,44 +509,49 @@
 <body>
     
 </body> -->
-<div class="footer-text">
-  <p class="footer-text-p">© 2024. All rights reserved. Developed by:</p>
-  <span>
-    <svg
-      id="openModalBtn"
-      class="icon-raccoon"
-      width="32"
-      height="32"
-      viewBox="0 0 32 32"
-    >
-      <use xlink:href="/tasty-treats/assets/icon-footer-raccoon-Bf8Hd9G5.svg#icon-raccoon"></use>
-    </svg>
-  </span>
-</div>
+<footer class="footer">
+    <div class="footer-text">
+        <p class="footer-text-p">© 2024. All rights reserved.
+        Developed by: 
+      </p>
+      <span>
+            <svg id="openModalBtn" class="icon-raccoon" width="32" height="32" viewBox="0 0 32 32">
+                <use xlink:href="/tasty-treats/assets/icon-footer-raccoon-Bf8Hd9G5.svg#icon-raccoon"></use>
+            </svg>
+        </span>
+            
+    </div>
+
 
 <!-- MODAL WİNDOW -->
 
+
 <div id="myModal" class="modal">
-  <div class="modal-content-footer">
-    <span class="close">
-      <!-- X BUTTON    -->
-      <svg
-        id="closeModalBtn"
-        class="closefootericon"
-        width="32"
-        height="32"
-        viewBox="0 0 32 32"
-      >
-        <use xlink:href="/tasty-treats/assets/icon-footer-x-BUErJMgt.svg#icon-footer-x"></use>
-      </svg>
-    </span>
-    <div class="footer-container">
-      <ul class="footer-list">
-        <!-- developers names... -->
-      </ul>
+    <div class="modal-content-footer">
+        <span class="close">
+            <!-- X BUTTON    -->
+            <svg width="32" height="32" class="modal-menu-button-icon" type="button" >
+                <use class="modal-menu-button-icon-alt" href="/tasty-treats/assets/modal-menu-exit-button-BENLice6.svg#icon-modal-exit-button"> </use>
+              </svg>
+        </span>
+        <div class="footer-container">
+            <ul class="footer-list">
+               <!-- developers names... -->
+            </ul>
+            
+        </div>
     </div>
-  </div>
 </div>
+    
+</footer>
+
+</html>
+
+
+
+
+
+
 
     </footer>
   </body>
