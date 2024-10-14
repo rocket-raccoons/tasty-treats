@@ -82,9 +82,10 @@ const handleInput = debounce(function () {
   const time = localStorage.getItem('time');
   const area = localStorage.getItem('area');
   const ingredient = localStorage.getItem('ingredient');
+  const inputValue = searchInput.value.trim();
 
-  queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}&title=${searchInput.value}`;
-  localStorage.setItem('title', searchInput.value ? searchInput.value : '');
+  queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}&title=${inputValue}`;
+  localStorage.setItem('title', searchInput.value ? inputValue : '');
 
   getQueryData(queryUrl);
 }, 300);
