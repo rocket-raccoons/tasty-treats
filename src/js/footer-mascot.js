@@ -4,21 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('openModalBtn');
     const span = document.getElementsByClassName('close')[0];
     
-    const person1={ name:"Mete CİVELEK", role:"Team Leader, Developer", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/metlandus"}
-    const person2={ name:"Şubat YÜCEL", role:"Team Leader, Developer", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/subatyucel"}
-    const person3={ name:"Deniz Sofia ULUTAŞ", role:"Scrum Master, Developer", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/sofia11244"}
-    const person4={ name:"Onur AKARSU", role:"Developer", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/RiveTroy"}
-    const person5={ name:"Pınar ÜNLÜ", role:"Developer", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/pinarunlu"}
-    const person6={ name:"Mehmet ARDIÇ", role:"Developer", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/ArdicMehmet"}
-    const person7={ name:"Murat ÇOLAK", role:"Developer", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/zipkaniar"}
-    const person8={ name:"Mr. Raccoon", role:"Mascot", imgSrc: 'https://via.placeholder.com/50', github:"https://github.com/rocket-racoons"}
+    const person1={ name:"Mete CİVELEK", role:"Team Leader, Developer", imgSrc: './img/footer-pic/mete-civelek.webp', github:"https://github.com/metlandus"}
+    const person2={ name:"Şubat YÜCEL", role:"Team Leader, Developer", imgSrc: './img/footer-pic/subat-yücel.webp', github:"https://github.com/subatyucel"}
+    const person3={ name:"Deniz Sofia ULUTAŞ", role:"Scrum Master, Developer", imgSrc: './img/footer-pic/deniz-sofia.webp', github:"https://github.com/sofia11244"}
+    const person4={ name:"Onur AKARSU", role:"Developer", imgSrc: './img/footer-pic/onur-akarsu.webp', github:"https://github.com/RiveTroy"}
+    const person5={ name:"Pınar ÜNLÜ", role:"Developer", imgSrc: './img/footer-pic/pınar-unlu.webp', github:"https://github.com/pinarunlu"}
+    const person6={ name:"Mehmet ARDIÇ", role:"Developer", imgSrc: './img/footer-pic/mehmet-ardıc.webp', github:"https://github.com/ArdicMehmet"}
+    const person7={ name:"Murat ÇOLAK", role:"Developer", imgSrc: './img/footer-pic/murat-colak.webp', github:"https://github.com/zipkaniar"}    
+    const person8={ name:"Mr. Raccoon", role:"Mascot", imgSrc: './img/footer-pic/mr-raccoon.webp', github:"https://github.com/rocket-racoons"}
 
     const createLi=({name,role,imgSrc,github})=>{
         const li=document.createElement('li');
         li.classList.add('footer-list-item');
         li.innerHTML=`
-        <img class="footer-list-item-img" src="${imgSrc}" alt="">
-        
+            <img class="footer-list-item-img" src="${imgSrc}" alt="">
         <div class="footer-list-item-info">    
             <h2 class="footer-list-item-name">${name}</h2>
             <p class="footer-list-item-text">${role}</p>
