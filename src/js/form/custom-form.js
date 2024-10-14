@@ -1,7 +1,4 @@
 export const form = document.getElementById('filter-form');
-// export const timeTrigger = document.getElementById('time-trigger');
-// export const areaTrigger = document.getElementById('area-trigger');
-// export const ingrTrigger = document.getElementById('ingredient-trigger');
 export const timeOptions = document.getElementById('time-options');
 export const areaOptions = document.getElementById('area-options');
 export const ingrOptions = document.getElementById('ingredient-options');

@@ -78,18 +78,15 @@ const handleInput = debounce(function () {
     cancelBtn.classList.add('hidden');
   }
 
-  //add inpt value to url
-  // queryUrl = queryUrl.includes('title')
-  //   ? queryUrl.replace(/title=[^&]*/, `title=${searchInput.value}`)
-  //   : `${queryUrl}&title=${searchInput.value}`;
-  const category = localStorage.getItem("category");
-  const time = localStorage.getItem("time");
-  const area = localStorage.getItem("area");
-  const ingredient = localStorage.getItem("ingredient");
+  const category = localStorage.getItem('category');
+  const time = localStorage.getItem('time');
+  const area = localStorage.getItem('area');
+  const ingredient = localStorage.getItem('ingredient');
+  const inputValue = searchInput.value.trim();
 
-  queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}&title=${searchInput.value}`
-  localStorage.setItem('title', searchInput.value ? searchInput.value : "");
-  
+  queryUrl = `https://tasty-treats-backend.p.goit.global/api/recipes?category=${category}&page=1&limit=9&time=${time}&area=${area}&ingredient=${ingredient}&title=${inputValue}`;
+  localStorage.setItem('title', searchInput.value ? inputValue : '');
+
   getQueryData(queryUrl);
 }, 300);
 
@@ -116,9 +113,9 @@ export function resetFilter() {
 
 //clears input value and hides cancel button
 function clearInput() {
-  handleInput();
   searchInput.value = '';
   cancelBtn.classList.add('hidden');
+  handleInput();
 }
 
 //displays loader on screen
