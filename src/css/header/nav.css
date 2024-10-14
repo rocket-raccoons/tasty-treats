@@ -116,7 +116,7 @@
 .side-menu {
   position: fixed;
   top: 0;
-  left: -100%;
+  left: -100dvw;
   width: 100dvw;
   height: 100dvh;
   background-color: var(--primary-color);
