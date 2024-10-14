@@ -60,7 +60,7 @@ export function displayRecipes(recipes) {
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
-            <use class="add-to-fav svguse" href="./svg/sprite.svg#${
+            <use class="add-to-fav svguse" href="/tasty-treats/svg/sprite.svg#${
               favArr.includes(recipe._id) ? 'icon-heart-filled' : 'icon-heart'
             }"></use>
         </svg></button>
@@ -76,11 +76,11 @@ export function displayRecipes(recipes) {
                   <p class="rating-text">${recipe.rating.toFixed(1)}</p>
                   <div class="star-container">
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-star"></use>
+                    <use href="/tasty-treats/svg/sprite.svg#icon-star"></use>
                       </svg>`.repeat(filledStars)}
 
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-emptystar"></use>
+                    <use href="/tasty-treats/svg/sprite.svg#icon-emptystar"></use>
                     </svg>`.repeat(emptyStars)}
                   </div>    
                 </div>
@@ -125,10 +125,10 @@ function addRemoveFav(e) {
 
     if (favArr.includes(id)) {
       favArr.splice(favArr.indexOf(id), 1);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart');
+      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart');
     } else {
       favArr.push(id);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
+      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart-filled');
     }
 
     updateLocalStorage(); // Update localStorage after changing favArr
