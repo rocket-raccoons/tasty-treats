@@ -14,4 +14,4 @@
             </div>
         </div>
          `,l};a.append(r(e),r(t),r(i),r(m),r(u),r(p),r(d),r(h)),c.onclick=function(){o.style.display="block"},s.onclick=function(){o.style.display="none"},window.onclick=function(n){n.target===o&&(o.style.display="none")}});
-//# sourceMappingURL=footer-mascot-wj5zZ4aT.js.map
+//# sourceMappingURL=footer-mascot-C7nnwZga.js.map

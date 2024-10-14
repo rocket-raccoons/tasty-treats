@@ -17,16 +17,17 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <script src="/js/header/nav.js" defer></script>
-    <script src="/js/header/slider.js" defer></script>
-    <script src="/js/header/orderPopup.js" defer></script>
+    <script src="./js/header/nav.js" defer></script>
+    <script src="./js/header/slider.js" defer></script>
+    <script src="./js/header/orderPopup.js" defer></script>
     <!-- <script type="module" src="./js/footer.js" defer></script> -->
+
     <script type="module" crossorigin src="/tasty-treats/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-wj5zZ4aT.js">
-    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/vendor-BE0UidyL.js">
-    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-DedRzGK4.css">
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-C7nnwZga.js">
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/vendor-hU-gvK98.js">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-D7RoA-vu.css">
     <link rel="stylesheet" crossorigin href="/tasty-treats/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/index-CE8PXlGG.css">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/index-BUfbcjEz.css">
   </head>
 
   <body>
@@ -35,21 +36,13 @@
   <div class="container navbar-container">
     <ul class="navbar-menu">
       <li><a href="/tasty-treats/" class="active inter-font-500">Home</a></li>
-      <li>
-        <a href="/tasty-treats/favorites.html" class="inter-font-500"
-          >Favorites</a
-        >
-      </li>
+      <li><a href="/tasty-treats/favorites.html" class="inter-font-500">Favorites</a></li>
     </ul>
     <div class="navbar-logo">
-      <h1 class="inter-font font-weight-600">
-        <a href="/tasty-treats/"><span>tasty</span>treats.</a>
-      </h1>
+      <h1 class="inter-font font-weight-600"><span>tasty</span>treats.</h1>
     </div>
     <div class="navbar-actions">
-      <a href="#cart" class="cart-icon" aria-label="cart"
-        ><i class="fas fa-shopping-cart"></i
-      ></a>
+      <a href="#cart" class="cart-icon" aria-label="cart"><i class="fas fa-shopping-cart"></i></a>
       <div class="theme-toggle">
         <button
           id="themeToggle"
@@ -130,10 +123,10 @@
                 class="image-large contain"
               />
             </figure>
-            <div class="text-content">
+            <figcaption class="text-content">
               <p>Grilled, smoky, delicious barbecue</p>
               <span class="subtext">Spanish</span>
-            </div>
+            </figcaption>
           </div>
           <figure class="last-item">
             <img
@@ -159,10 +152,10 @@
                 class="image-large contain"
               />
             </figure>
-            <div class="text-content">
+            <figcaption class="text-content">
               <p>Hot, cheesy and satisfying pizza</p>
               <span class="subtext">Italian</span>
-            </div>
+            </figcaption>
           </div>
           <figure class="last-item">
             <img
@@ -188,10 +181,10 @@
                 class="image-large contain"
               />
             </figure>
-            <div class="text-content">
+            <figcaption class="text-content">
               <p>Fluffy and sweet pancakes</p>
               <span class="subtext">American</span>
-            </div>
+            </figcaption>
           </div>
           <figure class="last-item">
             <img
@@ -449,9 +442,9 @@
     <div class="modal-content-footer">
         <span class="close">
             <!-- X BUTTON    -->
-             <svg id="closeModalBtn" class="closefootericon" width="32" height="32" viewBox="0 0 32 32">
-                <use xlink:href="/tasty-treats/assets/icon-footer-x-BUErJMgt.svg#icon-footer-x"></use>
-             </svg>
+            <svg width="32" height="32" class="modal-menu-button-icon" type="button" >
+                <use class="modal-menu-button-icon-alt" href="/tasty-treats/assets/modal-menu-exit-button-BENLice6.svg#icon-modal-exit-button"> </use>
+              </svg>
         </span>
         <div class="footer-container">
             <ul class="footer-list">
