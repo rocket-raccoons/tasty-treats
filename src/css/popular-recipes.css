@@ -71,4 +71,8 @@ display: -webkit-box;
 overflow: hidden;
 }
 
+img{
+    cursor: pointer;
+}
+
 
