@@ -1,12 +1,4 @@
 /* Temel mobil stiller (varsayılan) */
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
 .navbar {
   background-color: var(--white-bg);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
