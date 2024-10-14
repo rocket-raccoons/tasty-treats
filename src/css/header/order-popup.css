@@ -68,8 +68,9 @@ input:-internal-autofill-selected {
 }
 .popup-overlay .form-group textarea {
     height: 100px;
-    resize: vertical;
+    resize: both;
 }
+
 .popup-overlay .submit-button {
     width: 100%;
     background-color: #8BAA36;
