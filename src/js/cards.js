@@ -4,6 +4,8 @@ import { openModal, initModal } from './modal.js';
 
 export const cardsList = document.querySelector('.cards-list');
 const favArr = [];
+let favArrCategory = [];
+
 
 //https request for all recipes and display them
 export async function fetchRecipes() {
@@ -33,8 +35,8 @@ export async function fetchRecipes() {
 export function displayRecipes(recipes) {
   const favArr = localStorage.getItem('favArr')
     ? JSON.parse(localStorage.getItem('favArr'))
-    : [];
-
+        : [];
+    
   cardsList.innerHTML = '';
   if (recipes.length === 0) {
     cardsList.innerHTML = `
@@ -54,7 +56,7 @@ export function displayRecipes(recipes) {
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
-      <button class="heard-button add-to-fav" data-id="${
+      <button class="heard-button add-to-fav" data-category="${recipe.category}" data-id="${
         recipe._id
       }" aria-label="like-btn">
          <svg class="svg-heard add-to-fav" data-id="${
@@ -112,23 +114,33 @@ function addRecipeButtonListeners() {
 
 //updates local storage for fav recipes
 function updateLocalStorage() {
-  localStorage.setItem('favArr', JSON.stringify(favArr));
+    localStorage.setItem('favArr', JSON.stringify(favArr));
+    localStorage.setItem('favArrCategory', JSON.stringify(favArrCategory)) ? JSON.stringify(favArrCategory) : [];
 }
 
 // Add or remove a recipe from favArr and update localStorage
 function addRemoveFav(e) {
-  const favButton = e.target.closest('.heard-button');
+    const favButton = e.target.closest('.heard-button');
 
-  if (favButton) {
+    if (favButton) {
+        const favCategory = favButton.dataset.category;
     const id = favButton.dataset.id;
     const emptyHeart = favButton.querySelector('.svguse');
 
     if (favArr.includes(id)) {
-      favArr.splice(favArr.indexOf(id), 1);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart');
+        favArr.splice(favArr.indexOf(id), 1);
+        emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart');
+        if (favArrCategory.includes(favCategory)) {
+            if (favArrCategory.filter(category => category === favCategory).length > 1) {
+            favArrCategory.splice(favCategory.indexOf(id), 1);
+            }
+        }
     } else {
-      favArr.push(id);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
+        favArr.push(id);
+        emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
+        if (!favArrCategory.includes(favCategory)) {
+            favArrCategory.push(favCategory);
+        }
     }
 
     updateLocalStorage(); // Update localStorage after changing favArr
