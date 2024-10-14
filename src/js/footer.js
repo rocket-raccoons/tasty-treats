@@ -35,8 +35,6 @@ const createLi=({name,role,imgSrc,github})=>{
 
     footerList.append( createLi(person1), createLi(person2), createLi(person3), createLi(person4), createLi(person5), createLi(person6), createLi(person7) );
 
-
-
     //   MODAL WINDOW
 btn.onclick = function() {
     modal.style.display = "block";
