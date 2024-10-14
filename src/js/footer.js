@@ -22,10 +22,11 @@ const createLi=({name,role,imgSrc,github})=>{
         <h2 class="footer-list-item-name">${name}</h2>
         <p class="footer-list-item-text">${role}</p>
         <div class="footer-list-item-links">
-        <a class="footer-list-item-link" href="${github}" target="_blank">GitHub 
-            // <svg class="icon-github-logo" width="24" height="24">
-            //     <use xlink:href="../svg/github-logo.svg.svg#icon-github-logo"></use>
-            // </svg>
+        <a class="footer-list-item-link" href="${github}" target="_blank">
+            <svg class="icon-github-logo" width="20" height="20">
+                <use xlink:href="./svg/github-icon.svg#icon-github-logo"></use>
+            </svg>
+            GitHub 
         </a>
         </div>
     </div>
@@ -35,8 +36,6 @@ const createLi=({name,role,imgSrc,github})=>{
 
     footerList.append( createLi(person1), createLi(person2), createLi(person3), createLi(person4), createLi(person5), createLi(person6), createLi(person7) );
 
-
-
     //   MODAL WINDOW
 btn.onclick = function() {
     modal.style.display = "block";
@@ -44,14 +43,11 @@ btn.onclick = function() {
 
 span.onclick = function() {
     modal.style.display = "none";
-}
+};
 
-// to close the modal if clicked outside of it
 window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
+    if (event.target === modal) {
+        modal.style.display = "none";
     }
-  }
-
+}
 });
-

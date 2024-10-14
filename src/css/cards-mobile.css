@@ -64,7 +64,6 @@
   color: #f8f8f8;
   margin-bottom: 8px;
   display: -webkit-box;
-  line-clamp: 1;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -75,11 +74,11 @@
   font-size: 1.2rem;
   line-height: 1.6rem;
   display: -webkit-box;
-  line-clamp: 2;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+    color: #f8f8f8;
 }
 
 .card-rating-container {
@@ -119,7 +118,6 @@
 .recipe-button:hover {
   color: #050505;
 }
-
 .card-star-svg {
   width: 16px;
   height: 16px;

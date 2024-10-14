@@ -14,10 +14,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="./css/root.css" />
     <link rel="stylesheet" href="./css/styles.css" />
     <script src="./js/header/nav.js" defer></script>
     <script type="module" src="./js/favorites.js" defer></script>
+    <!-- <script type="module" src="./js/footer.js" defer></script> -->
+    <script type="module" src="./js/footer-mascot.js" defer></script>
   </head>
 
   <body class="fav-body">
@@ -27,16 +28,18 @@
       <div class="container navbar-container">
         <ul class="navbar-menu">
           <li>
-            <a href="/tasty-treats/" class="active inter-font-500">Home</a>
+            <a href="/tasty-treats/" class="inter-font-500">Home</a>
           </li>
           <li>
-            <a href="/tasty-treats/favorites.html" class="inter-font-500"
+            <a href="/tasty-treats/favorites.html" class="active inter-font-500"
               >Favorites</a
             >
           </li>
         </ul>
         <div class="navbar-logo">
-          <h1 class="inter-font font-weight-600"><span>tasty</span>treats.</h1>
+          <h1 class="inter-font font-weight-600">
+            <a href="/tasty-treats/"><span>tasty</span>treats.</a>
+          </h1>
         </div>
         <div class="navbar-actions">
           <a href="#cart" class="cart-icon"
@@ -114,6 +117,11 @@
 
     <!-- ------------------------------------------------------ -->
 
-    <div id="message-container"></div>
+    <div id="message-container">
+      <ul class="favorite-cards container"></ul>
+    </div>
+    <footer>
+      <load ="partials/footer.html" />
+    </footer>
   </body>
 </html>
