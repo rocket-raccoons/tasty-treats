@@ -9,8 +9,7 @@
     --toggle-bg-color: #e0e0e0;
     --toggle-bg-color-active: #8DC63F;
     --toggle-knob-color: #fff;
-    --color1: #000000;
-
+    --color1: black;
   }
   body {
     font-family: Arial, sans-serif;

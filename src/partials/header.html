@@ -2,13 +2,21 @@
   <div class="container navbar-container">
     <ul class="navbar-menu">
       <li><a href="/tasty-treats/" class="active inter-font-500">Home</a></li>
-      <li><a href="/tasty-treats/favorites.html" class="inter-font-500">Favorites</a></li>
+      <li>
+        <a href="/tasty-treats/favorites.html" class="inter-font-500"
+          >Favorites</a
+        >
+      </li>
     </ul>
     <div class="navbar-logo">
-      <h1 class="inter-font font-weight-600"><span>tasty</span>treats.</h1>
+      <h1 class="inter-font font-weight-600">
+        <a href="/tasty-treats/"><span>tasty</span>treats.</a>
+      </h1>
     </div>
     <div class="navbar-actions">
-      <a href="#cart" class="cart-icon" aria-label="cart"><i class="fas fa-shopping-cart"></i></a>
+      <a href="#cart" class="cart-icon" aria-label="cart"
+        ><i class="fas fa-shopping-cart"></i
+      ></a>
       <div class="theme-toggle">
         <button
           id="themeToggle"
@@ -68,7 +76,7 @@
       TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step
       Video Guides.
     </p>
-    <button class="order" onclick="openPopup()">Order Now</button>
+    <button class="order">Order Now</button>
   </div>
   <div class="slider-main-container">
     <div class="slider-container">
@@ -89,10 +97,10 @@
                 class="image-large contain"
               />
             </figure>
-            <figcaption class="text-content">
+            <div class="text-content">
               <p>Grilled, smoky, delicious barbecue</p>
               <span class="subtext">Spanish</span>
-            </figcaption>
+            </div>
           </div>
           <figure class="last-item">
             <img
@@ -118,10 +126,10 @@
                 class="image-large contain"
               />
             </figure>
-            <figcaption class="text-content">
+            <div class="text-content">
               <p>Hot, cheesy and satisfying pizza</p>
               <span class="subtext">Italian</span>
-            </figcaption>
+            </div>
           </div>
           <figure class="last-item">
             <img
@@ -147,10 +155,10 @@
                 class="image-large contain"
               />
             </figure>
-            <figcaption class="text-content">
+            <div class="text-content">
               <p>Fluffy and sweet pancakes</p>
               <span class="subtext">American</span>
-            </figcaption>
+            </div>
           </div>
           <figure class="last-item">
             <img
@@ -166,7 +174,7 @@
   </div>
   <div id="popupOverlay" class="popup-overlay">
     <div class="popup">
-      <button class="close-button" onclick="closePopup()">✕</button>
+      <button class="close-button">✕</button>
       <h2>ORDER NOW</h2>
       <form
         id="orderForm"
@@ -175,19 +183,46 @@
       >
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="name"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required />
+
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+90 123 456 78 90"
+            pattern="^\+90\s\d{3}\s\d{3}\s\d{2}\s\d{2}$"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="comment">Comment</label>
-          <textarea id="comment" name="comment" required></textarea>
+          <textarea
+            id="comment"
+            name="comment"
+            rows="4"
+            cols="50"
+            placeholder="comment..."
+            required
+          ></textarea>
         </div>
         <button type="submit" class="submit-button">Send</button>
       </form>

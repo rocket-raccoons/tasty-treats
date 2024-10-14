@@ -118,8 +118,6 @@ border-radius: 15px;
     cursor: pointer;
 }
 
-
-
 .modal-menu-button-icon{
     z-index: 100;
     fill: var(--color1);
