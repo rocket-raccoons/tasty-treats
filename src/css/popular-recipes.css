@@ -70,5 +70,8 @@ display: -webkit-box;
 -webkit-line-clamp: 2;
 overflow: hidden;
 }
+img{
+    cursor: pointer;
+}
 
 
