@@ -2,7 +2,7 @@ const messageContainer = document.getElementById('message-container'); // to sel
 let currentCategory = 'All Categories';
 let previousSelectedButton = null;
 
-// to fetch(?) ids from local storage
+// to fetch ids from local storage
 function getFavoriteIds() {
     const favArrString = localStorage.getItem('favArr');
     let favArr = [];
@@ -11,13 +11,13 @@ function getFavoriteIds() {
         favArr = favArrString ? JSON.parse(favArrString) : [];
     } catch (error) {
         console.error('Error parsing favArr from localStorage:', error);
-        favArr = [];  // if favoriteIdsturns null then return an empty array
+        favArr = [];  // if favoriteIds turns null then return an empty array
     }
 
-    const favoriteCards = document.querySelector('.favoriteCards');
+    const favoriteCards = document.querySelector('.favorite-cards');
 
     if (favoriteCards) {
-        favoriteCards.innerHTML = ""; // clean all mesages in message container
+        favoriteCards.innerHTML = ""; // clean all messages in message container
     }
 
     if (favArr.length === 0) {
@@ -32,36 +32,45 @@ function getFavoriteIds() {
     return favArr;
 }
 
-//async function to fetch data 
+// async function to fetch data 
 async function fetchById(id) {
-    const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${id}`);
-    if (!response.ok) {
-        throw new Error('Network response was not ok');
+    try {
+        const response = await fetch(`https://tasty-treats-backend.p.goit.global/api/recipes/${id}`);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const recipe = await response.json();
+        localStorage.setItem(`recipe_${id}`, JSON.stringify(recipe)); // Store the recipe in local storage
+        return recipe;
+    } catch (error) {
+        console.error('Error fetching recipe by ID:', error);
+        return null;
     }
-    const recipe = await response.json();
-    localStorage.setItem(`recipe_${id}`, JSON.stringify(recipe)); // Store the recipe in local storage
-    return recipe;
 }
 
-//to fetch all recipes that user selected as favorite
+// to fetch all recipes that user selected as favorite
 async function fetchFavorites() {
-    const favoriteIds = getFavoriteIds(); //get ids from local storage
+    const favoriteIds = getFavoriteIds(); // get ids from local storage
     try {
-        const recipes = await Promise.all(favoriteIds.map(id => fetchById(id))); // use these ids to fetch recipes from api. Promise.all means makes all api requests in parallel AND bringd together into the results
-        return recipes; //return all recipes in array
+        const recipes = await Promise.all(favoriteIds.map(id => fetchById(id))); // use these ids to fetch recipes from api. Promise.all means makes all api requests in parallel AND brings together into the results
+        return recipes.filter(recipe => recipe !== null); // return all recipes in array, filter out null values
     } catch (error) {
         console.error('Error fetching favorite recipes:', error);
         return []; // Return an empty array if there is an error
     }
 }
 
-//to display recipes 
+// to display recipes 
 async function renderFavoriteRecipes() {
     const recipes = await fetchFavorites();
 
     if (recipes.length === 0) {
         // Display a message if no favorite recipes are found
     } else {
+        // Extract categories from recipes and store in local storage
+        const categories = [...new Set(recipes.map(recipe => recipe.category))];
+        localStorage.setItem('favArrCategory', JSON.stringify(categories));
+
         renderCategoryNames();
         renderRecipes(recipes);
     }
