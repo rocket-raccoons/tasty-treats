@@ -76,7 +76,7 @@
       TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step
       Video Guides.
     </p>
-    <button class="order" onclick="openPopup()">Order Now</button>
+    <button class="order">Order Now</button>
   </div>
   <div class="slider-main-container">
     <div class="slider-container">
@@ -174,7 +174,7 @@
   </div>
   <div id="popupOverlay" class="popup-overlay">
     <div class="popup">
-      <button class="close-button" onclick="closePopup()">✕</button>
+      <button class="close-button">✕</button>
       <h2>ORDER NOW</h2>
       <form
         id="orderForm"
@@ -183,19 +183,46 @@
       >
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="name"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="phone">Phone number</label>
-          <input type="tel" id="phone" name="phone" required />
+
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+90 123 456 78 90"
+            pattern="^\+90\s\d{3}\s\d{3}\s\d{2}\s\d{2}$"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="email"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="comment">Comment</label>
-          <textarea id="comment" name="comment" required></textarea>
+          <textarea
+            id="comment"
+            name="comment"
+            rows="4"
+            cols="50"
+            placeholder="comment..."
+            required
+          ></textarea>
         </div>
         <button type="submit" class="submit-button">Send</button>
       </form>
