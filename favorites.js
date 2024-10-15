@@ -1,4 +1,4 @@
-import"./assets/footer-mascot-DxKdX-lJ.js";const y=document.getElementById("message-container");let l="All Categories",c=null;function m(){const r=localStorage.getItem("favArr");let t=[];try{t=r?JSON.parse(r):[]}catch(a){console.error("Error parsing favArr from localStorage:",a),t=[]}const e=document.querySelector(".favorite-cards");return e&&(e.innerHTML=""),t.length===0&&(y.innerHTML=`
+import"./assets/footer-mascot-D6E9PBmA.js";const y=document.getElementById("message-container");let l="All Categories",c=null;function m(){const r=localStorage.getItem("favArr");let t=[];try{t=r?JSON.parse(r):[]}catch(a){console.error("Error parsing favArr from localStorage:",a),t=[]}const e=document.querySelector(".favorite-cards");return e&&(e.innerHTML=""),t.length===0&&(y.innerHTML=`
         <div class="fav-message-container">
             <img src="./img/raccoon-sad-fav.png" class="fav-raccoon">
             <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
