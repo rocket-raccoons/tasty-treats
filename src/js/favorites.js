@@ -7,31 +7,7 @@ const recipesPerPage = 12;
 // to fetch ids from local storage
 function getFavoriteIds() {
     const favArrString = localStorage.getItem('favArr');
-    let favArr = [];
-    // to fetch favArr from local storage
-    try {
-        favArr = favArrString ? JSON.parse(favArrString) : [];
-    } catch (error) {
-        console.error('Error parsing favArr from localStorage:', error);
-        favArr = [];  // if favoriteIds turns null then return an empty array
-    }
-
-    const favoriteCards = document.querySelector('.favorite-cards');
-
-    if (favoriteCards) {
-        favoriteCards.innerHTML = ""; // clean all messages in message container
-    }
-
-    if (favArr.length === 0) {
-        messageContainer.innerHTML = `
-        <div class="fav-message-container">
-            <img src="./img/raccoon-sad-fav.png" class="fav-raccoon">
-            <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
-            <img src="./img/raccoon-sad-fav.png" class="fav-chefs-hat">
-        </div>
-        `;
-    }
-    return favArr;
+    return favArrString ? JSON.parse(favArrString) : [];
 }
 
 // async function to fetch data 
@@ -42,7 +18,6 @@ async function fetchById(id) {
             throw new Error('Network response was not ok');
         }
         const recipe = await response.json();
-        localStorage.setItem(`recipe_${id}`, JSON.stringify(recipe)); // Store the recipe in local storage
         return recipe;
     } catch (error) {
         console.error('Error fetching recipe by ID:', error);
@@ -52,13 +27,13 @@ async function fetchById(id) {
 
 // to fetch all recipes that user selected as favorite
 async function fetchFavorites() {
-    const favoriteIds = getFavoriteIds(); // get ids from local storage
+    const favoriteIds = getFavoriteIds();
     try {
-        const recipes = await Promise.all(favoriteIds.map(id => fetchById(id))); // use these ids to fetch recipes from api. Promise.all means makes all api requests in parallel AND brings together into the results
-        return recipes.filter(recipe => recipe !== null); // return all recipes in array, filter out null values
+        const recipes = await Promise.all(favoriteIds.map(id => fetchById(id)));
+        return recipes.filter(recipe => recipe !== null);
     } catch (error) {
         console.error('Error fetching favorite recipes:', error);
-        return []; // Return an empty array if there is an error
+        return [];
     }
 }
 
@@ -69,6 +44,16 @@ async function renderFavoriteRecipes(page = 1) {
 
     if (recipes.length === 0) {
         // Display a message if no favorite recipes are found
+        messageContainer.innerHTML = `
+        <div class="fav-message-container">
+            <img src="./img/raccoon-sad-fav.png" class="fav-raccoon">
+            <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
+            <img src="./img/raccoon-sad-fav.png" class="fav-chefs-hat">
+        </div>
+        `;
+        const paginationContainer = document.querySelector('.pagination');
+        paginationContainer.innerHTML = '';
+
     } else {
         // Extract categories from recipes and store in local storage
         const categories = [...new Set(recipes.map(recipe => recipe.category))];
@@ -202,10 +187,11 @@ function renderPaginationControls(totalRecipes, currentPage, category = 'All Cat
             filterRecipesByCategory(category, totalPages);
         }
     });
-}function favoritesHeartBtn() {
+}
+function favoritesHeartBtn() {
     const likeButtons = document.querySelectorAll('.heard-button');
     likeButtons.forEach(button => {
-        button.addEventListener('click', function () {
+        button.addEventListener('click', async function () {
             const recipeId = button.dataset.id;
             const recipeCategory = button.dataset.category;
             const favArrString = localStorage.getItem('favArr');
@@ -216,11 +202,11 @@ function renderPaginationControls(totalRecipes, currentPage, category = 'All Cat
                 localStorage.setItem('favArr', JSON.stringify(favArr));
             }
 
+            // Fetch all favorite recipes to check categories
+            const recipes = await fetchFavorites();
+
             // Check if there are any remaining recipes of the same category
-            const remainingRecipes = favArr.filter(id => {
-                const recipe = JSON.parse(localStorage.getItem(`recipe_${id}`));
-                return recipe && recipe.category === recipeCategory;
-            });
+            const remainingRecipes = recipes.filter(recipe => recipe.category === recipeCategory);
 
             if (remainingRecipes.length === 0) {
                 const favArrCategoryString = localStorage.getItem('favArrCategory');
@@ -230,6 +216,19 @@ function renderPaginationControls(totalRecipes, currentPage, category = 'All Cat
                     favArrCategory.splice(favArrCategory.indexOf(recipeCategory), 1);
                     localStorage.setItem('favArrCategory', JSON.stringify(favArrCategory));
                 }
+
+                // Switch to "All Categories" if the current category becomes empty
+                currentCategory = 'All Categories';
+                if (previousSelectedButton) {
+                    previousSelectedButton.style.backgroundColor = '';
+                    previousSelectedButton.style.color = '';
+                    previousSelectedButton.style.border = '';
+                }
+                const allCategoriesButton = document.querySelector('.fav-categories-list button:first-child');
+                allCategoriesButton.style.backgroundColor = 'var(--primary-color)';
+                allCategoriesButton.style.color = '#fff';
+                allCategoriesButton.style.border = '1px solid var(--primary-color)';
+                previousSelectedButton = allCategoriesButton;
             }
 
             renderCategoryNames();
@@ -241,7 +240,6 @@ function renderPaginationControls(totalRecipes, currentPage, category = 'All Cat
         });
     });
 }
-
 function addHeartButtonListeners() {
     const likeButtons = document.querySelectorAll('.heard-button');
     let favCategoryArr = [];
@@ -302,11 +300,10 @@ function renderCategoryNames() {
     });
 }
 
-function filterRecipesByCategory(category, page = 1) {
-    fetchFavorites().then(recipes => {
-        const filteredRecipes = recipes.filter(recipe => recipe.category === category);
-        renderRecipes(filteredRecipes, page);
-        renderPaginationControls(filteredRecipes.length, page, category);
-    });
+async function filterRecipesByCategory(category, page = 1) {
+    const recipes = await fetchFavorites();
+    const filteredRecipes = recipes.filter(recipe => recipe.category === category);
+    renderRecipes(filteredRecipes, page);
+    renderPaginationControls(filteredRecipes.length, page, category);
 }
 document.addEventListener('DOMContentLoaded', () => renderFavoriteRecipes());
