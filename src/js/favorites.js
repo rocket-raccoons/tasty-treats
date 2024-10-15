@@ -1,3 +1,8 @@
+
+import racoon from '../img/raccoon-sad-fav.png';
+
+
+
 const messageContainer = document.getElementById('message-container'); // to select message container
 let currentCategory = 'All Categories';
 let previousSelectedButton = null;
@@ -59,9 +64,9 @@ async function renderFavoriteRecipes(page = 1) {
         // Display a message if no favorite recipes are found
         messageContainer.innerHTML = `
         <div class="fav-message-container">
-            <img src="./img/raccoon-sad-fav.png" class="fav-raccoon">
+            <img src="${racoon}" class="fav-raccoon">
             <p class="fav-message">It appears that you haven't added any recipes to your favorites yet. To get started, you can add recipes that you like to your favorites for easier access in the future.</p>
-            <img src="./img/raccoon-sad-fav.png" class="fav-chefs-hat">
+            <img src="${racoon}" class="fav-chefs-hat">
         </div>
         `;
         const paginationContainer = document.querySelector('.pagination');
