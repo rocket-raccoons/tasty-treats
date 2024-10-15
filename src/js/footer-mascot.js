@@ -73,9 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="footer-list-item-text">${role}</p>
             <div class="footer-list-item-links">
             <a class="footer-list-item-link" href="${github}" target="_blank">
-                <svg class="icon-github-logo" width="20" height="20">
-                    <use xlink:href="${githubLogo}"></use>
-                </svg>
+                <img class="icon-github-logo" src="${githubLogo}" width="20" height="20">
+                </img>
                 GitHub 
             </a>
             </div>
