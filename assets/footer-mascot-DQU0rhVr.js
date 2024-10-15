@@ -12,4 +12,4 @@
             </div>
         </div>
          `,g};c.append(t(e),t(s),t(n),t(a),t(l),t(d),t(m),t(p)),i.onclick=function(){o.style.display="block"},r.onclick=function(){o.style.display="none"},window.onclick=function(u){u.target===o&&(o.style.display="none")}});
-//# sourceMappingURL=footer-mascot-I8Gc8f89.js.map
+//# sourceMappingURL=footer-mascot-DQU0rhVr.js.map
