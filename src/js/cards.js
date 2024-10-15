@@ -1,9 +1,14 @@
+import sprite from '../svg/sprite.svg';
+import nothingGif from '../img/nothing.gif';
 import iziToast from 'izitoast';
 import { pagination } from './form/custom-form.js';
 import { openModal, initModal } from './modal.js';
 
 export const cardsList = document.querySelector('.cards-list');
 const favArr = [];
+let favArrCategory = [];
+
+//this is a comment line
 
 //https request for all recipes and display them
 export async function fetchRecipes() {
@@ -40,7 +45,7 @@ export function displayRecipes(recipes) {
     cardsList.innerHTML = `
     <div class="no-results-container loader-container">
       <p class="no-results-text">Sorry! No results were found that match your filters.</p>
-      <img class="no-results" src="./img/nothing.gif"></img>
+      <img class="no-results" src="${nothingGif}"></img>
     </div>`;
     pagination.style.display = 'none';
   } else {
@@ -54,15 +59,15 @@ export function displayRecipes(recipes) {
       <li class="cards-listing" style="background-image: url(${
         recipe.preview
       });">
-      <button class="heard-button add-to-fav" data-id="${
-        recipe._id
-      }" aria-label="like-btn">
+      <button class="heard-button add-to-fav" data-category="${
+        recipe.category
+      }" data-id="${recipe._id}" aria-label="like-btn">
          <svg class="svg-heard add-to-fav" data-id="${
            recipe._id
          }" width="22px" height="22px">
-            <use class="add-to-fav svguse" href="/tasty-treats/svg/sprite.svg#${
-              favArr.includes(recipe._id) ? 'icon-heart-filled' : 'icon-heart'
-            }"></use>
+            <use class="add-to-fav svguse" href="${sprite}#${
+        favArr.includes(recipe._id) ? 'icon-heart-filled' : 'icon-heart'
+      }"></use>
         </svg></button>
 
       <div class="card-content-container">
@@ -76,11 +81,11 @@ export function displayRecipes(recipes) {
                   <p class="rating-text">${recipe.rating.toFixed(1)}</p>
                   <div class="star-container">
                     ${`<svg class="card-star-svg">
-                    <use href="/tasty-treats/svg/sprite.svg#icon-star"></use>
+                    <use href="${sprite}#icon-star"></use>
                       </svg>`.repeat(filledStars)}
 
                     ${`<svg class="card-star-svg">
-                    <use href="/tasty-treats/svg/sprite.svg#icon-emptystar"></use>
+                    <use href="${sprite}#icon-emptystar"></use>
                     </svg>`.repeat(emptyStars)}
                   </div>    
                 </div>
@@ -113,6 +118,9 @@ function addRecipeButtonListeners() {
 //updates local storage for fav recipes
 function updateLocalStorage() {
   localStorage.setItem('favArr', JSON.stringify(favArr));
+  localStorage.setItem('favArrCategory', JSON.stringify(favArrCategory))
+    ? JSON.stringify(favArrCategory)
+    : [];
 }
 
 // Add or remove a recipe from favArr and update localStorage
@@ -120,15 +128,16 @@ function addRemoveFav(e) {
   const favButton = e.target.closest('.heard-button');
 
   if (favButton) {
+    const favCategory = favButton.dataset.category;
     const id = favButton.dataset.id;
     const emptyHeart = favButton.querySelector('.svguse');
 
     if (favArr.includes(id)) {
       favArr.splice(favArr.indexOf(id), 1);
-      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart');
+      emptyHeart.setAttribute('href', `${sprite}#icon-heart`);
     } else {
       favArr.push(id);
-      emptyHeart.setAttribute('href', '/tasty-treats/svg/sprite.svg#icon-heart-filled');
+      emptyHeart.setAttribute('href', `${sprite}#icon-heart-filled`);
     }
 
     updateLocalStorage(); // Update localStorage after changing favArr

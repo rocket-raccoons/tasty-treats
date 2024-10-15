@@ -18,8 +18,8 @@
   transform: none;
   text-align: center;
 }
-.navbar-logo a{
-  color:inherit;
+.navbar-logo a {
+  color: inherit;
 }
 .navbar-logo h1 {
   font-size: 18px;
@@ -314,6 +314,7 @@ body.dark-mode {
   --text-color: #fff;
   --toggle-bg-color: #8dc63f;
   --toggle-bg-color-active: #e0e0e0;
+  --border-color: #ffffff33;
 }
 
 body.dark-mode .navbar-logo h1 {
