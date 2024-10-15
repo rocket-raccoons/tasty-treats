@@ -6,7 +6,7 @@ import pinar from '../img/footer-pic/pinar-unlu.webp';
 import mehmet from '../img/footer-pic/mehmet-ardic.webp';
 import murat from '../img/footer-pic/murat-colak.webp';
 import raccoon from '../img/footer-pic/mr-raccoon.webp';
-import sprite from '../svg/sprite.svg';
+import githubLogo from '../svg/github-icon.svg';
 
 document.addEventListener('DOMContentLoaded', () => {
   const footerList = document.querySelector('.footer-list');
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="footer-list-item-links">
             <a class="footer-list-item-link" href="${github}" target="_blank">
                 <svg class="icon-github-logo" width="20" height="20">
-                    <use xlink:href="${sprite}#icon-github-logo"></use>
+                    <use xlink:href="${githubLogo}"></use>
                 </svg>
                 GitHub 
             </a>
