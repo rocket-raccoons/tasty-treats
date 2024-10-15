@@ -1,4 +1,12 @@
-import footerPic from '../img/footer-pic';
+import mete from '../img/footer-pic/mete-civelek.webp';
+import subat from '../img/footer-pic/subat-yücel.webp';
+import deniz from '../img/footer-pic/deniz-sofia.webp';
+import onur from '../img/footer-pic/onur-akarsu.webp';
+import pinar from '../img/footer-pic/pınar-unlu.webp';
+import mehmet from '../img/footer-pic/mehmet-ardıc.webp';
+import murat from '../img/footer-pic/murat-colak.webp';
+import sprite from '../svg/sprite.svg';
+
 document.addEventListener('DOMContentLoaded', () => {
   const footerList = document.querySelector('.footer-list');
   const modal = document.getElementById('myModal');
@@ -8,43 +16,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const person1 = {
     name: 'Mete CİVELEK',
     role: 'Team Leader, Developer',
-    imgSrc: `${footerPic}/mete-civelek.webp`,
+    imgSrc: `${mete}`,
     github: 'https://github.com/metlandus',
   };
   const person2 = {
     name: 'Şubat YÜCEL',
     role: 'Team Leader, Developer',
-    imgSrc: './img/footer-pic/subat-yücel.webp',
+    imgSrc: `${subat}`,
     github: 'https://github.com/subatyucel',
   };
   const person3 = {
     name: 'Deniz Sofia ULUTAŞ',
     role: 'Scrum Master, Developer',
-    imgSrc: './img/footer-pic/deniz-sofia.webp',
+    imgSrc: `${deniz}`,
     github: 'https://github.com/sofia11244',
   };
   const person4 = {
     name: 'Onur AKARSU',
     role: 'Developer',
-    imgSrc: './img/footer-pic/onur-akarsu.webp',
+    imgSrc: `${onur}`,
     github: 'https://github.com/RiveTroy',
   };
   const person5 = {
     name: 'Pınar ÜNLÜ',
     role: 'Developer',
-    imgSrc: './img/footer-pic/pınar-unlu.webp',
+    imgSrc: `${pinar}`,
     github: 'https://github.com/pinarunlu',
   };
   const person6 = {
     name: 'Mehmet ARDIÇ',
     role: 'Developer',
-    imgSrc: './img/footer-pic/mehmet-ardıc.webp',
+    imgSrc: `${mehmet}`,
     github: 'https://github.com/ArdicMehmet',
   };
   const person7 = {
     name: 'Murat ÇOLAK',
     role: 'Developer',
-    imgSrc: './img/footer-pic/murat-colak.webp',
+    imgSrc: `${murat}`,
     github: 'https://github.com/zipkaniar',
   };
 
@@ -63,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="footer-list-item-links">
         <a class="footer-list-item-link" href="${github}" target="_blank">GitHub 
             // <svg class="icon-github-logo" width="24" height="24">
-            //     <use xlink:href="../svg/github-logo.svg.svg#icon-github-logo"></use>
+            //     <use xlink:href="${sprite}#icon-github-logo"></use>
             // </svg>
         </a>
         </div>
