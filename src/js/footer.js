@@ -1,9 +1,9 @@
 import mete from '../img/footer-pic/mete-civelek.webp';
-import subat from '../img/footer-pic/subat-yücel.webp';
+import subat from '../img/footer-pic/subat-yucel.webp';
 import deniz from '../img/footer-pic/deniz-sofia.webp';
 import onur from '../img/footer-pic/onur-akarsu.webp';
-import pinar from '../img/footer-pic/pınar-unlu.webp';
-import mehmet from '../img/footer-pic/mehmet-ardıc.webp';
+import pinar from '../img/footer-pic/pinar-unlu.webp';
+import mehmet from '../img/footer-pic/mehmet-ardic.webp';
 import murat from '../img/footer-pic/murat-colak.webp';
 import sprite from '../svg/sprite.svg';
 
