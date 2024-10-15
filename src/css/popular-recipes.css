@@ -71,7 +71,7 @@ display: -webkit-box;
 overflow: hidden;
 }
 
-img{
+.recipe-container img{
     cursor: pointer;
 }
 
