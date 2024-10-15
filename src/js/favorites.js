@@ -3,6 +3,8 @@ let currentCategory = 'All Categories';
 let previousSelectedButton = null;
 let currentPage = 1;
 const recipesPerPage = 12;
+import { openModal, initModal } from './modal.js';
+
 
 // to fetch ids from local storage
 function getFavoriteIds() {
@@ -37,6 +39,17 @@ async function fetchFavorites() {
     }
 }
 
+function addRecipeButtonListeners() {
+    const recipeButtons = document.querySelectorAll('.recipe-button');
+    recipeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const recipeId = this.getAttribute('data-id');
+            openModal(recipeId);
+        });
+    });
+}
+
+
 // to display recipes 
 async function renderFavoriteRecipes(page = 1) {
     const recipes = await fetchFavorites();
@@ -62,6 +75,7 @@ async function renderFavoriteRecipes(page = 1) {
         renderCategoryNames();
         renderRecipes(recipes, page);
         renderPaginationControls(recipes.length, page);
+        addRecipeButtonListeners();
     }
 }
 
@@ -306,4 +320,7 @@ async function filterRecipesByCategory(category, page = 1) {
     renderRecipes(filteredRecipes, page);
     renderPaginationControls(filteredRecipes.length, page, category);
 }
-document.addEventListener('DOMContentLoaded', () => renderFavoriteRecipes());
+document.addEventListener('DOMContentLoaded', () => renderFavoriteRecipes().then(() => {
+    initModal();
+})
+);

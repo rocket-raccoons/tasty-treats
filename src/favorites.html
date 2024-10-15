@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <script type="module" src="./js/header/nav.js" defer></script>
     <script type="module" src="./js/favorites.js" defer></script>
+    <script type="module" src="./js/modal.js" defer></script>
+
     <!-- <script type="module" src="./js/footer.js" defer></script> -->
     <script type="module" src="./js/footer-mascot.js" defer></script>
   </head>
@@ -120,27 +122,13 @@
         </div>
 
         <div class="pagination">
-            <!-- <div class="left-arrow-container">
-                <button id="doubleLeft" class="pagination-btn left-end">
-                    &laquo;
-                </button>
-                <button id="singleLeft" class="pagination-btn left-one">
-                    &lsaquo;
-                </button>
+        </div>
+        
+        <div class="modal" id="recipeModal">
+            <div class="modal-content">
+                <button class="modal-close-button">&times;</button>
+                <!-- Modal content will be dynamically inserted here -->
             </div>
-            <div class="number-container">
-                <button class="pagination-btn page-number active-page">1</button>
-                <button class="pagination-btn page-number">2</button>
-                <button class="pagination-btn page-number">3</button>
-            </div>
-            <div class="right-arrow-container">
-                <button id="singleRight" class="right-one pagination-btn">
-                    &rsaquo;
-                </button>
-                <button id="doubleRight" class="right-end pagination-btn">
-                    &raquo;
-                </button>
-            </div> -->
         </div>
     <footer>
       <load ="partials/footer.html" />
