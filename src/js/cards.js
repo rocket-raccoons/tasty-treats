@@ -1,4 +1,5 @@
 import sprite from '../svg/sprite.svg';
+import nothingGif from '../img/nothing.gif';
 import iziToast from 'izitoast';
 import { pagination } from './form/custom-form.js';
 import { openModal, initModal } from './modal.js';
@@ -44,7 +45,7 @@ export function displayRecipes(recipes) {
     cardsList.innerHTML = `
     <div class="no-results-container loader-container">
       <p class="no-results-text">Sorry! No results were found that match your filters.</p>
-      <img class="no-results" src="./img/nothing.gif"></img>
+      <img class="no-results" src="${nothingGif}"></img>
     </div>`;
     pagination.style.display = 'none';
   } else {
