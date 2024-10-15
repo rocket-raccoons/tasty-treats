@@ -108,7 +108,7 @@
 
 .options::-webkit-scrollbar-thumb {
   width: 6px;
-  background-color: #0505051a;
+  background-color: var(--border-color);
   border-radius: 12px;
 }
 
