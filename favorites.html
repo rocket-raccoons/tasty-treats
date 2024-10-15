@@ -16,8 +16,8 @@
     />
     <!-- <script type="module" src="./js/footer.js" defer></script> -->
     <script type="module" crossorigin src="/tasty-treats/favorites.js"></script>
-    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-DQU0rhVr.js">
-    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-BoH8nCGW.css">
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-DxKdX-lJ.js">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-Ap3AdUoi.css">
   </head>
 
   <body class="fav-body">
@@ -124,12 +124,46 @@
             <ul class="favorite-cards container"></ul>
         </div>
     <footer>
-      
-<footer class="footer">
+      <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      function openModal() {
+        let modal = document.getElementById('myModal');
+        if (modal) { // Check if modal exists
+          modal.style.display = 'block';
+        }
+      }
+  
+      function closeModal() {
+        let modal = document.getElementById('myModal');
+        if (modal) { // Check if modal exists
+          modal.style.display = 'none';
+        }
+      }
+  
+      // Make sure these are inside the DOMContentLoaded event
+      let openModalBtn = document.getElementById('openModalBtn');
+      let closeModalBtn = document.getElementById('closeModelBtn');
+  
+      if (openModalBtn) {
+        openModalBtn.addEventListener('click', openModal);
+      }
+  
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+      }
+    });
+</script>
+
+<div class="footer">
     <div class="footer-text">
         <p class="footer-text-p">© 2024. All rights reserved.
         Developed by: 
       </p>
+
+
+
+
+      <!-- MODAL OPEN -->
       <span>
             <svg id="openModalBtn" class="icon-raccoon" width="32" height="32" viewBox="0 0 32 32">
                 <use xlink:href="/tasty-treats/assets/icon-footer-raccoon-Bf8Hd9G5.svg#icon-raccoon"></use>
@@ -139,27 +173,138 @@
     </div>
 
 
-<!-- MODAL WİNDOW -->
+    <!-- MODAL WINDOW -->
 
 
-<div id="myModal" class="modal">
-    <div class="modal-content-footer">
-        <span class="close">
-            <!-- X BUTTON    -->
-            <svg width="32" height="32" class="modal-menu-button-icon" type="button" >
-                <use class="modal-menu-button-icon-alt" href="/tasty-treats/assets/modal-menu-exit-button-BENLice6.svg#icon-modal-exit-button"> </use>
-              </svg>
-        </span>
-        <div class="footer-container">
-            <ul class="footer-list">
-               <!-- developers names... -->
-            </ul>
-            
+    <div id="myModal" class="modal">
+        <div class="modal-content-footer">
+            <button class="close">
+                <!-- X BUTTON    -->
+                <svg width="32" height="32" class="modal-menu-button-icon" type="button" id="closeModelBtn">
+                    <use class="modal-menu-button-icon-alt" href="/tasty-treats/assets/modal-menu-exit-button-BENLice6.svg#icon-modal-exit-button"> </use>
+                </svg>
+            </button>
+            <div class="footer-container">
+                <ul class="footer-list">
+
+                    <li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/mete-civelek-DcGghiYc.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Mete CİVELEK</h2>
+                        <p class="footer-list-item-text">Team Leader, Developer</p>
+                        <div class="footer-list-item-links">
+                        <a class="footer-list-item-link" href="https://github.com/metlandus" target="_blank">
+                            <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                            
+                            GitHub 
+                        </a>
+                        </div>
+                    </div>
+                    </li><li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/subat-yucel-B65HeuKg.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Şubat YÜCEL</h2>
+                        <p class="footer-list-item-text">Team Leader, Developer</p>
+                        <div class="footer-list-item-links">
+                        <a class="footer-list-item-link" href="https://github.com/subatyucel" target="_blank">
+                            <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                            
+                            GitHub 
+                        </a>
+                        </div>
+                    </div>
+                    </li><li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/deniz-sofia-DyGPDRlQ.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Deniz Sofia ULUTAŞ</h2>
+                        <p class="footer-list-item-text">Scrum Master, Developer</p>
+                        <div class="footer-list-item-links">
+                        <a class="footer-list-item-link" href="https://github.com/sofia11244" target="_blank">
+                            <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                            
+                            GitHub 
+                        </a>
+                        </div>
+                    </div>
+                    </li><li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/onur-akarsu-BSpDY0a1.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Onur AKARSU</h2>
+                        <p class="footer-list-item-text">Developer</p>
+                        <div class="footer-list-item-links">
+                        <a class="footer-list-item-link" href="https://github.com/RiveTroy" target="_blank">
+                            <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                            
+                            GitHub 
+                        </a>
+                        </div>
+                    </div>
+                    </li><li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/pinar-unlu-44TTC5WI.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Pınar ÜNLÜ</h2>
+                        <p class="footer-list-item-text">Developer</p>
+                        <div class="footer-list-item-links">
+                        <a class="footer-list-item-link" href="https://github.com/pinarunlu" target="_blank">
+                            <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                            
+                            GitHub 
+                        </a>
+                        </div>
+                    </div>
+                    </li><li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/mehmet-ardic-CPHCZaE9.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Mehmet ARDIÇ</h2>
+                        <p class="footer-list-item-text">Developer</p>
+                        <div class="footer-list-item-links">
+                            <a class="footer-list-item-link" href="https://github.com/ArdicMehmet" target="_blank">
+                                <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                                
+                                GitHub 
+                            </a>
+                        </div>
+                    </div>
+                    </li><li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/murat-colak-CX0GXWGl.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Murat ÇOLAK</h2>
+                        <p class="footer-list-item-text">Developer</p>
+                        <div class="footer-list-item-links">
+                            <a class="footer-list-item-link" href="https://github.com/zipkaniar" target="_blank">
+                                <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                                
+                                GitHub 
+                            </a>
+                        </div>
+                    </div>
+                    </li><li class="footer-list-item">
+                        <img class="footer-list-item-img" src="/tasty-treats/assets/mr-raccoon-BmV_lz3H.webp" alt="">
+                    <div class="footer-list-item-info">    
+                        <h2 class="footer-list-item-name">Mr. Raccoon</h2>
+                        <p class="footer-list-item-text">Mascot</p>
+                        <div class="footer-list-item-links">
+                            <a class="footer-list-item-link" href="https://github.com/rocket-racoons" target="_blank">
+                                <img class="icon-github-logo" src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='98'%20height='96'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M48.854%200C21.839%200%200%2022%200%2049.217c0%2021.756%2013.993%2040.172%2033.405%2046.69%202.427.49%203.316-1.059%203.316-2.362%200-1.141-.08-5.052-.08-9.127-13.59%202.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015%204.934.326%207.523%205.052%207.523%205.052%204.367%207.496%2011.404%205.378%2014.235%204.074.404-3.178%201.699-5.378%203.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283%200-5.378%201.94-9.778%205.014-13.2-.485-1.222-2.184-6.275.486-13.038%200%200%204.125-1.304%2013.426%205.052a46.97%2046.97%200%200%201%2012.214-1.63c4.125%200%208.33.571%2012.213%201.63%209.302-6.356%2013.427-5.052%2013.427-5.052%202.67%206.763.97%2011.816.485%2013.038%203.155%203.422%205.015%207.822%205.015%2013.2%200%2018.905-11.404%2023.06-22.324%2024.283%201.78%201.548%203.316%204.481%203.316%209.126%200%206.6-.08%2011.897-.08%2013.526%200%201.304.89%202.853%203.316%202.364%2019.412-6.52%2033.405-24.935%2033.405-46.691C97.707%2022%2075.788%200%2048.854%200z'%20/%3e%3c/svg%3e" width="20" height="20">
+                                
+                                GitHub 
+                            </a>
+                        </div>
+                    </div>
+                    </li>
+
+
+
+
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+        <!-- developers names... -->
+
+
     
-</footer>
+</div>
 
 
 
