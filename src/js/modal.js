@@ -31,9 +31,10 @@ export async function openModal(recipeId) {
       `https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}`
     );
     const recipe = await response.json();
-
+    const instructions = recipe.instructions.split('.').join('<br>');
     // console.log(recipe.youtube);
-    console.log(recipe.time);
+    // console.log(recipe.time);
+
     // Update modal content with recipe details
     modalContent.innerHTML = `
         <div class= "modal-heading">
@@ -65,7 +66,7 @@ export async function openModal(recipeId) {
         </div>
         </div>
         </div>
-        <p>${recipe.instructions}</p>
+        <p class="modal-recipe-instructions">${instructions}</p>
         <div style="display: flex; gap: 20px; margin-top: 20px;">
           <button class="addToFavoriteButton">Add to Favorite</button>
           <button class="giveRatingButton">Give a Rating</button>
