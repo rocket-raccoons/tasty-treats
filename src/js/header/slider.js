@@ -1,9 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
   const slider = document.querySelector('.slider');
   const slides = document.querySelectorAll('.slide');
+  const lazyImages = document.querySelectorAll('.lazy-image');
   const indicatorsContainer = document.querySelector('.slider-indicators');
   let currentIndex = 0;
   let slideWidth = 100;
+ 
+ 
+  const lazyLoad = () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const image = entry.target;
+
+          // Görselin src'yi data-src'den al
+          image.src = image.dataset.src;
+
+          // Lazy yükleme sınıfını kaldır
+          image.classList.remove('lazy-image');
+
+          // Observer'ı kaldır
+          observer.unobserve(image);
+        }
+      });
+    }, {
+      threshold: 0.1 // Görselin %10'u ekranda göründüğünde yükleme başlaması için
+    });
+    lazyImages.forEach(image => observer.observe(image));
+  };
+
+  lazyLoad();
 
   slides.forEach((_, index) => {
       const indicator = document.createElement('div');
