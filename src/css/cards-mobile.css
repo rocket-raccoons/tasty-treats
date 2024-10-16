@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .cards-listing {
   width: 335px;
@@ -78,7 +78,7 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-    color: #f8f8f8;
+  color: #f8f8f8;
 }
 
 .card-rating-container {
