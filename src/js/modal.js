@@ -58,8 +58,8 @@ export async function openModal(recipeId) {
                     <use href="${sprite}#icon-star"></use>
                       </svg>`.repeat(filledStars)}
 
-                    ${`<svg class="card-star-svg">
-                    <use href="${sprite}#icon-emptystar"></use>
+                    ${`<svg class="card-star-svg modal-empty-star">
+                    <use href="${sprite}#icon-emptystar-modal"></use>
                     </svg>`.repeat(emptyStars)}
                   </div>    
                 </div>
