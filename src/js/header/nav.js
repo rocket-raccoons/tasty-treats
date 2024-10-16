@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sideMenuThemeToggle.classList.toggle('active');
         changedWeather();
         
-        // Save the user's preference
         const isDarkMode = body.classList.contains('dark-mode');
         localStorage.setItem('darkMode', isDarkMode);
     }
