@@ -19,6 +19,10 @@
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
+.modal-star-container p {
+  color: var(--text-color);
+}
+
 .card-star-svg.modal-empty-star use {
   fill: var(--text-color);
   opacity: 0.25;
@@ -129,10 +133,10 @@
 }
 
 .modal-recipe-ingredients-container::-webkit-scrollbar {
-  width: 3px;
+  width: 6px;
 }
 .modal-recipe-ingredients-container::-webkit-scrollbar-thumb {
-  background-color: #888;
+  background-color: rgba(var(--text-color-rgb), 0.4);
   border-radius: 12px;
 }
 
@@ -204,6 +208,14 @@
   height: 162px;
   margin-right: 5px;
   overflow-y: auto;
+}
+
+.modal-recipe-instructions::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-recipe-instructions::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--text-color-rgb), 0.4);
+  border-radius: 12px;
 }
 @media screen and (min-width: 768px) {
   .modal-recipe-instructions {
