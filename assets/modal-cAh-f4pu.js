@@ -37,4 +37,4 @@
         </div>
         </div>
       `}catch(c){console.error("Error fetching recipe details:",c),i.innerHTML="<p>Error loading recipe details. Please try again.</p>"}}function l(){const s=document.getElementById("recipeModal");s.style.display="none"}export{f as i,v as o,m as s};
-//# sourceMappingURL=modal-Cu_NdEq-.js.map
+//# sourceMappingURL=modal-cAh-f4pu.js.map
