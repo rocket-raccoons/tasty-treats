@@ -47,9 +47,9 @@ export function displayRecipes(recipes) {
       <p class="no-results-text">Sorry! No results were found that match your filters.</p>
       <img class="no-results" src="${nothingGif}"></img>
     </div>`;
-    pagination.style.display = 'none';
+    pagination.classList.add('hidden');
   } else {
-    pagination.style.display = 'flex';
+    pagination.classList.remove('hidden');
     recipes.forEach(recipe => {
       // Rating için yıldızları oluşturma
       const filledStars = Math.round(recipe.rating);
