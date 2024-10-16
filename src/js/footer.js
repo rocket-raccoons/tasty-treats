@@ -105,12 +105,10 @@
 //     }
 //   };
 // });
-
 document.addEventListener('DOMContentLoaded', function () {
   function openModal() {
     let modal = document.getElementById('myModal');
     if (modal) {
-      // Check if modal exists
       modal.style.display = 'block';
     }
   }
@@ -118,14 +116,27 @@ document.addEventListener('DOMContentLoaded', function () {
   function closeModal() {
     let modal = document.getElementById('myModal');
     if (modal) {
-      // Check if modal exists
       modal.style.display = 'none';
     }
   }
 
-  // Make sure these are inside the DOMContentLoaded event
+  // Modal dışına tıklama ile kapatma
+  window.addEventListener('click', function (event) {
+    let modal = document.getElementById('myModal');
+    if (modal && event.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Esc tuşuna basıldığında modalı kapatma
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {  // Esc tuşu
+      closeModal();
+    }
+  });
+
   let openModalBtn = document.getElementById('openModalBtn');
-  let closeModalBtn = document.getElementById('closeModelBtn');
+  let closeModalBtn = document.getElementById('closeModalBtn'); // closeModelBtn to modal :p
 
   if (openModalBtn) {
     openModalBtn.addEventListener('click', openModal);
@@ -135,3 +146,5 @@ document.addEventListener('DOMContentLoaded', function () {
     closeModalBtn.addEventListener('click', closeModal);
   }
 });
+
+

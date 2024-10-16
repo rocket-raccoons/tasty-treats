@@ -1,4 +1,4 @@
-.modal {
+.modal-f {
   display: none;
   position: fixed;
   z-index: 90;
@@ -69,8 +69,8 @@
 }
 .footer-list-item-img {
   border-radius: 15px;
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   object-fit: cover;
 }
 
@@ -94,11 +94,7 @@
   cursor: pointer;
 }
 
-.modal-menu-button-icon {
-  z-index: 100;
-  fill: var(--color1);
-  cursor: pointer;
-}
+
 
 .footer-list-item-link {
   display: flex;
@@ -110,7 +106,6 @@
   display: flex;
   justify-content: center;
   gap: 32px;
-  width: 800px;
   max-height: 200vh;
 }
 .modal-content-footer {
@@ -118,9 +113,8 @@
   margin: 1% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 65%;
   max-height: 90%;
-  max-width: 800px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   display: flex;
@@ -140,3 +134,34 @@
     border-radius: 12px;
 }
 
+@media screen and (min-width: 375px) {
+  .modal-content-footer {
+    margin: 5% auto;
+  }
+  .modal-menu-button-icon {
+    fill: var(--color1);
+    cursor: pointer;
+    position: absolute;
+    left: auto;
+  }
+}
+@media screen and (min-width: 768px) {
+  .modal-content-footer {
+    margin: 5% auto;
+  }
+  .modal-menu-button-icon {
+    top: 5rem;
+    left: 15rem;
+  }
+}
+
+@media screen and (min-width: 1608px) {
+  .modal-content-footer {
+    margin: 5% auto;
+  }
+  .modal-menu-button-icon {
+    top: 9.3rem;
+    left: 30.90rem;
+}
+
+}
