@@ -20,12 +20,12 @@
   font-weight: 600;
   color: var(--text-color);
   background-color: transparent;
-  border: 1px solid rgb(from var(--text-color) r g b / 30%);
+  border: 1px solid rgba(var(--text-color-rgb), 0.3);
   border-radius: 50%;
 }
 .pagination .active-page {
   background-color: var(--primary-color);
-  border: 1px solid rgb(from var(--primary-color) r g b / 100%);
+  border: 1px solid rgba(var(--primary-color-rgb), 1);
 }
 .left-arrow-container,
 .right-arrow-container {

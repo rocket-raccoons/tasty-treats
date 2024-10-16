@@ -19,7 +19,7 @@
 
   .fav-categories-list::-webkit-scrollbar-thumb {
     border-radius: 12px;
-    background-color: rgb(from var(--text-color) r g b / 18%);
+    background-color: rgba(var(--text-color-rgb), 0.18);
   }
 
   .fav-img {
@@ -41,11 +41,12 @@
   }
   .category-button {
     background: none;
-    border: 1px solid rgb(from var(--text-color) r g b / 20%);
+    border: 1px solid rgba(var(--text-color-rgb), 0.2);
+    
     font-size: 16px;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
-    color: rgb(from var(--text-color) r g b / 50%);
+    color: rgba(var(--text-color-rgb),0.5);
     border-radius: 15px;
     padding: 14px 18px;
   }
