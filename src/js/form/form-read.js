@@ -121,12 +121,13 @@ function clearInput() {
 //displays loader on screen
 export function displayLoader() {
   loader.classList.remove('hidden');
-  pagination.style.display = 'none';
+  pagination.classList.add('hidden-pagination');
 }
 
 //hides loader from screen
 export function hideLoader() {
   loader.classList.add('hidden');
+  pagination.classList.remove('hidden-pagination');
 }
 
 //hides options when clicked inside form but not on options
