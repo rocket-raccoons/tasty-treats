@@ -13,11 +13,12 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <!-- <script type="module" src="./js/footer.js" defer></script> -->
+    />
+
+    <!-- <script type="module" src="./js/footer.js" defer></script> -->
     <script type="module" crossorigin src="/tasty-treats/favorites.js"></script>
-    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-D6E9PBmA.js">
-    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-BjczW2Mo.css">
+    <link rel="modulepreload" crossorigin href="/tasty-treats/assets/footer-mascot-D25PUpP0.js">
+    <link rel="stylesheet" crossorigin href="/tasty-treats/assets/footer-mascot-D_OtARpu.css">
   </head>
 
   <body class="fav-body">
@@ -105,23 +106,27 @@
         src="/tasty-treats/assets/favorites-medium-plate-pic--LUbqGxR.png"
         alt="fav-hero-prepared-medium-plate-photo"
       />
-      <!-- <img class="fav-img-item-small" src="./img/favorites-small-plate-pic.png" alt="fav-hero-prepared-small-plate-photo"> -->
     </div>
 
-    <!-- <div class="fav-container">
-        <div class="fav-categories-list">
-             <button class="fav-categories-list-button">All categories</button> 
-            KATEGORİ BUTONLARI 
-        </div> -->
 
     <!-- ------------------------------------------------------ -->
 
-    <div id="message-container">
-        <div class="fav-categories container">
-            <ul class="fav-categories-list">
+    <div id="message-container" class="container">
+        <div class="fav-categories">
+            <ul class="fav-categories-list container">
             </ul>
         </div>
-            <ul class="favorite-cards container"></ul>
+            <ul class="favorite-cards"></ul>
+        </div>
+
+        <div class="pagination">
+        </div>
+        
+        <div class="modal" id="recipeModal">
+            <div class="modal-content">
+                <button class="modal-close-button">&times;</button>
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
         </div>
     <footer>
       <script>
@@ -166,7 +171,7 @@
       <!-- MODAL OPEN -->
       <span>
             <svg id="openModalBtn" class="icon-raccoon" width="32" height="32" viewBox="0 0 32 32">
-                <use xlink:href="/tasty-treats/assets/icon-footer-raccoon-Dq3RcYj7.svg#icon-raccoon"></use>
+                <use xlink:href="/tasty-treats/assets/icon-footer-raccoon-Bf8Hd9G5.svg#icon-raccoon"></use>
             </svg>
         </span>
             
@@ -181,7 +186,7 @@
             <button class="close">
                 <!-- X BUTTON    -->
                 <svg width="32" height="32" class="modal-menu-button-icon" type="button" id="closeModelBtn">
-                    <use class="modal-menu-button-icon-alt" href="/tasty-treats/assets/modal-menu-exit-button-Ke97Drd0.svg#icon-modal-exit-button"> </use>
+                    <use class="modal-menu-button-icon-alt" href="/tasty-treats/assets/modal-menu-exit-button-BENLice6.svg#icon-modal-exit-button"> </use>
                 </svg>
             </button>
             <div class="footer-container">
