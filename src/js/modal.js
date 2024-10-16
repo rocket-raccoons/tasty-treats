@@ -1,3 +1,5 @@
+import sprite from '../svg/sprite.svg';
+
 // modal.js
 export function initModal() {
   const modal = document.getElementById('recipeModal');
@@ -31,9 +33,12 @@ export async function openModal(recipeId) {
       `https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}`
     );
     const recipe = await response.json();
-
+    const instructions = recipe.instructions.split('.').join('<br>');
+    const filledStars = Math.round(recipe.rating);
+    const emptyStars = 5 - filledStars;
     // console.log(recipe.youtube);
-    console.log(recipe.time);
+    // console.log(recipe.time);
+
     // Update modal content with recipe details
     modalContent.innerHTML = `
         <div class= "modal-heading">
@@ -46,9 +51,18 @@ export async function openModal(recipeId) {
         <h2>${recipe.title}</h2>
         <div class="modal-rating-container">
         <div class="modal-star-container">
-        <p class="rating star_rating">${'★'.repeat(
-          Math.round(recipe.rating)
-        )}☆</p>
+              <div class="rating-container">
+                  <p class="rating-text">${recipe.rating.toFixed(1)}</p>
+                  <div class="star-container">
+                    ${`<svg class="card-star-svg">
+                    <use href="${sprite}#icon-star"></use>
+                      </svg>`.repeat(filledStars)}
+
+                    ${`<svg class="card-star-svg">
+                    <use href="${sprite}#icon-emptystar"></use>
+                    </svg>`.repeat(emptyStars)}
+                  </div>    
+                </div>
         </div>
         <p class="cooking-time">${recipe.time} min</p>
         </div>
@@ -65,7 +79,7 @@ export async function openModal(recipeId) {
         </div>
         </div>
         </div>
-        <p>${recipe.instructions}</p>
+        <p class="modal-recipe-instructions">${instructions}</p>
         <div style="display: flex; gap: 20px; margin-top: 20px;">
           <button class="addToFavoriteButton">Add to Favorite</button>
           <button class="giveRatingButton">Give a Rating</button>
