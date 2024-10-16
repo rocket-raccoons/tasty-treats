@@ -80,13 +80,9 @@ function updatePageButtons() {
 
 // Sayfa değiştirme fonksiyonu
 function changePage(newPage, from) {
-  console.log('page : ', newPage);
-
   totalPages = localStorage.getItem('totalPage')
     ? Number(localStorage.getItem('totalPage'))
     : allPages;
-
-  console.log('total page : ', totalPages);
 
   if (newPage >= 1 && newPage <= totalPages) {
     currentPage = newPage;
