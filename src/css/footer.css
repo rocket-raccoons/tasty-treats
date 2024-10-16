@@ -128,26 +128,15 @@
   flex-wrap: wrap;
   overflow: hidden;
   overflow-y: scroll;
-  scrollbar-width: thin;
-  scroll-behavior: smooth;
-  scroll-margin: 10px;
 }
 
 .modal-content-footer::-webkit-scrollbar {
-  width: 2vw;
+    width: 8px;
 }
+
 
 .modal-content-footer::-webkit-scrollbar-thumb {
-  background-color: gray;
+    background: rgba(var(--text-color-rgb), 0.4); 
+    border-radius: 12px;
 }
 
-/* .modal-content-footer::-webkit-scrollbar-track{
-
-}
-
-.modal-content-footer::-webkit-scrollbar-thumb:hover{
-}
-
-.modal-content-footer::-webkit-scrollbar-track:hover{
-
-} */
