@@ -1,10 +1,13 @@
 /* Variables */
 :root {
   --primary-color: #9bb537;
+  --primary-color-rgb:155, 181, 55;
   --secondary-color: #050505;
   --text-color: #333;
+  --text-color-rgb:51, 51, 51;
   --dark-bg: #383838;
   --white-bg: #f8f8f8;
+  --white-bg-rgb: 248, 248, 248;
   --secondary-bg: #05050533;
   --toggle-bg-color: #e0e0e0;
   --toggle-bg-color-active: #8dc63f;
