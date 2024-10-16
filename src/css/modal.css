@@ -81,14 +81,17 @@
   }
 }
 .modal-rating-container {
-  display: block;
+  display: flex;
+  align-items: space-between;
 }
 
 .cooking-time {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-color);
-  margin: 20px 0;
+  font-weight: 500;
+  line-height: 1.8rem;
+  margin-left: 16px;
 }
 .modal-recipe-container {
   margin-top: 20px;
@@ -105,7 +108,7 @@
   margin-bottom: 14px;
   text-transform: uppercase;
   line-height: 1.333;
-  font-family: var(--main-font), sans-serif;
+  font-family: Inter, sans-serif;
 }
 @media screen and (min-width: 768px) {
   .modal-recipe-container h2 {
@@ -163,7 +166,7 @@
     color: var(--text-color);
     margin: 0;
     line-height: 1.2857;
-    width: 110px;
+    width: 120px;
 }
 
 .ingredient-portion {
@@ -175,6 +178,7 @@
     width: 95px;
     line-height: 1.2857;
     text-align: right;
+    margin-right: 5px;
 }
 
 .modal-recipe-instructions{
@@ -184,6 +188,7 @@
     line-height: 1.2857;
     margin-bottom: 40px;
     height: 162px;
+    margin-right: 5px;
     overflow-y: auto;
 }
 @media screen and (min-width: 768px) {
