@@ -74,3 +74,11 @@
     gap: 10px;
   }
 }
+
+.hidden-pagination {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}

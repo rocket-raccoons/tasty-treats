@@ -63,13 +63,12 @@
 //     <div class="footer-list-item-img-container">
 //         <img class="footer-list-item-img" src="${imgSrc}" alt="">
 //     </div>
-   
-    
-//     <div class="footer-list-item-info">    
+
+//     <div class="footer-list-item-info">
 //         <h2 class="footer-list-item-name">${name}</h2>
 //         <p class="footer-list-item-text">${role}</p>
 //         <div class="footer-list-item-links">
-//         <a class="footer-list-item-link" href="${github}" target="_blank">GitHub 
+//         <a class="footer-list-item-link" href="${github}" target="_blank">GitHub
 //             // <svg class="icon-github-logo" width="24" height="24">
 //             //     <use xlink:href="${sprite}#icon-github-logo"></use>
 //             // </svg>
@@ -106,3 +105,33 @@
 //     }
 //   };
 // });
+
+document.addEventListener('DOMContentLoaded', function () {
+  function openModal() {
+    let modal = document.getElementById('myModal');
+    if (modal) {
+      // Check if modal exists
+      modal.style.display = 'block';
+    }
+  }
+
+  function closeModal() {
+    let modal = document.getElementById('myModal');
+    if (modal) {
+      // Check if modal exists
+      modal.style.display = 'none';
+    }
+  }
+
+  // Make sure these are inside the DOMContentLoaded event
+  let openModalBtn = document.getElementById('openModalBtn');
+  let closeModalBtn = document.getElementById('closeModelBtn');
+
+  if (openModalBtn) {
+    openModalBtn.addEventListener('click', openModal);
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+  }
+});
