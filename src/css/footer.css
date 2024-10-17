@@ -72,6 +72,7 @@
   /* width: 100%; */
   /* height: 100%; */
   object-fit: cover;
+  align-self: center;
 }
 
 .footer-text {
@@ -94,8 +95,6 @@
   cursor: pointer;
 }
 
-
-
 .footer-list-item-link {
   display: flex;
   align-items: center;
@@ -106,15 +105,19 @@
   display: flex;
   justify-content: center;
   gap: 32px;
-  max-height: 200vh;
 }
 .modal-content-footer {
+  height: 90dvh;
+  max-height: 90dvh;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--white-bg);
-  margin: 1% auto;
+  /* margin: 1% auto; */
   padding: 20px;
   border: 1px solid #888;
-  width: 65%;
-  max-height: 90%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   display: flex;
@@ -125,43 +128,28 @@
 }
 
 .modal-content-footer::-webkit-scrollbar {
-    width: 8px;
+  width: 8px;
 }
 
-
 .modal-content-footer::-webkit-scrollbar-thumb {
-    background: rgba(var(--text-color-rgb), 0.4); 
-    border-radius: 12px;
+  background: rgba(var(--text-color-rgb), 0.4);
+  border-radius: 12px;
 }
 
 @media screen and (min-width: 375px) {
   .modal-content-footer {
-    margin: 5% auto;
+    width: 90%;
   }
   .modal-menu-button-icon {
     fill: var(--color1);
     cursor: pointer;
-    position: absolute;
-    left: auto;
+    position: fixed;
+    left: 10px;
+    top: 10px;
   }
 }
 @media screen and (min-width: 768px) {
   .modal-content-footer {
-    margin: 5% auto;
+    margin: 0;
   }
-  .modal-menu-button-icon {
-    top: 5rem;
-    left: 15rem;
-  }
-}
-
-@media screen and (min-width: 1608px) {
-  .modal-content-footer {
-    margin: 5% auto;
-  }
-  .modal-menu-button-icon {
-    top: 9.3rem;
-    left: 30.90rem;
-}
-
 }
