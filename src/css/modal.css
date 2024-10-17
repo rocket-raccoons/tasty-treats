@@ -10,8 +10,8 @@
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 10000; /* Sit on top */
-  left: 50%;
-  top: 50%;
+  left: 0%;
+  top: 0%;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: hidden; /* Enable scroll if needed */
