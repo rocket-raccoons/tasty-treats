@@ -1,5 +1,5 @@
 import sprite from '../svg/sprite.svg';
-
+let favArr = JSON.parse(localStorage.getItem('favArr')) || [];
 // modal.js
 export function initModal() {
     const modal = document.getElementById('recipeModal');
@@ -100,19 +100,23 @@ export function closeModal() {
 }
 
 export function addModalFavListeners(recipeId) {
-    const favArr = JSON.parse(localStorage.getItem('favArr'));
     const addToFavBtn = document.querySelector('.addToFavoriteButton');
-        if (favArr !== null && favArr.includes(recipeId)) {
-            addToFavBtn.textContent = 'Added to Favorites';
-        }
-        else {
-            addToFavBtn.addEventListener('click', function () {
-                const favButton = document.querySelector(`svg[data-id="${recipeId}"]`);   
-                const emptyHeart = favButton.querySelector('.svguse');
-                emptyHeart.setAttribute('href', `${sprite}#icon-heart-filled`);
-                favArr.push(recipeId);
-                localStorage.setItem('favArr', JSON.stringify(favArr));
-                addToFavBtn.textContent = 'Added to Favorites';
-            });
-        }
+    if (localStorage.getItem('favArr') === null) {
+        localStorage.setItem('favArr', JSON.stringify([]));
     }
+    let favArr = JSON.parse(localStorage.getItem('favArr'));
+    console.log(favArr);
+    if (favArr.includes(recipeId)) {
+        console.log('includes');
+        addToFavBtn.textContent = 'Added to Favorites';
+    } else {
+        addToFavBtn.addEventListener('click', function () {
+            const favButton = document.querySelector(`svg[data-id="${recipeId}"]`);
+            const emptyHeart = favButton.querySelector('.svguse');
+            emptyHeart.setAttribute('href', `${sprite}#icon-heart-filled`);
+            favArr.push(recipeId);
+            localStorage.setItem('favArr', JSON.stringify(favArr));
+            addToFavBtn.textContent = 'Added to Favorites';
+        });
+    }
+}
