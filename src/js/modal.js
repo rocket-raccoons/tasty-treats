@@ -102,18 +102,17 @@ export function closeModal() {
 export function addModalFavListeners(recipeId) {
     const favArr = JSON.parse(localStorage.getItem('favArr'));
     const addToFavBtn = document.querySelector('.addToFavoriteButton');
-    if (favArr.includes(recipeId)) {
-        addToFavBtn.textContent = 'Added to Favorites';
-    }
-    else {
-        addToFavBtn.addEventListener('click', function () {
-            const favButton = document.querySelector(`svg[data-id="${recipeId}"]`);            console.log(recipeId);
-            const emptyHeart = favButton.querySelector('.svguse');
-            emptyHeart.setAttribute('href', `${sprite}#icon-heart-filled`);
-            favArr.push(recipeId);
-            localStorage.setItem('favArr', JSON.stringify(favArr));
+        if (favArr !== null && favArr.includes(recipeId)) {
             addToFavBtn.textContent = 'Added to Favorites';
-        });
+        }
+        else {
+            addToFavBtn.addEventListener('click', function () {
+                const favButton = document.querySelector(`svg[data-id="${recipeId}"]`);   
+                const emptyHeart = favButton.querySelector('.svguse');
+                emptyHeart.setAttribute('href', `${sprite}#icon-heart-filled`);
+                favArr.push(recipeId);
+                localStorage.setItem('favArr', JSON.stringify(favArr));
+                addToFavBtn.textContent = 'Added to Favorites';
+            });
+        }
     }
-}
-
