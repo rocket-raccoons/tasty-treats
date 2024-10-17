@@ -100,8 +100,8 @@ export function closeModal() {
 }
 
 export function addModalFavListeners(recipeId) {
-    const favArr = JSON.parse(localStorage.getItem('favArr'))
-    const addToFavBtn = document.querySelector('.addToFavoriteButton')
+    const favArr = JSON.parse(localStorage.getItem('favArr'));
+    const addToFavBtn = document.querySelector('.addToFavoriteButton');
     if (favArr.includes(recipeId)) {
         addToFavBtn.textContent = 'Added to Favorites';
     }
