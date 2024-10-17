@@ -2,7 +2,8 @@ import sprite from '../svg/sprite.svg';
 import nothingGif from '../img/nothing.gif';
 import iziToast from 'izitoast';
 import { pagination } from './form/custom-form.js';
-import { openModal, initModal } from './modal.js';
+import { openModal, initModal, addModalFavListeners } from './modal.js';
+import { add } from 'lodash';
 
 export const cardsList = document.querySelector('.cards-list');
 const favArr = [];

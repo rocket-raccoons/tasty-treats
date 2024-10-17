@@ -89,9 +89,8 @@
   padding-top: 0;
 }
 
-.rating-container {
+.modal-star-container .rating-container {
   display: flex;
-  align-items: center;
   gap: 4px;
 }
 

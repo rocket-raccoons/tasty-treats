@@ -7,25 +7,38 @@
 
 /* Modal container */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 10000; /* Sit on top */
-    left: 50%;
-    top: 50%;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: hidden; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Sit on top */
+  left: 0%;
+  top: 0%;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-star-container p {
+  color: var(--text-color);
+}
+
+.card-star-svg.modal-empty-star use {
+  fill: var(--text-color);
+  opacity: 0.25;
 }
 
 /* Modal content */
 .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   background-color: var(--white-bg);
-  margin: 7% auto; /* 15% from the top and centered */
+  margin: 0 auto; /* 15% from the top and centered */
   padding: 40px 20px;
   border: 1px solid #888;
-  width: 335px; /* Could be more or less, depending on screen size */
+  /* width: 335px; Could be more or less, depending on screen size */
   max-width: 684px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
@@ -122,6 +135,15 @@
   height: 204px;
   overflow-y: auto;
 }
+
+.modal-recipe-ingredients-container::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-recipe-ingredients-container::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--text-color-rgb), 0.4);
+  border-radius: 12px;
+}
+
 .modal-recipe-ingredients {
   display: flex;
   flex-wrap: wrap;
@@ -160,42 +182,48 @@
 }
 
 .ingredient {
-    font-family: Inter, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-color);
-    margin: 0;
-    line-height: 1.2857;
-    width: 120px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0;
+  line-height: 1.2857;
+  width: 120px;
 }
 
 .ingredient-portion {
-    font-family: Inter, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--text-color);
-    margin: 0;
-    width: 95px;
-    line-height: 1.2857;
-    text-align: right;
-    margin-right: 5px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 0;
+  width: 95px;
+  line-height: 1.2857;
+  text-align: right;
+  margin-right: 5px;
 }
 
-.modal-recipe-instructions{
-    font-size: 14px;
-    font-weight: 400;
-    color: var(--text-color);
-    line-height: 1.2857;
-    margin-bottom: 40px;
-    height: 162px;
-    margin-right: 5px;
-    overflow-y: auto;
+.modal-recipe-instructions {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-color);
+  line-height: 1.2857;
+  margin-bottom: 40px;
+  height: 162px;
+  overflow-y: auto;
+}
+
+.modal-recipe-instructions::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-recipe-instructions::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--text-color-rgb), 0.4);
+  border-radius: 12px;
 }
 @media screen and (min-width: 768px) {
   .modal-recipe-instructions {
     margin-bottom: 32px;
   }
-    
 }
 .addToFavoriteButton {
   background-color: var(--primary-color);
