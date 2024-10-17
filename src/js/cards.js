@@ -116,7 +116,6 @@ function updateLocalStorage() {
 
 // Add or remove a recipe from favArr and update localStorage
 function addRemoveFav(e) {
-    e.stopPropagation();
     console.log("favArr before e.target", favArr);
     const favButton = e.target.closest('.heard-button');
     let favArrNew = JSON.parse(localStorage.getItem('favArr')) || [];
@@ -143,12 +142,7 @@ function addRemoveFav(e) {
     }
 }
 // Add event listener to cardsList for adding/removing favs
-cardsList.addEventListener('click', e => {
-    if (e.target.classList.contains('heard-button')) {
-        addRemoveFav(e);
-    }
-});
-
+cardsList.addEventListener('click', e => addRemoveFav(e));
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
