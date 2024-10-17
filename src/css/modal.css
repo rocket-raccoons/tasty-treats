@@ -30,11 +30,15 @@
 
 /* Modal content */
 .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   background-color: var(--white-bg);
-  margin: 7% auto; /* 15% from the top and centered */
+  margin: 0 auto; /* 15% from the top and centered */
   padding: 40px 20px;
   border: 1px solid #888;
-  width: 335px; /* Could be more or less, depending on screen size */
+  /* width: 335px; Could be more or less, depending on screen size */
   max-width: 684px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   border-radius: 15px;
@@ -206,7 +210,6 @@
   line-height: 1.2857;
   margin-bottom: 40px;
   height: 162px;
-  margin-right: 5px;
   overflow-y: auto;
 }
 

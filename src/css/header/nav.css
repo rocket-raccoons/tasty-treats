@@ -66,6 +66,7 @@
   padding: 0;
   overflow: hidden;
   margin: 0 1rem;
+  /* box-shadow: 0 0 14px rgba(255, 255, 255, 0.6); */
 }
 
 .toggle-slider {
@@ -311,9 +312,9 @@
 
 body.dark-mode {
   --white-bg: #333;
-  --white-bg-rgb: 51,51,51;
+  --white-bg-rgb: 51, 51, 51;
   --text-color: #fff;
-  --text-color-rgb: 255,255,255;
+  --text-color-rgb: 255, 255, 255;
   --toggle-bg-color: #8dc63f;
   --toggle-bg-color-active: #e0e0e0;
   --border-color: #ffffff33;
