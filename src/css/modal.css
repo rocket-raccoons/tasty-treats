@@ -96,6 +96,7 @@
 .modal-rating-container {
   display: flex;
   align-items: space-between;
+  font-family: "Inter", sans-serif;
 }
 
 .cooking-time {
@@ -192,7 +193,7 @@
 }
 
 .ingredient-portion {
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: var(--text-color);
@@ -204,6 +205,7 @@
 }
 
 .modal-recipe-instructions {
+    font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: var(--text-color);

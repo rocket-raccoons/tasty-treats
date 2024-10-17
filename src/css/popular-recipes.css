@@ -43,6 +43,7 @@ gap: 1.6rem;
     display: none;
 }
 .recipe-content{ 
+    font-family: "Inter", sans-serif;
 display: flex;
 flex-direction: column;
 width: 25.2rem;

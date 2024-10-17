@@ -35,6 +35,7 @@
 }
 
 .card-content-container {
+    font-family: "Inter", sans-serif;
   position: absolute;
   bottom: 0;
   z-index: 2;
