@@ -65,7 +65,6 @@ function handleSelect(inputName, e) {
 
   options.classList.add('hidden-dropdown');
   triggerText.classList.add('trigger-active');
-  console.log(queryUrl);
   getQueryData(queryUrl);
 }
 
