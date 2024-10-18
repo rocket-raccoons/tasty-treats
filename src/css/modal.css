@@ -30,10 +30,10 @@
 
 /* Modal content */
 .modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: var(--white-bg);
   margin: 0 auto; /* 15% from the top and centered */
   padding: 40px 20px;
@@ -95,8 +95,7 @@
 }
 .modal-rating-container {
   display: flex;
-  align-items: space-between;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .cooking-time {
@@ -193,7 +192,7 @@
 }
 
 .ingredient-portion {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: var(--text-color);
@@ -205,7 +204,7 @@
 }
 
 .modal-recipe-instructions {
-    font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: var(--text-color);
