@@ -1,49 +1,68 @@
-import { openModal, initModal } from './modal.js';
+import sprite from '../svg/sprite.svg';
+import nothingGif from '../img/nothing.gif';
+import iziToast from 'izitoast';
+import { pagination } from './form/custom-form.js';
+import { openModal, initModal, addModalFavListeners } from './modal.js';
+import { add } from 'lodash';
 
 export const cardsList = document.querySelector('.cards-list');
-const favArr = [];
+const favArr = JSON.parse(localStorage.getItem('favArr')) || [];
+//this is a comment line
 
+//https request for all recipes and display them
 export async function fetchRecipes() {
-  try {
-    // API'den tarif verilerini çekiyoruz
-    const response = await fetch(
-      'https://tasty-treats-backend.p.goit.global/api/recipes?limit=9'
-    );
-    const data = await response.json();
+    try {
+        // API'den tarif verilerini çekiyoruz
+        const response = await fetch(
+            'https://tasty-treats-backend.p.goit.global/api/recipes?limit=9'
+        );
+        const data = await response.json();
 
-    // Tarifleri gösterme fonksiyonunu çağır
-    displayRecipes(data.results);
-    return data.totalPages;
-  } catch (error) {
-    console.error('API verisi alınırken hata oluştu:', error);
-    return 'hata';
-  }
+        // Tarifleri gösterme fonksiyonunu çağır
+        displayRecipes(data.results);
+        return data.totalPages;
+    } catch (error) {
+        iziToast.error({
+            title: '',
+            message: `Sorry! An error occured while fetching recipes. Please try again!`,
+            position: 'topRight',
+        });
+
+        console.error('API verisi alınırken hata oluştu:', error);
+        return 'hata';
+    }
 }
 
+//displaying recipes on the page
 export function displayRecipes(recipes) {
-  // Mevcut kartları temizleme (eğer gerekirse)
-  cardsList.innerHTML = '';
-  if (recipes.length === 0) {
-    cardsList.innerHTML = `<img class="no-results" src="https://media1.tenor.com/m/Cj9rNn9J6V4AAAAC/lost.gif"></img>
-                                    <h1 class="no-results-text">Sorry! No results were found that match your filters.</h1>`;
-  }
+    const favArr = localStorage.getItem('favArr')
+        ? JSON.parse(localStorage.getItem('favArr'))
+        : [];
 
-  recipes.forEach(recipe => {
-    // Rating için yıldızları oluşturma
-    const filledStars = Math.round(recipe.rating);
-    const emptyStars = 5 - filledStars;
+    cardsList.innerHTML = '';
+    if (recipes.length === 0) {
+        cardsList.innerHTML = `
+    <div class="no-results-container loader-container">
+      <p class="no-results-text">Sorry! No results were found that match your filters.</p>
+      <img class="no-results" src="${nothingGif}"></img>
+    </div>`;
+        pagination.classList.add('hidden');
+    } else {
+        pagination.classList.remove('hidden');
+        recipes.forEach(recipe => {
+            // Rating için yıldızları oluşturma
+            const filledStars = Math.round(recipe.rating);
+            const emptyStars = 5 - filledStars;
 
-    const cardHTML = `
-      <li class="cards-listing" style="background-image: url(${
-        recipe.preview
-      });">
-      <button class="heard-button add-to-fav" data-id="${
-        recipe._id
-      }" aria-label="like-btn">
-         <svg class="svg-heard add-to-fav" data-id="${
-           recipe._id
-         }" width="22px" height="22px">
-            <use class="add-to-fav svguse" href="./svg/sprite.svg#icon-heart"></use>
+            const cardHTML = `
+      <li class="cards-listing" style="background-image: url(${recipe.preview
+                });">
+      <button class="heard-button add-to-fav" data-category="${recipe.category
+                }" data-id="${recipe._id}" aria-label="like-btn">
+         <svg class="svg-heard add-to-fav" data-id="${recipe._id
+                }" width="22px" height="22px">
+            <use class="add-to-fav svguse" href="${sprite}#${favArr.includes(recipe._id) ? 'icon-heart-filled' : 'icon-heart'
+                }"></use>
         </svg></button>
 
       <div class="card-content-container">
@@ -57,93 +76,95 @@ export function displayRecipes(recipes) {
                   <p class="rating-text">${recipe.rating.toFixed(1)}</p>
                   <div class="star-container">
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-star"></use>
+                    <use href="${sprite}#icon-star"></use>
                       </svg>`.repeat(filledStars)}
 
                     ${`<svg class="card-star-svg">
-                    <use href="./svg/sprite.svg#icon-emptystar"></use>
+                    <use href="${sprite}#icon-emptystar"></use>
                     </svg>`.repeat(emptyStars)}
                   </div>    
                 </div>
               
-            <button class="recipe-button" data-id="${
-              recipe._id
-            }">See recipe</button>
+            <button class="recipe-button" data-id="${recipe._id
+                }">See recipe</button>
         </div>      
       </li>
     `;
 
-    // Oluşturulan HTML'i ekrana yerleştir
-    cardsList.insertAdjacentHTML('beforeend', cardHTML);
-  });
+            cardsList.insertAdjacentHTML('beforeend', cardHTML);
+        });
 
-  addRecipeButtonListeners();
-  // Tüm recipe-button öğelerine tıklama olayı ekleyelim
-  const recipeButtons = document.querySelectorAll('.recipe-button');
-    };
+        addRecipeButtonListeners();
+    }
+}
 
 // Update the event listener for recipe buttons
 function addRecipeButtonListeners() {
-  const recipeButtons = document.querySelectorAll('.recipe-button');
-  recipeButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      const recipeId = this.getAttribute('data-id');
-      openModal(recipeId);
+    const recipeButtons = document.querySelectorAll('.recipe-button');
+    recipeButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const recipeId = this.getAttribute('data-id');
+            openModal(recipeId);
+        });
     });
-  });
 }
 
+//updates local storage for fav recipes
 function updateLocalStorage() {
-  localStorage.setItem('favArr', JSON.stringify(favArr));
+    localStorage.setItem('favArr', JSON.stringify(favArr));
 }
 
-function initFavorites() {
-  const storedFavArr = localStorage.getItem('favArr');
-  if (storedFavArr) {
-    favArr = JSON.parse(storedFavArr);
-  }
-}
+// Add or remove a recipe from favArr and update localStorage
+function addRemoveFav(e) {
+    console.log("favArr before e.target", favArr);
+    const favButton = e.target.closest('.heard-button');
+    let favArrNew = JSON.parse(localStorage.getItem('favArr')) || [];
+    console.log("favArrNew", favArrNew);
+    if (favButton) {
+        console.log("favArr after e.target", favArr);
+        const id = favButton.dataset.id;
+        const emptyHeart = favButton.querySelector('.svguse');
 
-cardsList.addEventListener('click', e => {
-  const favButton = e.target.closest('.heard-button');
-
-  if (favButton) {
-    const id = favButton.dataset.id;
-    const emptyHeart = favButton.querySelector('.svguse');
-
-    if (favArr.includes(id)) {
-      favArr.splice(favArr.indexOf(id), 1);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart');
-    } else {
-      favArr.push(id);
-      emptyHeart.setAttribute('href', './svg/sprite.svg#icon-heart-filled');
+        if (favArr.includes(id)) {
+            console.log("favArr before splice", favArr);
+            favArr.splice(favArr.indexOf(id), 1);
+            emptyHeart.setAttribute('href', `${sprite}#icon-heart`);
+            console.log("favArr after splice", favArr);
+        } else {
+            console.log("favArr before push", favArr);
+            favArr.push(id);
+            emptyHeart.setAttribute('href', `${sprite}#icon-heart-filled`);
+            console.log("favArr after push", favArr);
+        }
+        console.log("favArr before setting local storage", favArr);
+        localStorage.setItem('favArr', JSON.stringify(favArr)); // Update localStorage after changing favArr
+        console.log("favArr after setting local storage", localStorage.getItem('favArr', JSON.stringify(favArr)));
     }
+}
+// Add event listener to cardsList for adding/removing favs
+cardsList.addEventListener('click', e => addRemoveFav(e));
 
-    updateLocalStorage(); // Update localStorage after changing favArr
-  }
-});
-
-// Sayfa yüklendiğinde tarifleri çek
+// Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    fetchRecipes().then(() => {
-      addRecipeButtonListeners(); // Add listeners after recipes are loaded
-      initModal(); // Initialize modal functionality
-    });
-  }, 100);
+    setTimeout(() => {
+        fetchRecipes().then(() => {
+            addRecipeButtonListeners(); // Add listeners after recipes are loaded
+            initModal(); // Initialize modal functionality
+        });
+    }, 100);
 
-  // Initialize favArr from localStorage if it exists
-  const storedFavArr = localStorage.getItem('favArr');
-  if (storedFavArr) {
-    favArr.push(...JSON.parse(storedFavArr));
-  }
+    // Initialize favArr from localStorage if it exists
+    const storedFavArr = localStorage.getItem('favArr');
+    if (storedFavArr) {
+        favArr.push(...JSON.parse(storedFavArr));
+    }
 });
 
 // EXPORT FAV PAGE FUNCTION
 export function getCardHTML(recipe) {
-  const filledStars = Math.round(recipe.rating);
-  const emptyStars = 5 - filledStars;
-  return `
+    const filledStars = Math.round(recipe.rating);
+    const emptyStars = 5 - filledStars;
+    return `
     <li class="cards-listing" style="background-image: url(${recipe.preview})">
       <!-- ... (rest of the card HTML) ... -->
     </li>

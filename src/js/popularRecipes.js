@@ -1,12 +1,17 @@
+import { openModal, initModal, closeModal } from './modal.js'; // Modal fonksiyonlarını import ediyoruz
+
 document.addEventListener("DOMContentLoaded", () => {
-    fetchData();
+    initModal(); // Sayfa yüklendiğinde modal'ı başlatıyoruz
+    fetchData(); // API'den veriyi çekiyoruz
 });
+
+
 
 async function fetchData() {
     try {
         const response = await fetch("https://tasty-treats-backend.p.goit.global/api/recipes/popular");
         const data = await response.json();
-        
+         
         const recipes = data;
         
         const popularRecipes = document.querySelector("#popular-recipes-gallery");
@@ -28,6 +33,21 @@ async function fetchData() {
             const image = document.createElement("img");
             image.src = recipe.preview || 'default-image.jpg';
             image.alt = recipe.title || 'Unknown Recipe';
+
+         
+
+            // Resimlere tıklanınca ilgili recipe _id ile modal açılıyor
+            image.addEventListener('click', () => {
+                if (recipe._id) {
+                   
+                    openModal(recipe._id); // _id'yi gönderiyoruz
+                } else {
+                    console.warn('Recipe ID is undefined!');
+                }
+            });
+ 
+         
+
 
             const contentDiv = document.createElement("div");
             contentDiv.classList.add("recipe-content");

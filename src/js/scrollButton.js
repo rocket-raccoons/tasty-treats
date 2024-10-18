@@ -1,22 +1,23 @@
-
 const scrollBtn = document.getElementById('scrollBtn');
 
-
-window.addEventListener('scroll', function () {
+//display or hide back to top button
+function displayHideBackToTop() {
   if (window.scrollY > 300) {
-    scrollBtn.style.display = 'block'; 
+    scrollBtn.style.display = 'block';
   } else {
-    scrollBtn.style.display = 'none'; 
+    scrollBtn.style.display = 'none';
   }
-});
+}
 
-
-scrollBtn.addEventListener('click', function (event) {
+//scroll to top
+function backToTop(event) {
   event.preventDefault();
   window.scrollTo({
     top: 0,
-    behavior: 'smooth' 
+    behavior: 'smooth',
   });
-});
+}
 
+window.addEventListener('scroll', displayHideBackToTop);
 
+scrollBtn.addEventListener('click', e => backToTop(e));

@@ -1,9 +1,46 @@
+import image1 from '../../img/header/header-pic/1.webp'
+import image2 from '../../img/header/header-pic/2.webp'
+import image3 from '../../img/header/header-pic/3.webp'
+import image4 from '../../img/header/header-pic/4.webp'
+import image5 from '../../img/header/header-pic/5.webp'
+import image6 from '../../img/header/header-pic/6.webp'
+import image7 from '../../img/header/header-pic/7.webp'
+import image8 from '../../img/header/header-pic/8.webp'
+import image9 from '../../img/header/header-pic/9.webp'
+const imageArr = [image1,image2,image3,image4,image5,image6,image7,image8,image9]
 document.addEventListener('DOMContentLoaded', function () {
   const slider = document.querySelector('.slider');
   const slides = document.querySelectorAll('.slide');
+  const lazyImages = document.querySelectorAll('.lazy-image');
   const indicatorsContainer = document.querySelector('.slider-indicators');
+  
   let currentIndex = 0;
   let slideWidth = 100;
+ 
+ 
+  const lazyLoad = () => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const image = entry.target;
+
+          // Görselin src'yi data-src'den al
+          image.src = imageArr[Number(image.dataset.src)-1];
+
+          // Lazy yükleme sınıfını kaldır
+          image.classList.remove('lazy-image');
+
+          // Observer'ı kaldır
+          observer.unobserve(image);
+        }
+      });
+    }, {
+      threshold: 0.1 // Görselin %10'u ekranda göründüğünde yükleme başlaması için
+    });
+    lazyImages.forEach(image => observer.observe(image));
+  };
+
+  lazyLoad();
 
   slides.forEach((_, index) => {
       const indicator = document.createElement('div');
