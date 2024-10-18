@@ -42,7 +42,7 @@ export function displayRecipes(recipes) {
   cardsList.innerHTML = '';
   if (recipes.length === 0) {
     cardsList.innerHTML = `
-    <div class="no-results-container loader-container">
+    <div class="no-results-container">
       <p class="no-results-text">Sorry! No results were found that match your filters.</p>
       <img class="no-results" src="${nothingGif}"></img>
     </div>`;
