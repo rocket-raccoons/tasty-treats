@@ -12,6 +12,16 @@ export default defineConfig(({ command }) => {
     },
     root: 'src',
     build: {
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true, // Console logları kaldırır
+          drop_debugger: true, // Debuggerları kaldırır
+        },
+        format: {
+          comments: false, // Yorum satırlarını kaldırır
+        },
+      },
       sourcemap: true,
       rollupOptions: {
         input: glob.sync('./src/*.html'),
