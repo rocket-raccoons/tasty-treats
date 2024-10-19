@@ -1,7 +1,7 @@
 import { openModal, initModal, closeModal } from './modal.js'; // Modal fonksiyonlarını import ediyoruz
 
 document.addEventListener('DOMContentLoaded', () => {
-  initModal(); // Sayfa yüklendiğinde modal'ı başlatıyoruz
+  // initModal(); // Sayfa yüklendiğinde modal'ı başlatıyoruz
   fetchData(); // API'den veriyi çekiyoruz
 });
 
@@ -37,13 +37,13 @@ async function fetchData() {
       image.height = 64;
 
       // Resimlere tıklanınca ilgili recipe _id ile modal açılıyor
-      image.addEventListener('click', () => {
-        if (recipe._id) {
-          openModal(recipe._id); // _id'yi gönderiyoruz
-        } else {
-          console.warn('Recipe ID is undefined!');
-        }
-      });
+      // image.addEventListener('click', () => {
+      //   if (recipe._id) {
+      //     openModal(recipe._id); // _id'yi gönderiyoruz
+      //   } else {
+      //     console.warn('Recipe ID is undefined!');
+      //   }
+      // });
 
       const contentDiv = document.createElement('div');
       contentDiv.classList.add('recipe-content');
